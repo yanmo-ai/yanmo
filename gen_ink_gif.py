@@ -12,7 +12,7 @@ from PIL import Image, ImageDraw, ImageFilter, ImageFont
 W, H      = 600, 400
 FPS       = 24
 DURATION  = int(1000 / FPS)
-PAPER     = (228, 210, 168)   # 绢本暖黄（千里江山图底色）
+PAPER     = (237, 232, 224)   # 米白暖灰 #EDE8E0
 INK       = (20, 60, 110)     # 石青·深 #143c6e（更深）
 INK_LIGHT = (60, 120, 175)   # 石青·中
 
@@ -359,7 +359,7 @@ def make_landscape():
     img  = img.crop((left, top, left + W, top + H))
     return np.array(img, dtype=np.uint8)
 
-LANDSCAPE = make_landscape()
+# LANDSCAPE = make_landscape()  # 仅在需要山水背景时启用
 
 
 # ═══════════════════════════════════════════════════════

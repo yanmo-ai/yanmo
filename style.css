@@ -917,16 +917,32 @@ section { position: relative; z-index: 1; }
 /* === VS Code 三屏展示 === */
 .vscode-screens {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: 1fr 1.3fr 1fr;
   gap: 28px;
   margin-top: 56px;
-  align-items: start;
+  align-items: center;
 }
 
 .vs-screen-card {
   display: flex;
   flex-direction: column;
   gap: 16px;
+  transition: transform 0.3s ease;
+}
+
+/* 左右两侧卡片缩小并下移，形成错落感 */
+.vs-screen-card:nth-child(1),
+.vs-screen-card:nth-child(3) {
+  transform: scale(0.88) translateY(24px);
+  transform-origin: top center;
+  opacity: 0.85;
+}
+
+/* 中间卡片突出显示 */
+.vs-screen-card:nth-child(2) {
+  transform: scale(1.04);
+  transform-origin: top center;
+  z-index: 1;
 }
 
 /* APP WINDOW */

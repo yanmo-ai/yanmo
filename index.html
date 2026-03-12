@@ -10,6 +10,7 @@
       href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@300;400;500;600;700&family=Noto+Sans+SC:wght@300;400;500&display=swap"
       rel="stylesheet"
     />
+    <link rel="icon" type="image/png" href="favicon.png" />
     <link rel="stylesheet" href="style.css" />
     <style>
       /* ===== 言墨 for VS Code · 功能详情 CSS ===== */
@@ -172,22 +173,39 @@
       .sb-logo {
         width: 40px;
         height: 40px;
-        background: var(--accent);
         border-radius: 10px;
+        overflow: hidden;
         display: flex;
         align-items: center;
         justify-content: center;
-        font-family: var(--serif);
-        font-size: 17px;
-        font-weight: 700;
-        color: white;
         margin-bottom: 4px;
+      }
+      .sb-logo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        border-radius: 10px;
       }
       .sb-name {
         font-size: 9px;
         color: #888;
         letter-spacing: 0.05em;
         margin-bottom: 18px;
+      }
+      .sb-icon {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 8px;
+        color: #c04040;
+        cursor: default;
+        margin: 2px 0;
+      }
+      .sb-icon.active {
+        background: #f5e8e8;
+        color: #c04040;
       }
       .sb-items {
         display: flex;
@@ -210,7 +228,7 @@
       .sb-item.active {
         background: #fff0ec;
         border-right: 2px solid var(--accent);
-        color: var(--accent);
+        color: #c04040;
       }
       .sb-item svg {
         width: 20px;
@@ -307,11 +325,11 @@
         width: 64px;
         height: 64px;
         border-radius: 50%;
-        background: var(--accent);
+        background: #c04040;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 4px 20px rgba(224, 90, 43, 0.4);
+        box-shadow: 0 4px 20px rgba(192, 64, 64, 0.4);
         flex-shrink: 0;
       }
       .mic-btn svg {
@@ -885,7 +903,7 @@
       /* VIDEO DEMO */
       .demo-section {
         padding: 0 0 60px;
-        margin-top: 80px;
+        margin-top: 70px;
         position: relative;
         z-index: 10;
         text-align: center;
@@ -906,8 +924,8 @@
         display: block;
         width: 128%;
         height: 100%;
-        margin-top: -2%;
-        margin-bottom: -2%;
+        margin-top: -2.5%;
+        margin-bottom: -4%;
         margin-left: -14%;
       }
 
@@ -1263,7 +1281,7 @@
     <nav class="navbar">
       <div class="nav-inner">
         <a href="#" class="nav-logo">
-          <span class="logo-icon">言</span>
+          <span class="logo-icon"><img src="favicon.png" alt="言墨" /></span>
           <span class="logo-text">言墨</span>
         </a>
         <ul class="nav-links">
@@ -1533,26 +1551,46 @@
             <h3 class="oc-title">快捷短语词库</h3>
             <p class="oc-desc">说一个词自动展开完整内容，同步提升专有名词识别率。</p>
           </div>
+          <div class="ovr-card reveal">
+            <div class="oc-icon">🧠</div>
+            <h3 class="oc-title">情景感知补全</h3>
+            <p class="oc-desc">读取当前编辑器内容，结合语境自动生成匹配文字。</p>
+          </div>
+          <div class="ovr-card reveal">
+            <div class="oc-icon">🔄</div>
+            <h3 class="oc-title">动态修正</h3>
+            <p class="oc-desc">说错可实时重述，系统自动识别最终意图，只输出正确结果。</p>
+          </div>
+          <div class="ovr-card reveal">
+            <div class="oc-icon">📖</div>
+            <h3 class="oc-title">自定义词典</h3>
+            <p class="oc-desc">预录专有名词与生僻字，此后识别精准命中，无需反复纠正。</p>
+          </div>
         </div>
         <div class="stats-row">
           <div class="stat-showcase reveal">
+            <div class="ss-icon">🖥️</div>
+            <div class="ss-num" style="color: #a78bfa">全平台</div>
+            <div class="ss-unit">Windows / macOS / Linux</div>
+          </div>
+          <div class="stat-showcase reveal">
             <div class="ss-icon">🌐</div>
-            <div class="ss-num" style="color: var(--accent-lt)">7</div>
+            <div class="ss-num" style="color: var(--accent-lt)">多种语言</div>
             <div class="ss-unit">支持识别语言</div>
           </div>
           <div class="stat-showcase reveal">
             <div class="ss-icon">✨</div>
-            <div class="ss-num" style="color: #f0a742">5</div>
+            <div class="ss-num" style="color: #f0a742">各式</div>
             <div class="ss-unit">AI 改写风格</div>
           </div>
           <div class="stat-showcase reveal">
             <div class="ss-icon">⚡</div>
-            <div class="ss-num" style="color: #3fb950">&lt;100ms</div>
+            <div class="ss-num" style="color: #3fb950">快速响应</div>
             <div class="ss-unit">识别响应延迟</div>
           </div>
           <div class="stat-showcase reveal">
             <div class="ss-icon">🔑</div>
-            <div class="ss-num" style="color: var(--blue)">1</div>
+            <div class="ss-num" style="color: var(--blue)">少数</div>
             <div class="ss-unit">快捷键搞定一切</div>
           </div>
         </div>
@@ -1603,6 +1641,42 @@
               <span class="vs-screen-desc">专有名词识别不准？预设短语一说即展开，同时提升识别准确率</span>
             </div>
           </div>
+
+          <!-- ④ 情景感知 -->
+          <div class="vs-screen-card">
+            <div class="vs-app-window" style="background:rgba(0,0,0,0.3);min-height:160px;display:flex;align-items:center;justify-content:center;border-radius:8px;">
+              <span style="font-size:48px;opacity:0.4">🧠</span>
+            </div>
+            <div class="vs-screen-label">
+              <span class="vs-screen-icon">🧠</span>
+              <span class="vs-screen-name">情景感知补全</span>
+              <span class="vs-screen-desc">言墨读取当前编辑器内容，结合语境生成匹配文字，让输出更贴近你的意图</span>
+            </div>
+          </div>
+
+          <!-- ⑤ 动态修正 -->
+          <div class="vs-screen-card">
+            <div class="vs-app-window" style="background:rgba(0,0,0,0.3);min-height:160px;display:flex;align-items:center;justify-content:center;border-radius:8px;">
+              <span style="font-size:48px;opacity:0.4">🔄</span>
+            </div>
+            <div class="vs-screen-label">
+              <span class="vs-screen-icon">🔄</span>
+              <span class="vs-screen-name">动态修正</span>
+              <span class="vs-screen-desc">说错无需停顿，直接重述正确内容，言墨自动识别最终意图，只提交正确结果</span>
+            </div>
+          </div>
+
+          <!-- ⑥ 自定义词典 -->
+          <div class="vs-screen-card">
+            <div class="vs-app-window" style="background:rgba(0,0,0,0.3);min-height:160px;display:flex;align-items:center;justify-content:center;border-radius:8px;">
+              <span style="font-size:48px;opacity:0.4">📖</span>
+            </div>
+            <div class="vs-screen-label">
+              <span class="vs-screen-icon">📖</span>
+              <span class="vs-screen-name">自定义词典</span>
+              <span class="vs-screen-desc">预录专有名词与生僻字，言墨下次识别到相同发音时精准命中，无需反复纠正</span>
+            </div>
+          </div>
         </div>
 
         <!-- 功能按钮 -->
@@ -1634,15 +1708,13 @@
         <div class="feat-wrap">
           <div class="feat-text reveal">
             <div class="feat-tag">🎙️ 核心功能</div>
-            <h2 class="feat-title">说话，直接成文<br />语音实时转写，精准落入光标</h2>
-            <p class="feat-desc">
-              基于 Azure Speech SDK，识别结果实时插入光标，延迟极低，与键盘输入完全等价。
-            </p>
+            <h2 class="feat-title">说话直接成文，<br />落入光标，零延迟。</h2>
+            <p class="feat-desc">基于 Azure Speech SDK，识别结果实时插入光标，与键盘输入完全等价。</p>
             <ul class="feat-list">
-              <li><span class="fl-icon ok">✓</span>实时转写，零延迟</li>
-              <li><span class="fl-icon ok">✓</span>直接落入光标位置</li>
-              <li><span class="fl-icon ok">✓</span><kbd style="font-family:monospace;font-size:12px;padding:1px 6px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:4px">Ctrl+Alt+R</kbd> 快捷键随时唤起</li>
-              <li><span class="fl-icon ok">✓</span>波形反馈，状态一目了然</li>
+              <li>实时转写，零延迟插入</li>
+              <li>精准落入当前光标位置</li>
+              <li>随时唤起录音</li>
+              <li>波形可视，状态一目了然</li>
             </ul>
           </div>
           <div class="feat-visual reveal">
@@ -1652,7 +1724,7 @@
               </div>
               <div class="win-body" style="flex: 1; min-height: 0">
                 <div class="win-sidebar">
-                  <div class="sb-logo">言</div>
+                  <div class="sb-logo"><img src="favicon.png" alt="言墨" /></div>
                   <div class="sb-name">言墨</div>
                   <div class="sb-items">
                     <div class="sb-item active">
@@ -1770,21 +1842,80 @@
       </div>
     </section>
 
-    <!-- FEATURE 2 · AI 润色 & 翻译 -->
-    <section class="feat-section" id="polish">
+    <!-- FEATURE 1.5 · 言墨智能增强 -->
+    <section class="feat-section" id="yanmo">
       <div class="container">
         <div class="feat-wrap flip">
           <div class="feat-text reveal">
+            <div class="feat-tag">🧠 智能增强</div>
+            <h2 class="feat-title">说话即理解，<br />语境就是你的输入法。</h2>
+            <p class="feat-desc">读取光标上文，动态纠错，短语展开，专词精准——让每一句话都落得准。</p>
+            <ul class="feat-list">
+              <li>情景感知，上下文驱动补全</li>
+              <li>动态修正，重述即纠错</li>
+              <li>自定义词典，专词一次录入永久精准</li>
+              <li>快捷词，一词展开全文</li>
+            </ul>
+          </div>
+          <div class="feat-visual reveal">
+            <div class="app-window" style="height: 440px">
+              <div class="win-chrome">
+                <span class="wc-dot wc-r"></span><span class="wc-dot wc-y"></span><span class="wc-dot wc-g"></span>
+                <span style="margin-left:10px;font-size:11px;color:var(--text-2);opacity:.7">言墨 · 智能增强</span>
+              </div>
+              <div class="win-body" style="flex:1;min-height:0;display:flex;flex-direction:column;gap:0;padding:20px 22px;overflow:auto">
+                <div style="margin-bottom:18px">
+                  <div style="font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.06em;margin-bottom:6px">🔍 情景感知</div>
+                  <div style="font-size:12px;color:var(--text-2);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:10px 12px;line-height:1.7">
+                    <span style="color:var(--text-1)">当前光标上文：</span>「我们需要优化 <span style="color:#7dd3fc">SQLite</span> 查询…」<br/>
+                    <span style="color:var(--text-1)">语音输入：</span>「加一个索引」<br/>
+                    <span style="color:#86efac">→ 补全输出：</span>「为 <span style="color:#7dd3fc">user_id</span> 字段创建索引以提升查询性能」
+                  </div>
+                </div>
+                <div style="margin-bottom:18px">
+                  <div style="font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.06em;margin-bottom:6px">🔄 动态修正</div>
+                  <div style="font-size:12px;color:var(--text-2);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:10px 12px;line-height:1.7">
+                    <span style="color:var(--text-1)">说：</span>「发送邮件给张三」<span style="opacity:.5;margin:0 6px">→</span><span style="text-decoration:line-through;opacity:.4">发送邮件给张三</span><br/>
+                    <span style="color:var(--text-1)">重述：</span>「不对，发送给李四」<br/>
+                    <span style="color:#86efac">→ 最终输出：</span>「发送邮件给李四」
+                  </div>
+                </div>
+                <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+                  <div>
+                    <div style="font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.06em;margin-bottom:6px">⚡ 快捷词匹配</div>
+                    <div style="font-size:12px;color:var(--text-2);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:10px 12px;line-height:1.7">
+                      说「邮箱」<br/>
+                      <span style="color:#86efac">→</span> <span style="color:#7dd3fc">hello@company.com</span>
+                    </div>
+                  </div>
+                  <div>
+                    <div style="font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.06em;margin-bottom:6px">📖 自定义词典</div>
+                    <div style="font-size:12px;color:var(--text-2);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:10px 12px;line-height:1.7">
+                      录入「茴香豆」<br/>
+                      <span style="color:#86efac">→</span> 此后精准识别
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURE 2 · AI 润色 & 翻译 -->
+    <section class="feat-section" id="polish">
+      <div class="container">
+        <div class="feat-wrap">
+          <div class="feat-text reveal">
             <div class="feat-tag">✨ AI 润色</div>
             <h2 class="feat-title">口语变书面语，<br />多种风格一键切。</h2>
-            <p class="feat-desc">
-              停止录音后 GPT 自动整理措辞，流式实时输出。
-            </p>
+            <p class="feat-desc">停止录音后 GPT 自动整理措辞，流式实时输出。</p>
             <ul class="feat-list">
-              <li><span class="fl-icon ok">✓</span>五种内置风格：默认 / 简洁 / 详尽 / 正式 / 轻松</li>
-              <li><span class="fl-icon ok">✓</span>支持自定义 Prompt</li>
-              <li><span class="fl-icon ok">✓</span>集成翻译，口述自动译为目标语言</li>
-              <li><span class="fl-icon ok">✓</span>可随时关闭，切换纯转录模式</li>
+              <li>五种内置风格：默认 / 简洁 / 详尽 / 正式 / 轻松</li>
+              <li>支持自定义 Prompt</li>
+              <li>集成翻译，口述自动译为目标语言</li>
+              <li>可随时关闭，切换纯转录模式</li>
             </ul>
           </div>
           <div class="feat-visual reveal">
@@ -1863,17 +1994,15 @@
     <!-- FEATURE 3 · 自动润色 -->
     <section class="feat-section" id="history">
       <div class="container">
-        <div class="feat-wrap">
+        <div class="feat-wrap flip">
           <div class="feat-text reveal">
             <div class="feat-tag">✨ 自动润色</div>
             <h2 class="feat-title">每一句话，<br />都被优雅表达。</h2>
-            <p class="feat-desc">
-              AI 自动修正语法、消除语气词，输出即可用。
-            </p>
+            <p class="feat-desc">AI 自动修正语法、消除语气词，输出即可用。</p>
             <ul class="feat-list">
-              <li><span class="fl-icon ok">✓</span>口语转书面语，去除重复与停顿词</li>
-              <li><span class="fl-icon ok">✓</span>智能补全标点，段落结构清晰</li>
-              <li><span class="fl-icon ok">✓</span>原文与润色结果对照，一键选用</li>
+              <li>口语转书面语，去除停顿与重复</li>
+              <li>智能补全标点，段落结构清晰</li>
+              <li>原文与润色并列，一键选用</li>
             </ul>
           </div>
           <div class="feat-visual reveal">
@@ -1883,7 +2012,7 @@
               </div>
               <div class="win-body" style="flex: 1; min-height: 0">
                 <div class="win-sidebar">
-                  <div class="sb-logo">言</div>
+                  <div class="sb-logo"><img src="favicon.png" alt="言墨" /></div>
                   <div class="sb-name">言墨</div>
                   <div class="sb-items">
                     <div class="sb-item">
@@ -1973,27 +2102,25 @@
     <!-- FEATURE 4 · 快捷短语 -->
     <section class="feat-section" id="phrases">
       <div class="container">
-        <div class="feat-wrap flip">
+        <div class="feat-wrap">
           <div class="feat-text reveal">
             <div class="feat-tag">⚡ 快捷短语</div>
             <h2 class="feat-title">说一个词，<br />输出一整段。</h2>
-            <p class="feat-desc">
-              定义触发词与替换文本，说出即展开，同时提升识别准确率。
-            </p>
+            <p class="feat-desc">定义触发词与替换文本，说出即展开，同时提升识别准确率。</p>
             <ul class="feat-list">
-              <li><span class="fl-icon ok">✓</span>触发词 → 替换文本，无条数限制</li>
-              <li><span class="fl-icon ok">✓</span>自动提升词库词汇识别准确率</li>
-              <li><span class="fl-icon ok">✓</span>新增 / 编辑 / 删除，操作直觉化</li>
+              <li>触发词 → 替换文本，无条数限制</li>
+              <li>自动提升词库识别准确率</li>
+              <li>新增 / 编辑 / 删除，操作直觉化</li>
             </ul>
           </div>
           <div class="feat-visual reveal">
-            <div class="app-window" style="height: 400px">
+            <div class="app-window" style="height: 440px">
               <div class="win-chrome">
                 <span class="wc-dot wc-r"></span><span class="wc-dot wc-y"></span><span class="wc-dot wc-g"></span>
               </div>
               <div class="win-body" style="flex: 1; min-height: 0">
                 <div class="win-sidebar">
-                  <div class="sb-logo">言</div>
+                  <div class="sb-logo"><img src="favicon.png" alt="言墨" /></div>
                   <div class="sb-name">言墨</div>
                   <div class="sb-items">
                     <div class="sb-item">
@@ -2060,20 +2187,20 @@
                     <div class="phrase-row">
                       <div class="phrase-trigger">
                         <span class="pt-icon">⚡</span>
-                        <span class="pt-name">Speech Team</span>
+                        <span class="pt-name">我的个人邮箱</span>
                         <span class="pt-actions">✏ 🗑</span>
                       </div>
                       <div class="phrase-arrow">→</div>
-                      <div class="phrase-result">Speech <span style="color: #bbb; font-size: 10px">✏</span></div>
+                      <div class="phrase-result">Personal@outlook.com <span style="color: #bbb; font-size: 10px">✏</span></div>
                     </div>
                     <div class="phrase-row">
                       <div class="phrase-trigger">
                         <span class="pt-icon">⚡</span>
-                        <span class="pt-name">Cloud</span>
+                        <span class="pt-name">我们的地址</span>
                         <span class="pt-actions">✏ 🗑</span>
                       </div>
                       <div class="phrase-arrow">→</div>
-                      <div class="phrase-result">Cloud <span style="color: #bbb; font-size: 10px">✏</span></div>
+                      <div class="phrase-result">北京市海淀区丹棱街5号 <span style="color: #bbb; font-size: 10px">✏</span></div>
                     </div>
                   </div>
                   <div class="phrase-footer">
@@ -2102,6 +2229,74 @@
             </div>
           </div>
         </div>
+      </div>
+    </section>
+
+    <!-- 跨平台支持 -->
+    <section class="feat-section" id="platform">
+      <div class="container">
+        <div class="feat-wrap flip">
+        <div class="feat-text">
+          <span class="feat-tag">跨平台</span>
+          <h2 class="feat-title">随时随地，<br />任何设备都能用</h2>
+          <p class="feat-desc">Windows、macOS、Linux 全面支持，浏览器直接打开，无需安装。</p>
+          <ul class="feat-list">
+            <li>支持 Windows / macOS / Linux</li>
+            <li>浏览器直接访问，零安装</li>
+            <li>本地应用与网页版体验一致</li>
+            <li>数据本地存储，离线可用</li>
+          </ul>
+        </div>
+        <div class="feat-visual">
+          <div class="app-window" style="height:440px">
+            <div class="win-chrome">
+              <span class="wc-dot wc-r"></span><span class="wc-dot wc-y"></span><span class="wc-dot wc-g"></span>
+              <span style="margin-left:10px;font-size:11px;color:#888;opacity:.7">言墨 · 跨平台</span>
+            </div>
+            <div class="win-body">
+              <div class="win-sidebar">
+                <div class="sb-logo"><img src="favicon.png" alt="言墨" /></div>
+                <div class="sb-icon active" style="background:rgba(192,64,64,0.1); color:#c04040;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                </div>
+                <div class="sb-icon" style="color:#aaa;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="5" y="2" width="14" height="20" rx="2"/><line x1="9" y1="7" x2="15" y2="7"/><line x1="9" y1="11" x2="15" y2="11"/><line x1="9" y1="15" x2="13" y2="15"/></svg>
+                </div>
+                <div class="sb-icon" style="color:#aaa;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/><path d="M4.93 4.93a10 10 0 0 0 0 14.14"/></svg>
+                </div>
+              </div>
+              <div class="win-content">
+                <div style="padding: 16px;">
+                  <div style="font-size: 11px; color: #888; margin-bottom: 12px; letter-spacing: 0.05em;">当前运行环境</div>
+                  <div style="display: flex; flex-direction: column; gap: 8px;">
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; background: rgba(139,92,246,0.08); border: 1px solid rgba(139,92,246,0.2);">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#7c3aed" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+                      <span style="font-size: 12px; color: #6d28d9; font-weight: 500;">Windows</span>
+                      <span style="margin-left: auto; font-size: 10px; color: #888; background: rgba(139,92,246,0.1); padding: 2px 6px; border-radius: 4px;">桌面应用</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.08);">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2z"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/><line x1="2" y1="12" x2="22" y2="12"/></svg>
+                      <span style="font-size: 12px; color: #555;">macOS</span>
+                      <span style="margin-left: auto; font-size: 10px; color: #888; background: rgba(0,0,0,0.05); padding: 2px 6px; border-radius: 4px;">桌面应用</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.08);">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><rect x="4" y="4" width="16" height="16" rx="2"/><rect x="9" y="9" width="6" height="6"/><line x1="9" y1="1" x2="9" y2="4"/><line x1="15" y1="1" x2="15" y2="4"/><line x1="9" y1="20" x2="9" y2="23"/><line x1="15" y1="20" x2="15" y2="23"/><line x1="20" y1="9" x2="23" y2="9"/><line x1="20" y1="14" x2="23" y2="14"/><line x1="1" y1="9" x2="4" y2="9"/><line x1="1" y1="14" x2="4" y2="14"/></svg>
+                      <span style="font-size: 12px; color: #555;">Linux</span>
+                      <span style="margin-left: auto; font-size: 10px; color: #888; background: rgba(0,0,0,0.05); padding: 2px 6px; border-radius: 4px;">桌面应用</span>
+                    </div>
+                    <div style="display: flex; align-items: center; gap: 10px; padding: 8px 10px; border-radius: 8px; background: rgba(0,0,0,0.03); border: 1px solid rgba(0,0,0,0.08);">
+                      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#888" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+                      <span style="font-size: 12px; color: #555;">浏览器</span>
+                      <span style="margin-left: auto; font-size: 10px; color: #888; background: rgba(0,0,0,0.05); padding: 2px 6px; border-radius: 4px;">零安装</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       </div>
     </section>
 
@@ -2203,27 +2398,9 @@
           <span class="section-tag">隐私承诺</span>
           <h2>您的声音，<br />只属于您。</h2>
           <p>
-            言墨不收集任何语音数据，不上传到服务器，不需要账号登录。语音识别通过 Azure Speech Service
+            言墨不单独收集任何语音数据，语音识别通过 Azure Speech Service
             完成，识别结果仅用于插入编辑器，不作任何存储或追踪。这不是一项功能，这是我们的底线。
           </p>
-          <ul class="privacy-list">
-            <li>
-              <span class="check-mark">✓</span>
-              零数据上传
-            </li>
-            <li>
-              <span class="check-mark">✓</span>
-              无需账号注册
-            </li>
-            <li>
-              <span class="check-mark">✓</span>
-              完全离线运行
-            </li>
-            <li>
-              <span class="check-mark">✓</span>
-              开放源代码可审计
-            </li>
-          </ul>
         </div>
       </div>
     </section>
@@ -2278,9 +2455,9 @@
       <div class="qljsh-final-bg" aria-hidden="true"></div>
       <div class="container">
         <div class="final-inner reveal">
-          <p class="final-quote ink-seal">墨</p>
+          <p class="final-quote ink-seal">言墨</p>
           <h2>开口，即是写作。</h2>
-          <p class="final-sub">加入数千名创作者与开发者，将声音变成您最锋利的创作工具。</p>
+          <p class="final-sub">数千名创作者与开发者，将声音变成您最锋利的创作工具。</p>
           <a href="#" class="btn-primary btn-lg">立即下载</a>
         </div>
       </div>
@@ -2290,7 +2467,7 @@
     <footer class="footer">
       <div class="container footer-inner">
         <div class="footer-brand">
-          <span class="logo-icon">言</span>
+          <span class="logo-icon"><img src="favicon.png" alt="言墨" /></span>
           <span class="logo-text">言墨</span>
           <p>以声音为笔，以 AI 为墨。</p>
         </div>

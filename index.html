@@ -36,12 +36,11 @@
       /* FEATURE SECTIONS */
       .feat-section {
         padding: 100px 0;
-        border-top: 1px solid var(--border);
-        background: var(--page-bg);
+        background: transparent;
         color: var(--text);
       }
       .feat-section:nth-child(even) {
-        background: var(--section-bg);
+        background: transparent;
       }
 
       .feat-wrap {
@@ -417,7 +416,7 @@
       .sb-save {
         margin-left: auto;
         padding: 5px 16px;
-        background: #1a1410;
+        background: #1a1a2e;
         color: white;
         border-radius: 6px;
         font-size: 11px;
@@ -468,7 +467,7 @@
       }
       .clear-btn {
         padding: 6px 14px;
-        background: #1a1410;
+        background: #1a1a2e;
         color: white;
         border-radius: 7px;
         font-size: 11px;
@@ -655,8 +654,7 @@
       /* OVERVIEW */
       .overview-section {
         padding: 100px 0;
-        border-top: 1px solid var(--border);
-        background: var(--section-bg);
+        background: transparent;
         color: var(--text);
       }
       .ovr-heading {
@@ -751,8 +749,7 @@
       /* INSTALL */
       .install-section {
         padding: 100px 0;
-        border-top: 1px solid var(--border);
-        background: var(--page-bg);
+        background: transparent;
         color: var(--text);
       }
       .install-card {
@@ -852,81 +849,409 @@
         }
       }
 
+      .hero-download-btns {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        margin-top: 16px;
+        flex-wrap: wrap;
+      }
+      .btn-download-platform {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 14px 28px;
+        border-radius: 10px;
+        border: none;
+        background: #0078d7;
+        color: #ffffff;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        letter-spacing: 0.02em;
+        box-shadow: 0 4px 16px rgba(0,120,215,0.30), 0 1px 3px rgba(0,120,215,0.15);
+        transition: background 0.18s, transform 0.14s, box-shadow 0.18s;
+      }
+      .btn-download-platform:hover {
+        background: #005ea6;
+        transform: translateY(-2px);
+        box-shadow: 0 8px 28px rgba(0,120,215,0.40), 0 2px 6px rgba(0,120,215,0.20);
+      }
+      .btn-download-platform svg {
+        flex-shrink: 0;
+        opacity: 0.9;
+      }
+
       /* VIDEO DEMO */
       .demo-section {
-        padding: 0 24px 60px;
-        margin-top: -100px;
+        padding: 0 0 60px;
+        margin-top: 80px;
         position: relative;
         z-index: 10;
         text-align: center;
+        background: transparent;
       }
       .demo-container {
-        max-width: 960px;
+        max-width: 60%;
         margin: 0 auto;
-        padding: 0 12px;
+        padding: 0 40px;
       }
-      
-      .demo-window {
-        background: #fff;
+
+      .demo-video-wrap {
         border-radius: 12px;
-        box-shadow: 
-            0 24px 48px -12px rgba(26, 20, 16, 0.18), 
-            0 0 0 1px rgba(26, 20, 16, 0.08);
+        overflow: hidden;
+        /* box-shadow: 0 32px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06); */
+      }
+      .demo-video-wrap video {
+        display: block;
+        width: 128%;
+        height: 100%;
+        margin-top: -2%;
+        margin-bottom: -2%;
+        margin-left: -14%;
+      }
+
+      .demo-window {
+        background: #1e1e1e;
+        border-radius: 8px;
+        box-shadow: 0 32px 80px rgba(0,0,0,0.55), 0 0 0 1px rgba(255,255,255,0.06);
         overflow: hidden;
         transition: transform 0.4s cubic-bezier(0.2, 0.8, 0.2, 1), box-shadow 0.4s ease;
       }
       .demo-window:hover {
-        transform: translateY(-4px);
-        box-shadow: 
-            0 32px 64px -12px rgba(26, 20, 16, 0.22), 
-            0 0 0 1px rgba(26, 20, 16, 0.1);
+        transform: translateY(-3px);
+        box-shadow: 0 40px 100px rgba(0,0,0,0.65), 0 0 0 1px rgba(255,255,255,0.09);
       }
 
+      /* Windows title bar */
       .demo-chrome {
-        background: #fdfbf9;
-        border-bottom: 1px solid rgba(26, 20, 16, 0.06);
-        padding: 12px 16px;
         display: flex;
         align-items: center;
-        gap: 8px; /* Fallback for older browsers */
-        justify-content: space-between;
+        background: #2d2d2d;
+        height: 32px;
+        padding: 0 0 0 12px;
+        border-bottom: 1px solid rgba(255,255,255,0.06);
         user-select: none;
       }
-      .dc-controls { display: flex; gap: 8px; flex: 0 0 auto; }
-      .dc-dot { width: 10px; height: 10px; border-radius: 50%; opacity: 0.8; transition: opacity 0.2s; }
-      .demo-window:hover .dc-dot { opacity: 1; }
-      .dc-r { background: #ff5f57; box-shadow: inset 0 0 4px rgba(0,0,0,0.1); }
-      .dc-y { background: #febc2e; box-shadow: inset 0 0 4px rgba(0,0,0,0.1); }
-      .dc-g { background: #28c840; box-shadow: inset 0 0 4px rgba(0,0,0,0.1); }
-
-      .dc-title {
-        flex: 1;
-        text-align: center;
-        font-size: 12px;
-        color: #a09085;
-        font-family: var(--sans);
-        letter-spacing: 0.03em;
-        font-weight: 500;
-        /* Padding to visually center title despite left controls */
-        padding-right: 54px; 
+      .dc-app-icon {
+        width: 16px;
+        height: 16px;
+        margin-right: 8px;
         display: flex;
         align-items: center;
         justify-content: center;
-        gap: 6px;
+        font-size: 11px;
+        font-weight: 700;
+        color: #c9a87c;
+        font-family: var(--serif);
+        line-height: 1;
       }
-      .dc-icon { display: block; opacity: 0.7; }
+      .dc-title {
+        flex: 1;
+        font-size: 12px;
+        color: #b0a89a;
+        font-family: var(--sans);
+        letter-spacing: 0.02em;
+        font-weight: 400;
+      }
+      .dc-win-controls {
+        display: flex;
+        height: 32px;
+      }
+      .dc-win-btn {
+        width: 46px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #b0a89a;
+        font-size: 10px;
+        transition: background 0.15s;
+        cursor: default;
+      }
+      .dc-win-btn:hover { background: rgba(255,255,255,0.08); }
+      .dc-win-btn.dc-close:hover { background: #c42b1c; color: #fff; }
+      .dc-win-btn svg { width: 10px; height: 10px; }
 
-      .demo-video-wrapper {
-        background: #000;
-        position: relative;
-        aspect-ratio: 16 / 9;
-        font-size: 0;
+      /* Windows app body */
+      .demo-win-body {
+        display: flex;
+        height: 420px;
+        background: #1e1e1e;
       }
-      .demo-video-wrapper video {
+
+      /* Left sidebar */
+      .demo-sidebar {
+        width: 52px;
+        background: #252526;
+        border-right: 1px solid rgba(255,255,255,0.05);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 12px 0 8px;
+        gap: 4px;
+      }
+      .dsb-logo {
+        width: 32px;
+        height: 32px;
+        background: linear-gradient(135deg, #c9a87c, #8b6f4e);
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 14px;
+        font-weight: 700;
+        color: #fff;
+        font-family: var(--serif);
+        margin-bottom: 12px;
+      }
+      .dsb-item {
+        width: 36px;
+        height: 36px;
+        border-radius: 6px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #6e6e6e;
+        transition: background 0.15s, color 0.15s;
+        cursor: default;
+      }
+      .dsb-item.active { background: rgba(201,168,124,0.15); color: #c9a87c; }
+      .dsb-item svg { width: 16px; height: 16px; }
+      .dsb-spacer { flex: 1; }
+
+      /* Main content area */
+      .demo-main {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+
+      /* Toolbar strip */
+      .demo-toolbar {
+        height: 36px;
+        background: #252526;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        display: flex;
+        align-items: center;
+        padding: 0 16px;
+        gap: 8px;
+      }
+      .dtb-label {
+        font-size: 11px;
+        color: #858585;
+        font-family: var(--sans);
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+      .dtb-spacer { flex: 1; }
+      .dtb-badge {
+        font-size: 10px;
+        padding: 2px 8px;
+        border-radius: 10px;
+        font-family: var(--sans);
+        font-weight: 500;
+        letter-spacing: 0.03em;
+      }
+      .dtb-badge.live { background: rgba(63,185,80,0.15); color: #3fb950; }
+      .dtb-badge.ai { background: rgba(201,168,124,0.15); color: #c9a87c; }
+
+      /* Transcript area */
+      .demo-transcript {
+        flex: 1;
+        padding: 20px 20px 12px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+      }
+      .dtr-line {
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+      }
+      .dtr-ts {
+        font-size: 10px;
+        color: #4a4a4a;
+        font-family: var(--sans);
+        letter-spacing: 0.04em;
+      }
+      .dtr-text {
+        font-size: 13px;
+        line-height: 1.6;
+        font-family: var(--sans);
+        color: #c8c8c8;
+      }
+      .dtr-text.raw { color: #666; }
+      .dtr-text.polished { color: #d4c4a8; }
+      .dtr-text .dtr-cursor {
+        display: inline-block;
+        width: 2px;
+        height: 14px;
+        background: #c9a87c;
+        margin-left: 2px;
+        vertical-align: text-bottom;
+        animation: blink 1s step-end infinite;
+      }
+      .dtr-divider {
+        height: 1px;
+        background: rgba(255,255,255,0.04);
+        margin: 4px 0;
+      }
+      .dtr-ai-label {
+        font-size: 10px;
+        color: #c9a87c;
+        font-family: var(--sans);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        opacity: 0.7;
+        margin-bottom: 2px;
+      }
+
+      /* waveform bar area */
+      .demo-waveform {
+        height: 56px;
+        background: #252526;
+        border-top: 1px solid rgba(255,255,255,0.05);
+        display: flex;
+        align-items: center;
+        padding: 0 20px;
+        gap: 12px;
+      }
+      .dwv-rec-btn {
+        width: 32px;
+        height: 32px;
+        border-radius: 50%;
+        background: #c42b1c;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        box-shadow: 0 0 0 4px rgba(196,43,28,0.2);
+      }
+      .dwv-rec-btn svg { width: 12px; height: 12px; color: #fff; fill: #fff; }
+      .dwv-bars {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        height: 32px;
+      }
+      .dwv-bar {
+        flex: 1;
+        background: rgba(201,168,124,0.35);
+        border-radius: 1px;
+        animation: bar-pulse 1.4s ease-in-out infinite;
+      }
+      .dwv-bar:nth-child(1)  { height: 30%; animation-delay: 0s; }
+      .dwv-bar:nth-child(2)  { height: 55%; animation-delay: 0.1s; }
+      .dwv-bar:nth-child(3)  { height: 80%; animation-delay: 0.2s; }
+      .dwv-bar:nth-child(4)  { height: 45%; animation-delay: 0.3s; }
+      .dwv-bar:nth-child(5)  { height: 70%; animation-delay: 0.15s; }
+      .dwv-bar:nth-child(6)  { height: 95%; animation-delay: 0.25s; }
+      .dwv-bar:nth-child(7)  { height: 60%; animation-delay: 0.35s; }
+      .dwv-bar:nth-child(8)  { height: 40%; animation-delay: 0.05s; }
+      .dwv-bar:nth-child(9)  { height: 75%; animation-delay: 0.4s; }
+      .dwv-bar:nth-child(10) { height: 50%; animation-delay: 0.2s; }
+      .dwv-bar:nth-child(11) { height: 85%; animation-delay: 0.1s; }
+      .dwv-bar:nth-child(12) { height: 35%; animation-delay: 0.3s; }
+      .dwv-bar:nth-child(13) { height: 65%; animation-delay: 0.45s; }
+      .dwv-bar:nth-child(14) { height: 90%; animation-delay: 0.15s; }
+      .dwv-bar:nth-child(15) { height: 55%; animation-delay: 0.25s; }
+      .dwv-bar:nth-child(16) { height: 40%; animation-delay: 0.35s; }
+      .dwv-bar:nth-child(17) { height: 70%; animation-delay: 0.05s; }
+      .dwv-bar:nth-child(18) { height: 85%; animation-delay: 0.2s; }
+      .dwv-bar:nth-child(19) { height: 50%; animation-delay: 0.4s; }
+      .dwv-bar:nth-child(20) { height: 30%; animation-delay: 0.1s; }
+      @keyframes bar-pulse {
+        0%, 100% { transform: scaleY(0.5); opacity: 0.5; }
+        50% { transform: scaleY(1); opacity: 1; }
+      }
+      @keyframes blink {
+        0%, 100% { opacity: 1; }
+        50% { opacity: 0; }
+      }
+      .dwv-timer {
+        font-size: 12px;
+        color: #6e6e6e;
+        font-family: var(--sans);
+        letter-spacing: 0.06em;
+        flex-shrink: 0;
+      }
+
+      /* ===== 三屏展示 ===== */
+      .vscode-screens {
+        display: flex;
+        gap: 28px;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: wrap;
+        margin-top: 48px;
+      }
+      .vs-screen-card {
+        flex: 1 1 300px;
+        max-width: 400px;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+      }
+      .vs-app-window {
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+      }
+      .vs-app-window img {
         width: 100%;
-        height: 100%;
         display: block;
-        object-fit: cover; /* Cover usually better for demos unless specific aspect */
+        border-radius: 8px;
+      }
+      .vs-screen-label {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        padding: 0 4px;
+      }
+      .vs-screen-num {
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 0.12em;
+        color: var(--accent, #7c5cfc);
+        opacity: 0.7;
+      }
+      .vs-screen-name {
+        font-size: 17px;
+        font-weight: 700;
+        color: var(--fg, #1a1a1a);
+      }
+      .vs-screen-desc {
+        font-size: 14px;
+        line-height: 1.6;
+        color: var(--muted, #666);
+      }
+      /* ===== 隐私区大型均衡器动画 ===== */
+      .priv-eq {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        height: 260px;
+        width: 100%;
+      }
+      .priv-eq-bar {
+        width: 52px;
+        border-radius: 28px;
+        animation: priv-eq-bounce 1.6s ease-in-out infinite;
+        transform-origin: center;
+      }
+      .priv-eq-bar:nth-child(1) { height: 55%; animation-delay: 0s;    background: #e05a2b; }
+      .priv-eq-bar:nth-child(2) { height: 30%; animation-delay: 0.22s; background: #f5a623; }
+      .priv-eq-bar:nth-child(3) { height: 75%; animation-delay: 0.44s; background: #c9a87c; }
+      .priv-eq-bar:nth-child(4) { height: 40%; animation-delay: 0.18s; background: #e8734a; }
+      .priv-eq-bar:nth-child(5) { height: 65%; animation-delay: 0.36s; background: #d4915e; }
+      @keyframes priv-eq-bounce {
+        0%, 100% { transform: scaleY(0.35); }
+        50%       { transform: scaleY(1); }
       }
     </style>
   </head>
@@ -947,32 +1272,6 @@
           <li><a href="#recording">界面</a></li>
           <li><a href="#privacy">隐私</a></li>
         </ul>
-        <div class="theme-picker" id="themePicker">
-          <button class="theme-picker-btn" id="themePickerBtn" aria-label="选择主题">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-              <circle cx="12" cy="12" r="3"/>
-              <circle cx="12" cy="3" r="1.5" fill="currentColor" stroke="none"/>
-              <circle cx="12" cy="21" r="1.5" fill="currentColor" stroke="none"/>
-              <circle cx="3" cy="12" r="1.5" fill="currentColor" stroke="none"/>
-              <circle cx="21" cy="12" r="1.5" fill="currentColor" stroke="none"/>
-              <circle cx="5.64" cy="5.64" r="1.5" fill="currentColor" stroke="none"/>
-              <circle cx="18.36" cy="18.36" r="1.5" fill="currentColor" stroke="none"/>
-              <circle cx="5.64" cy="18.36" r="1.5" fill="currentColor" stroke="none"/>
-              <circle cx="18.36" cy="5.64" r="1.5" fill="currentColor" stroke="none"/>
-            </svg>
-          </button>
-          <div class="theme-picker-panel" id="themePanel" aria-hidden="true">
-            <button class="theme-swatch" data-theme="ink" title="水墨">
-              <span class="swatch-preview" style="background:linear-gradient(135deg,#faf7f3 50%,#1a1410 50%)"></span>
-              <span class="swatch-name">水墨</span>
-            </button>
-            <button class="theme-swatch" data-theme="dark" title="夜墨">
-              <span class="swatch-preview" style="background:linear-gradient(135deg,#24273a 50%,#89b4fa 50%)"></span>
-              <span class="swatch-name">夜墨</span>
-            </button>
-          </div>
-        </div>
-        <a href="#" class="btn-nav">下载</a>
       </div>
     </nav>
 
@@ -985,60 +1284,24 @@
           <span class="line ink-accent">出言成章</span>
         </h1>
         <p class="hero-sub reveal">
-          以声音驱动思想，以 AI 雕琢语言。<br />
-          言墨将您的每一句话，化为精准、优雅的文字。
+          以声音驱动思想，以 AI 雕琢语言。
         </p>
-        <div class="hero-cta reveal" style="display: flex; gap: 16px; justify-content: center; flex-wrap: wrap">
-          <a
-            href="#"
-            class="btn-primary"
-            style="display: inline-flex; align-items: center; background-color: #1a1410; color: white"
-          >
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="margin-right: 8px">
-              <path
-                d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"
-              />
-            </svg>
-            Mac 下载
+        <div class="hero-download-btns reveal">
+          <a href="#" class="btn-download-platform">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
+            下载 Windows 版
           </a>
-          <a
-            href="#"
-            class="btn-primary"
-            style="display: inline-flex; align-items: center; background-color: #0078d7; color: white"
-          >
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" style="margin-right: 8px">
-              <path
-                d="M3 12V6.75l6-1.32v6.57H3zM11 5.18l8-1.67V12h-8V5.18zM3 13h6v6.57l-6-1.32V13zm8 0h8v6.67l-8-1.67V13z"
-              />
-            </svg>
-            Windows 下载
+          <a href="#" class="btn-download-platform" style="background:#005ea6;">
+            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
+            下载 Mac 版
           </a>
         </div>
-        <p class="hero-note reveal">
+        <p class="hero-note reveal" style="margin-top: 24px;">
           <a href="#recording" class="btn-ghost" style="display: inline-flex; align-items: center"> 查看功能介绍 → </a>
         </p>
 
       </div>
 
-      <!-- 水墨横线装饰 -->
-      <div class="ink-divider" aria-hidden="true">
-        <svg viewBox="0 0 1200 40" preserveAspectRatio="none">
-          <path
-            d="M0,20 C150,5 300,35 500,18 C700,2 900,38 1200,20"
-            stroke="currentColor"
-            stroke-width="1"
-            fill="none"
-            opacity="0.25"
-          />
-          <path
-            d="M0,25 C200,12 400,32 600,22 C800,12 1000,30 1200,25"
-            stroke="currentColor"
-            stroke-width="0.5"
-            fill="none"
-            opacity="0.12"
-          />
-        </svg>
-      </div>
 
       <!-- 千里江山全景山水 SVG -->
       <div class="qljsh-hero-panorama" aria-hidden="true">
@@ -1240,26 +1503,8 @@
     <!-- VIDEO DEMO -->
     <section class="demo-section" id="demo">
       <div class="demo-container reveal">
-        <div class="demo-window">
-          <div class="demo-chrome">
-            <div class="dc-controls">
-              <span class="dc-dot dc-r"></span>
-              <span class="dc-dot dc-y"></span>
-              <span class="dc-dot dc-g"></span>
-            </div>
-            <div class="dc-title">
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="dc-icon">
-                <path d="M12 2a10 10 0 0 1 10 10 10 10 0 0 1-10 10A10 10 0 1 1 12 2z"></path>
-                <polygon points="10 8 16 12 10 16 10 8" fill="currentColor" stroke="none"></polygon>
-              </svg>
-              Ink Voice Demo
-            </div>
-          </div>
-          <div class="demo-video-wrapper">
-            <video autoplay loop muted playsinline>
-              <source src="demo.mp4" type="video/mp4" />
-            </video>
-          </div>
+        <div class="demo-video-wrap">
+          <video src="yanmo.mp4" autoplay loop muted playsinline></video>
         </div>
       </div>
     </section>
@@ -1276,21 +1521,17 @@
           <div class="ovr-card reveal">
             <div class="oc-icon">✨</div>
             <h3 class="oc-title">GPT 流式润色</h3>
-            <p class="oc-desc">
-              Azure OpenAI 对口语化表达进行书面化润色，Stream 模式字符逐一输出，5 种成品风格 + 自由自定义。
-            </p>
+            <p class="oc-desc">AI 对口语润色为书面体，流式输出，5 种风格可选。</p>
           </div>
           <div class="ovr-card reveal">
             <div class="oc-icon">🌐</div>
             <h3 class="oc-title">实时翻译</h3>
-            <p class="oc-desc">底部下拉选择目标语言，识别结果在润色同时完成翻译输出，中英日韩等多语言方向自由切换。</p>
+            <p class="oc-desc">识别同步翻译，中英日韩多语言自由切换。</p>
           </div>
           <div class="ovr-card reveal">
             <div class="oc-icon">⚡</div>
             <h3 class="oc-title">快捷短语词库</h3>
-            <p class="oc-desc">
-              定义触发词与替换文本的映射，说一个词自动展开为完整内容，同步提升 Azure Speech 对该词的识别率。
-            </p>
+            <p class="oc-desc">说一个词自动展开完整内容，同步提升专有名词识别率。</p>
           </div>
         </div>
         <div class="stats-row">
@@ -1315,18 +1556,14 @@
             <div class="ss-unit">快捷键搞定一切</div>
           </div>
         </div>
-      </div>
-    </section>
 
-    <!-- VS Code 扩展 -->
-    <section class="vscode-section reveal-section" id="vscode">
-      <div class="container">
-        <div class="section-heading">
-          <span class="section-tag vscode-tag">桌面应用</span>
-          <h2 class="section-title">在编辑器里，用声音写代码。</h2>
-          <p class="section-desc">
-            言墨现已登陆桌面端。无需切换窗口，按下快捷键即可开口，AI 实时转录与润色，文字自动插入光标位置。
-          </p>
+        <!-- 桌面应用展示 -->
+        <div class="ovr-app-divider reveal">
+          <div class="ovr-app-heading">
+            <div class="ovr-tag">桌面应用</div>
+            <h3 class="ovr-app-title">在编辑器里，用声音写代码。</h3>
+            <p class="ovr-app-desc">按下快捷键即可开口，AI 转录润色，文字自动插入光标。</p>
+          </div>
         </div>
 
         <!-- 三屏展示 -->
@@ -1334,297 +1571,41 @@
           <!-- ① 录音主界面 -->
           <div class="vs-screen-card">
             <div class="vs-app-window">
-              <div class="vsw-chrome">
-                <span class="vsw-dot vsw-r"></span><span class="vsw-dot vsw-y"></span
-                ><span class="vsw-dot vsw-g"></span>
-              </div>
-              <div class="vsw-body">
-                <div class="vsw-sidebar">
-                  <div class="vsw-logo">言</div>
-                  <div class="vsw-sb-items">
-                    <div class="vsw-sb-item active">
-                      <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-                      </svg>
-                      首页
-                    </div>
-                    <div class="vsw-sb-item">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                        <circle cx="12" cy="12" r="10" />
-                        <polyline points="12 6 12 12 16 14" />
-                      </svg>
-                      历史
-                    </div>
-                    <div class="vsw-sb-item">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                      </svg>
-                      短语
-                    </div>
-                    <div class="vsw-sb-item">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                        <circle cx="12" cy="12" r="3" />
-                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
-                      </svg>
-                      设置
-                    </div>
-                  </div>
-                </div>
-                <div class="vsw-content">
-                  <div class="vsw-header">
-                    <div class="vsw-title">落笔生花 · 出言成章</div>
-                    <div class="vsw-sub">Let every expression be as elegant as poetry</div>
-                    <div class="vsw-status"><span class="vsw-dot-green"></span>点击开始识别</div>
-                  </div>
-                  <div class="vsw-mic-area">
-                    <div class="vsw-mic-row">
-                      <span class="vsw-wave-dot"></span><span class="vsw-wave-dot"></span
-                      ><span class="vsw-wave-dot"></span><span class="vsw-wave-dot"></span>
-                      <div class="vsw-mic-btn">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-                          <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-                          <line x1="12" y1="19" x2="12" y2="23" />
-                          <line x1="8" y1="23" x2="16" y2="23" />
-                        </svg>
-                      </div>
-                      <span class="vsw-wave-dot"></span><span class="vsw-wave-dot"></span
-                      ><span class="vsw-wave-dot"></span><span class="vsw-wave-dot"></span>
-                    </div>
-                  </div>
-                  <div class="vsw-stats">
-                    <div class="vsw-stat-card vsw-stat-big">
-                      <div class="vsw-stat-lbl">🎯 整体个性化</div>
-                      <div class="vsw-stat-val">0<span class="vsw-stat-unit">%</span></div>
-                      <div class="vsw-stat-btn">查看报告</div>
-                    </div>
-                    <div class="vsw-stat-card">
-                      <div class="vsw-stat-lbl">⏱ 总口述时间</div>
-                      <div class="vsw-stat-val">4<span class="vsw-stat-unit">min</span></div>
-                    </div>
-                    <div class="vsw-stat-card">
-                      <div class="vsw-stat-lbl">🎙 口述字数</div>
-                      <div class="vsw-stat-val">405<span class="vsw-stat-unit">字</span></div>
-                    </div>
-                    <div class="vsw-stat-card">
-                      <div class="vsw-stat-lbl">⚡ 节省时间</div>
-                      <div class="vsw-stat-val">10<span class="vsw-stat-unit">min</span></div>
-                    </div>
-                    <div class="vsw-stat-card">
-                      <div class="vsw-stat-lbl">💬 字/min</div>
-                      <div class="vsw-stat-val">123</div>
-                    </div>
-                  </div>
-                  <div class="vsw-statusbar">
-                    <span class="vsw-sb-pill">🌐 中文 ▾</span>
-                    <span class="vsw-sb-pill">✏ 默认风格 ▾</span>
-                    <span class="vsw-sb-pill">丨A 不翻译 ▾</span>
-                    <span class="vsw-sb-save">保 存</span>
-                  </div>
-                </div>
-              </div>
+              <img src="pic/screen-realtime.png" style="width:100%;display:block;border-radius:8px;" alt="实时识别" />
             </div>
             <div class="vs-screen-label">
-              <span class="vs-screen-num">01</span>
+              <span class="vs-screen-icon">🎙️</span>
               <span class="vs-screen-name">录音 · 实时识别</span>
-              <span class="vs-screen-desc">点击麦克风开口即写，Azure 低延迟识别，结果一键插入光标</span>
+              <span class="vs-screen-desc">说话代替打字，语音实时转为文字，直接落入编辑器光标位置</span>
             </div>
           </div>
 
-          <!-- ② 历史记录 -->
+          <!-- ② 自动润色 -->
           <div class="vs-screen-card">
             <div class="vs-app-window">
-              <div class="vsw-chrome">
-                <span class="vsw-dot vsw-r"></span><span class="vsw-dot vsw-y"></span
-                ><span class="vsw-dot vsw-g"></span>
-              </div>
-              <div class="vsw-body">
-                <div class="vsw-sidebar">
-                  <div class="vsw-logo">言</div>
-                  <div class="vsw-sb-items">
-                    <div class="vsw-sb-item">
-                      <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-                      </svg>
-                      首页
-                    </div>
-                    <div class="vsw-sb-item active">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                        <circle cx="12" cy="12" r="10" />
-                        <polyline points="12 6 12 12 16 14" />
-                      </svg>
-                      历史
-                    </div>
-                    <div class="vsw-sb-item">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                      </svg>
-                      短语
-                    </div>
-                    <div class="vsw-sb-item">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                        <circle cx="12" cy="12" r="3" />
-                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
-                      </svg>
-                      设置
-                    </div>
-                  </div>
-                </div>
-                <div class="vsw-content">
-                  <div
-                    class="vsw-header"
-                    style="display: flex; align-items: flex-start; justify-content: space-between"
-                  >
-                    <div>
-                      <div class="vsw-title">历史记录</div>
-                      <div class="vsw-sub">The echoes of the past are the seeds of the future</div>
-                    </div>
-                    <div class="vsw-clear-btn">全部清除</div>
-                  </div>
-                  <div class="vsw-hist-list">
-                    <div class="vsw-hist-item">
-                      <div class="vsw-hist-meta">2026-02-12 15:50:51 &nbsp;|&nbsp; 20 字</div>
-                      <div class="vsw-hist-text">帮我打开 AI interpreter。</div>
-                    </div>
-                    <div class="vsw-hist-item">
-                      <div class="vsw-hist-meta">2026-02-12 15:50:39 &nbsp;|&nbsp; 18 字</div>
-                      <div class="vsw-hist-text">你好，帮我识别一下我现在要做的事情。</div>
-                    </div>
-                    <div class="vsw-hist-item">
-                      <div class="vsw-hist-meta">2026-01-21 17:05:18 &nbsp;|&nbsp; 3 字</div>
-                      <div class="vsw-hist-text">你好。</div>
-                    </div>
-                    <div class="vsw-hist-item">
-                      <div class="vsw-hist-meta">2026-01-21 16:53:17 &nbsp;|&nbsp; 20 字</div>
-                      <div class="vsw-hist-text">我需要你帮我查一下这个，还不错的上下文。</div>
-                    </div>
-                    <div class="vsw-hist-item">
-                      <div class="vsw-hist-meta">2026-01-21 16:51:14 &nbsp;|&nbsp; 9 字</div>
-                      <div class="vsw-hist-text">你真是的，怕聪明。</div>
-                    </div>
-                  </div>
-                  <div class="vsw-hist-footer">
-                    <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <polyline points="1 4 1 10 7 10" />
-                      <path d="M3.51 15a9 9 0 1 0 .49-3.5" />
-                    </svg>
-                    共 9 条记录
-                  </div>
-                </div>
-              </div>
+              <img src="pic/opt.png" style="width:100%;display:block;border-radius:8px;" alt="自动润色" />
             </div>
             <div class="vs-screen-label">
-              <span class="vs-screen-num">02</span>
-              <span class="vs-screen-name">历史记录</span>
-              <span class="vs-screen-desc">每次录音自动存档，带时间戳与字数，随时翻查重用</span>
+              <span class="vs-screen-icon">✨</span>
+              <span class="vs-screen-name">自动润色</span>
+              <span class="vs-screen-desc">口语表达不够正式？AI 自动将口语转为书面语，无需手动修改</span>
             </div>
           </div>
 
           <!-- ③ 快捷短语 -->
           <div class="vs-screen-card">
             <div class="vs-app-window">
-              <div class="vsw-chrome">
-                <span class="vsw-dot vsw-r"></span><span class="vsw-dot vsw-y"></span
-                ><span class="vsw-dot vsw-g"></span>
-              </div>
-              <div class="vsw-body">
-                <div class="vsw-sidebar">
-                  <div class="vsw-logo">言</div>
-                  <div class="vsw-sb-items">
-                    <div class="vsw-sb-item">
-                      <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-                      </svg>
-                      首页
-                    </div>
-                    <div class="vsw-sb-item">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                        <circle cx="12" cy="12" r="10" />
-                        <polyline points="12 6 12 12 16 14" />
-                      </svg>
-                      历史
-                    </div>
-                    <div class="vsw-sb-item active">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                      </svg>
-                      短语
-                    </div>
-                    <div class="vsw-sb-item">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                        <circle cx="12" cy="12" r="3" />
-                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14" />
-                      </svg>
-                      设置
-                    </div>
-                  </div>
-                </div>
-                <div class="vsw-content">
-                  <div
-                    class="vsw-header"
-                    style="display: flex; align-items: flex-start; justify-content: space-between"
-                  >
-                    <div>
-                      <div class="vsw-title">快捷短语</div>
-                      <div class="vsw-sub">Speak a spark, and let a full phrase bloom</div>
-                    </div>
-                    <div class="vsw-clear-btn" style="background: #1a1a2e; color: white">+ 新增</div>
-                  </div>
-                  <div class="vsw-phrase-body">
-                    <div class="vsw-phrase-row">
-                      <div class="vsw-phrase-trigger">
-                        <span style="color: #c05a2b">⚡</span>
-                        <span style="color: #c05a2b; font-weight: 600">Speech Team</span>
-                        <span style="color: #ccc; font-size: 9px; margin-left: auto">✏ 🗑</span>
-                      </div>
-                      <div class="vsw-phrase-arrow">→</div>
-                      <div class="vsw-phrase-result">Speech</div>
-                    </div>
-                    <div class="vsw-phrase-row">
-                      <div class="vsw-phrase-trigger">
-                        <span style="color: #c05a2b">⚡</span>
-                        <span style="color: #c05a2b; font-weight: 600">Cloud</span>
-                        <span style="color: #ccc; font-size: 9px; margin-left: auto">✏ 🗑</span>
-                      </div>
-                      <div class="vsw-phrase-arrow">→</div>
-                      <div class="vsw-phrase-result">Cloud</div>
-                    </div>
-                  </div>
-                  <div class="vsw-phrase-footer">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="M13 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" />
-                    </svg>
-                    共 2 个快捷短语
-                    <div style="margin-left: auto; display: flex; align-items: center; gap: 5px">
-                      <svg
-                        width="10"
-                        height="10"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="2"
-                      >
-                        <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5" />
-                      </svg>
-                      <div style="width: 44px; height: 3px; background: #e0e0e8; border-radius: 2px; overflow: hidden">
-                        <div style="width: 100%; height: 100%; background: #2e7cf6"></div>
-                      </div>
-                      <span>100</span>
-                    </div>
-                    <div class="vsw-clear-btn">全部清除</div>
-                  </div>
-                </div>
-              </div>
+              <img src="pic/quick-word.png" style="width:100%;display:block;border-radius:8px;" alt="个性化短语" />
             </div>
             <div class="vs-screen-label">
-              <span class="vs-screen-num">03</span>
+              <span class="vs-screen-icon">⚡</span>
               <span class="vs-screen-name">快捷短语</span>
-              <span class="vs-screen-desc">说一个词展开一整段，同步提升 Azure 对专有名词的识别率</span>
+              <span class="vs-screen-desc">专有名词识别不准？预设短语一说即展开，同时提升识别准确率</span>
             </div>
           </div>
         </div>
 
-        <!-- 安装按钮 -->
+        <!-- 功能按钮 -->
         <div style="text-align: center; margin-top: 48px">
           <a href="#recording" class="btn-primary btn-vscode">
             <svg
@@ -1653,31 +1634,15 @@
         <div class="feat-wrap">
           <div class="feat-text reveal">
             <div class="feat-tag">🎙️ 核心功能</div>
-            <h2 class="feat-title">点击麦克风，<br />开口即开始。</h2>
+            <h2 class="feat-title">说话，直接成文<br />语音实时转写，精准落入光标</h2>
             <p class="feat-desc">
-              言墨主界面极度克制——一个大按钮，一栏状态，四张数据卡。
-              点击红色麦克风开始识别，再次点击停止，文字自动插入编辑器光标位置， 全程无需键盘。
+              基于 Azure Speech SDK，识别结果实时插入光标，延迟极低，与键盘输入完全等价。
             </p>
             <ul class="feat-list">
-              <li><span class="fl-icon ok">✓</span>Azure Speech 实时识别，延迟低于 100ms</li>
-              <li><span class="fl-icon ok">✓</span>可视化音量波形，实时反馈麦克风状态</li>
-              <li><span class="fl-icon ok">✓</span>底部状态栏显示实时字数、时长、语言选项</li>
-              <li>
-                <span class="fl-icon ok">✓</span
-                ><kbd
-                  style="
-                    font-family: monospace;
-                    font-size: 12px;
-                    padding: 1px 6px;
-                    background: rgba(255, 255, 255, 0.08);
-                    border: 1px solid rgba(255, 255, 255, 0.15);
-                    border-radius: 4px;
-                  "
-                  >Ctrl+Alt+R</kbd
-                >
-                全局快捷键，随时唤出面板
-              </li>
-              <li><span class="fl-icon ok">✓</span>「保存」一键将识别结果插入当前编辑器光标</li>
+              <li><span class="fl-icon ok">✓</span>实时转写，零延迟</li>
+              <li><span class="fl-icon ok">✓</span>直接落入光标位置</li>
+              <li><span class="fl-icon ok">✓</span><kbd style="font-family:monospace;font-size:12px;padding:1px 6px;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:4px">Ctrl+Alt+R</kbd> 快捷键随时唤起</li>
+              <li><span class="fl-icon ok">✓</span>波形反馈，状态一目了然</li>
             </ul>
           </div>
           <div class="feat-visual reveal">
@@ -1813,15 +1778,13 @@
             <div class="feat-tag">✨ AI 润色</div>
             <h2 class="feat-title">口语变书面语，<br />多种风格一键切。</h2>
             <p class="feat-desc">
-              停止录音后，GPT 自动将口语化表达整理为优雅书面语， 流式字符实时输出，效果即刻可见。
-              底部状态栏一键切换润色风格与翻译语言，操作成本接近于零。
+              停止录音后 GPT 自动整理措辞，流式实时输出。
             </p>
             <ul class="feat-list">
-              <li><span class="fl-icon ok">✓</span>默认 / 简洁 / 详尽 / 正式 / 轻松 五种内置风格</li>
-              <li><span class="fl-icon ok">✓</span>支持完全自定义 Prompt，打造个性润色规则</li>
-              <li><span class="fl-icon ok">✓</span>GPT 流式响应，字符逐一实时呈现</li>
-              <li><span class="fl-icon ok">✓</span>翻译功能集成，口述内容自动译为目标语言</li>
-              <li><span class="fl-icon ok">✓</span>可随时关闭润色，切换为纯语音转录模式</li>
+              <li><span class="fl-icon ok">✓</span>五种内置风格：默认 / 简洁 / 详尽 / 正式 / 轻松</li>
+              <li><span class="fl-icon ok">✓</span>支持自定义 Prompt</li>
+              <li><span class="fl-icon ok">✓</span>集成翻译，口述自动译为目标语言</li>
+              <li><span class="fl-icon ok">✓</span>可随时关闭，切换纯转录模式</li>
             </ul>
           </div>
           <div class="feat-visual reveal">
@@ -1897,23 +1860,20 @@
       </div>
     </section>
 
-    <!-- FEATURE 3 · 历史记录 -->
+    <!-- FEATURE 3 · 自动润色 -->
     <section class="feat-section" id="history">
       <div class="container">
         <div class="feat-wrap">
           <div class="feat-text reveal">
-            <div class="feat-tag">🕐 历史记录</div>
-            <h2 class="feat-title">每一句话，<br />都被完整保存。</h2>
+            <div class="feat-tag">✨ 自动润色</div>
+            <h2 class="feat-title">每一句话，<br />都被优雅表达。</h2>
             <p class="feat-desc">
-              每次录音结束后，言墨自动将识别结果连同时间戳保存到历史面板。 无论是写注释、整理思路还是回复消息，
-              所有口述内容随时可翻查、可重用。
+              AI 自动修正语法、消除语气词，输出即可用。
             </p>
             <ul class="feat-list">
-              <li><span class="fl-icon ok">✓</span>自动记录识别时间戳与字数统计</li>
-              <li><span class="fl-icon ok">✓</span>点击历史条目可重新插入当前光标位置</li>
-              <li><span class="fl-icon ok">✓</span>「全部清除」一键清空，保持面板整洁</li>
-              <li><span class="fl-icon ok">✓</span>本地 JSON 文件存储，数据完全属于您</li>
-              <li><span class="fl-icon ok">✓</span>底部显示总记录数，全局历史一览</li>
+              <li><span class="fl-icon ok">✓</span>口语转书面语，去除重复与停顿词</li>
+              <li><span class="fl-icon ok">✓</span>智能补全标点，段落结构清晰</li>
+              <li><span class="fl-icon ok">✓</span>原文与润色结果对照，一键选用</li>
             </ul>
           </div>
           <div class="feat-visual reveal">
@@ -1968,8 +1928,8 @@
                     style="display: flex; align-items: flex-start; justify-content: space-between; padding-right: 16px"
                   >
                     <div>
-                      <div class="wh-title">历史记录</div>
-                      <div class="wh-sub">The echoes of the past are the seeds of the future</div>
+                      <div class="wh-title">自动润色</div>
+                      <div class="wh-sub">Speak naturally, let AI perfect every word</div>
                     </div>
                     <div class="clear-btn" style="margin-top: 22px">全部清除</div>
                   </div>
@@ -2018,15 +1978,12 @@
             <div class="feat-tag">⚡ 快捷短语</div>
             <h2 class="feat-title">说一个词，<br />输出一整段。</h2>
             <p class="feat-desc">
-              快捷短语让您定义触发词与替换文本的映射：说出触发词， 言墨自动展开为完整短语。专有名词、缩写、代码片段……
-              一次配置，永久生效，同时提升该词的识别准确率。
+              定义触发词与替换文本，说出即展开，同时提升识别准确率。
             </p>
             <ul class="feat-list">
-              <li><span class="fl-icon ok">✓</span>自定义触发词 → 替换文本，无条数上限</li>
-              <li><span class="fl-icon ok">✓</span>自动提升词库词汇的 Azure Speech 识别准确率</li>
-              <li><span class="fl-icon ok">✓</span>+ 新增 / ✏ 编辑 / 🗑 删除，操作直觉化</li>
-              <li><span class="fl-icon ok">✓</span>底部音量滑块，实时掌控麦克风灵敏度</li>
-              <li><span class="fl-icon ok">✓</span>「全部清除」一键重置词库</li>
+              <li><span class="fl-icon ok">✓</span>触发词 → 替换文本，无条数限制</li>
+              <li><span class="fl-icon ok">✓</span>自动提升词库词汇识别准确率</li>
+              <li><span class="fl-icon ok">✓</span>新增 / 编辑 / 删除，操作直觉化</li>
             </ul>
           </div>
           <div class="feat-visual reveal">
@@ -2233,81 +2190,14 @@
       </div>
       <div class="container privacy-inner">
         <div class="privacy-visual" aria-hidden="true">
-          <!-- 水墨能量波形图 -->
-          <svg class="privacy-seal-svg" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <!-- 底部墨晕 -->
-            <ellipse cx="110" cy="118" rx="88" ry="40" fill="#1a1410" opacity="0.03" />
-            <!-- 最外层波形（最淡，幅度最大） -->
-            <path
-              d="M22,110 C30,110 34,72 44,72 C54,72 58,148 68,148 C78,148 82,58 94,58 C106,58 108,162 120,162 C132,162 134,52 146,52 C158,52 160,168 172,168 C182,168 186,72 196,72 C200,72 202,110 210,110"
-              stroke="#1a1410"
-              stroke-width="1.2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              fill="none"
-              opacity="0.08"
-            />
-            <!-- 外层波形 -->
-            <path
-              d="M22,110 C30,110 35,78 46,78 C57,78 60,142 72,142 C84,142 86,64 98,64 C110,64 112,156 124,156 C136,156 138,58 150,58 C162,58 164,162 176,162 C184,162 188,78 198,110"
-              stroke="#1a1410"
-              stroke-width="1.6"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              fill="none"
-              opacity="0.16"
-            />
-            <!-- 中层波形 -->
-            <path
-              d="M22,110 C32,110 36,82 48,82 C60,82 62,138 74,138 C86,138 88,70 100,70 C112,70 114,150 126,150 C138,150 140,66 152,66 C164,66 166,154 178,154 C186,154 192,82 198,110"
-              stroke="#1a1410"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              fill="none"
-              opacity="0.28"
-            />
-            <!-- 主波形（较深） -->
-            <path
-              d="M22,110 C33,110 38,88 50,88 C62,88 64,132 76,132 C88,132 90,76 102,76 C114,76 116,144 128,144 C140,144 142,72 154,72 C166,72 168,148 180,148 C188,148 194,88 198,110"
-              stroke="#1a1410"
-              stroke-width="2.4"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              fill="none"
-              opacity="0.42"
-            />
-            <!-- 核心波形（最深最粗） -->
-            <path
-              d="M22,110 C34,110 40,94 52,94 C64,94 66,126 78,126 C90,126 92,82 104,82 C116,82 118,138 130,138 C142,138 144,78 156,78 C168,78 170,142 182,142 C190,142 196,94 198,110"
-              stroke="#1a1410"
-              stroke-width="2.8"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              fill="none"
-              opacity="0.58"
-            />
-            <!-- 中轴基线（极淡） -->
-            <line x1="22" y1="110" x2="198" y2="110" stroke="#1a1410" stroke-width="0.8" opacity="0.08" stroke-dasharray="3 5" />
-            <!-- 飞白笔触（干笔质感） -->
-            <path d="M48,84 C50,83 52,83 54,83" stroke="#faf7f3" stroke-width="1.2" stroke-linecap="round" opacity="0.60" />
-            <path d="M100,72 C102,71 104,71 106,72" stroke="#faf7f3" stroke-width="1" stroke-linecap="round" opacity="0.55" />
-            <path d="M152,68 C154,68 156,69 158,69" stroke="#faf7f3" stroke-width="1" stroke-linecap="round" opacity="0.50" />
-            <path d="M76,128 C78,129 79,129 81,129" stroke="#faf7f3" stroke-width="0.9" stroke-linecap="round" opacity="0.45" />
-            <!-- 底部题字 -->
-            <text
-              x="110"
-              y="198"
-              text-anchor="middle"
-              font-size="9"
-              fill="#1a1410"
-              opacity="0.22"
-              font-family="serif"
-              letter-spacing="3"
-            >
-              言墨·私密
-            </text>
-          </svg>
+          <!-- Wisprflow 风格均衡器动画 -->
+          <div class="priv-eq">
+            <div class="priv-eq-bar"></div>
+            <div class="priv-eq-bar"></div>
+            <div class="priv-eq-bar"></div>
+            <div class="priv-eq-bar"></div>
+            <div class="priv-eq-bar"></div>
+          </div>
         </div>
         <div class="privacy-text reveal">
           <span class="section-tag">隐私承诺</span>
@@ -2376,7 +2266,7 @@
             </p>
           </details>
           <details class="faq-item reveal">
-            <summary>历史记录和快捷短语保存在哪里？</summary>
+            <summary>自动润色和快捷短语保存在哪里？</summary>
             <p>所有数据以 JSON 文件形式保存在本地。数据不会上传到任何服务器，您可以随时备份或迁移。</p>
           </details>
         </div>

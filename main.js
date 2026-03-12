@@ -148,7 +148,7 @@
   const panel     = document.getElementById('themePanel');
   if (!pickerBtn || !panel) return;
 
-  const THEMES = ['ink', 'dark'];
+  const THEMES = ['ink'];
   const DEFAULT = 'ink';
 
   function applyTheme(theme) {

@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>言墨 · AI 语音输入</title>
+    <title>言墨 · 智能语音输入</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -39,10 +39,72 @@
         padding: 100px 0;
         background: transparent;
         color: var(--text);
+        position: relative;
+        overflow: hidden;
       }
       .feat-section:nth-child(even) {
         background: transparent;
       }
+
+      /* ── 千里江山·色晕 ── */
+      /* overview 暖琥珀晕 */
+      .overview-section {
+        background:
+          radial-gradient(ellipse 70% 50% at 10% 30%, rgba(160,80,32,0.065) 0%, transparent 65%),
+          radial-gradient(ellipse 55% 45% at 90% 70%, rgba(122,58,16,0.05) 0%, transparent 60%);
+      }
+      /* vscode section 青蓝晕 */
+      .vscode-ext-section {
+        background:
+          radial-gradient(ellipse 65% 50% at 85% 25%, rgba(30,77,122,0.08) 0%, transparent 65%),
+          radial-gradient(ellipse 50% 40% at 10% 75%, rgba(42,92,58,0.06) 0%, transparent 60%);
+      }
+      /* overview-app 暖色延续 */
+      .overview-app-section {
+        background:
+          radial-gradient(ellipse 60% 50% at 50% 50%, rgba(160,80,32,0.05) 0%, transparent 70%);
+      }
+      /* 核心体验 #recording 暖橙晕（语音=热烈） */
+      #recording {
+        background:
+          radial-gradient(ellipse 55% 60% at 80% 40%, rgba(200,100,30,0.07) 0%, transparent 65%),
+          radial-gradient(ellipse 40% 40% at 15% 70%, rgba(122,58,16,0.05) 0%, transparent 55%);
+      }
+      /* 智能增强 #yanmo 青绿晕（智识=山色） */
+      #yanmo {
+        background:
+          radial-gradient(ellipse 60% 55% at 15% 40%, rgba(42,92,58,0.09) 0%, transparent 65%),
+          radial-gradient(ellipse 45% 40% at 85% 65%, rgba(30,77,122,0.06) 0%, transparent 60%);
+      }
+      /* 命令模式 #command 青蓝晕（指令=冷静） */
+      #command {
+        background:
+          radial-gradient(ellipse 65% 50% at 80% 30%, rgba(30,77,122,0.08) 0%, transparent 65%),
+          radial-gradient(ellipse 45% 45% at 15% 70%, rgba(42,92,58,0.05) 0%, transparent 60%);
+      }
+      /* 短语 #phrases 暖金晕 */
+      #phrases {
+        background:
+          radial-gradient(ellipse 60% 55% at 20% 35%, rgba(200,140,40,0.07) 0%, transparent 60%),
+          radial-gradient(ellipse 45% 40% at 80% 70%, rgba(122,58,16,0.05) 0%, transparent 55%);
+      }
+      /* 平台 #platform 淡紫晕（天空） */
+      #platform {
+        background:
+          radial-gradient(ellipse 70% 55% at 85% 30%, rgba(100,80,160,0.07) 0%, transparent 65%),
+          radial-gradient(ellipse 50% 45% at 15% 70%, rgba(30,77,122,0.06) 0%, transparent 60%);
+      }
+      /* 各区域 feat-tag 染色 */
+      #recording .feat-tag { color: var(--accent-lt); background: rgba(160,80,32,0.07); border-color: rgba(160,80,32,0.18); }
+      #yanmo .feat-tag { color: var(--green); background: rgba(42,92,58,0.07); border-color: rgba(42,92,58,0.18); }
+      #command .feat-tag { color: var(--blue); background: rgba(30,77,122,0.07); border-color: rgba(30,77,122,0.18); }
+      #phrases .feat-tag { color: #a07830; background: rgba(160,120,48,0.07); border-color: rgba(160,120,48,0.18); }
+      #platform .feat-tag { color: #6450a0; background: rgba(100,80,160,0.07); border-color: rgba(100,80,160,0.18); }
+      /* 各区域 feat-list bullet 染色 */
+      #yanmo .feat-list li::before { color: var(--green); }
+      #command .feat-list li::before { color: var(--blue); }
+      #phrases .feat-list li::before { color: #a07830; }
+      #platform .feat-list li::before { color: #6450a0; }
 
       .feat-wrap {
         display: grid;
@@ -70,6 +132,10 @@
         letter-spacing: 0.1em;
         color: var(--accent-lt);
         margin-bottom: 14px;
+        background: rgba(160,80,32,0.07);
+        border: 1px solid rgba(160,80,32,0.15);
+        border-radius: 100px;
+        padding: 4px 12px;
       }
       .feat-title {
         font-size: clamp(28px, 3.5vw, 44px);
@@ -97,6 +163,14 @@
         gap: 10px;
         font-size: 14px;
         color: var(--text-2);
+      }
+      .feat-list li::before {
+        content: "◆";
+        font-size: 7px;
+        flex-shrink: 0;
+        margin-top: 5px;
+        color: var(--accent);
+        opacity: 0.7;
       }
       .fl-icon {
         flex-shrink: 0;
@@ -599,14 +673,14 @@
         color: var(--text-2);
       }
       .sd-pill.active {
-        background: var(--accent-dim);
+        background: linear-gradient(135deg, rgba(200,100,20,0.25), rgba(240,140,30,0.15));
         border-color: rgba(224, 90, 43, 0.4);
         color: var(--accent-lt);
         font-weight: 600;
       }
       .sd-compare {
         display: grid;
-        grid-template-columns: 1fr 1fr;
+        grid-template-columns: 3fr 2fr;
         gap: 10px;
       }
       .sd-col {
@@ -666,7 +740,7 @@
       .tr-bubble.result {
         background: var(--blue-dim);
         border-color: rgba(46, 109, 164, 0.2);
-        color: #1e4d7a;
+        color: #6a9ab8;
       }
 
       /* OVERVIEW */
@@ -715,11 +789,15 @@
         transition:
           border-color 0.2s,
           transform 0.2s;
+        border-left: 3px solid transparent;
       }
       .ovr-card:hover {
         border-color: rgba(224, 90, 43, 0.3);
         transform: translateY(-3px);
       }
+      /* 卡片左侧描边 — 统一暖琥珀色 */
+      .ovr-card { border-left-color: rgba(160,80,32,0.35); }
+      .ovr-card .oc-icon { filter: drop-shadow(0 2px 6px rgba(160,80,32,0.18)); }
       .oc-icon {
         font-size: 28px;
         margin-bottom: 16px;
@@ -748,6 +826,16 @@
         border-radius: 14px;
         padding: 24px 20px;
         text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+      .stat-showcase::after {
+        content: "";
+        position: absolute;
+        bottom: 0; left: 0; right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, transparent, currentColor, transparent);
+        opacity: 0.18;
       }
       .ss-icon {
         font-size: 22px;
@@ -902,7 +990,7 @@
 
       /* VIDEO DEMO */
       .demo-section {
-        padding: 100px 0 120px;
+        padding: 48px 0 60px;
         margin-top: 0;
         position: relative;
         z-index: 10;
@@ -1338,6 +1426,425 @@
         50%       { transform: scaleY(1); }
       }
 
+      /* ===== VS CODE EXTENSION SECTION ===== */
+      .vscode-ext-section {
+        padding: 100px 0 80px;
+        background: transparent;
+        color: var(--text);
+      }
+      .vsc-header {
+        text-align: center;
+        margin-bottom: 64px;
+      }
+      .vsc-tag {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        font-size: 11px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--accent-lt);
+        margin-bottom: 14px;
+        background: linear-gradient(135deg, rgba(200,100,20,0.25), rgba(240,140,30,0.15));
+        padding: 5px 14px;
+        border-radius: 20px;
+        border: 1px solid rgba(122,58,16,0.18);
+      }
+      .vsc-title {
+        font-size: clamp(28px, 4vw, 46px);
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        line-height: 1.1;
+        font-family: var(--serif);
+        margin-bottom: 16px;
+      }
+      .vsc-sub {
+        font-size: 16px;
+        color: var(--text-2);
+        max-width: 540px;
+        margin: 0 auto;
+        line-height: 1.8;
+      }
+      .vsc-body {
+        display: grid;
+        grid-template-columns: 3fr 2fr;
+        gap: 40px;
+        align-items: stretch;
+      }
+      .vsc-editor-window {
+        background: #1e1e1e;
+        border-radius: 12px;
+        overflow: hidden;
+        box-shadow: 0 24px 64px rgba(0,0,0,0.28), 0 0 0 1px rgba(255,255,255,0.06);
+      }
+      .vsc-titlebar {
+        height: 33px;
+        background: #3c3c3c;
+        display: flex;
+        align-items: center;
+        padding: 0 12px;
+        gap: 8px;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+      }
+      .vsc-dot { width: 11px; height: 11px; border-radius: 50%; flex-shrink: 0; }
+      .vsc-dot-r { background: #ff5f57; }
+      .vsc-dot-y { background: #febc2e; }
+      .vsc-dot-g { background: #28c840; }
+      .vsc-winlabel {
+        flex: 1;
+        font-size: 12px;
+        color: #9d9d9d;
+        text-align: center;
+        letter-spacing: 0.03em;
+      }
+      .vsc-editor-body {
+        display: flex;
+
+      }
+      .vsc-activity-bar {
+        width: 48px;
+        background: #333333;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 8px 0;
+        gap: 2px;
+        flex-shrink: 0;
+        border-right: 1px solid rgba(255,255,255,0.04);
+      }
+      .vsc-ab-icon {
+        width: 36px;
+        height: 36px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 6px;
+        color: #6e6e6e;
+        cursor: default;
+      }
+      .vsc-ab-icon.active { color: #cccccc; background: rgba(255,255,255,0.08); }
+      .vsc-ab-icon.yanmo { color: #c9a87c; background: rgba(201,168,124,0.15); }
+      .vsc-ab-icon svg, .vsc-ab-icon img { width: 20px; height: 20px; }
+      .vsc-ab-spacer { flex: 1; }
+      .vsc-panel {
+        width: 220px;
+        background: #252526;
+        border-right: 1px solid rgba(255,255,255,0.04);
+        display: flex;
+        flex-direction: column;
+        flex-shrink: 0;
+        overflow: hidden;
+      }
+      .vsc-panel-title {
+        padding: 10px 14px 8px;
+        font-size: 10px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: #bbb;
+        border-bottom: 1px solid rgba(255,255,255,0.04);
+        flex-shrink: 0;
+      }
+      .vsc-panel-body {
+        flex: 1;
+        padding: 12px 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+        overflow: hidden;
+      }
+      .vsc-mic-row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 10px 0 6px;
+      }
+      .vsc-mic-btn {
+        width: 48px;
+        height: 48px;
+        border-radius: 50%;
+        background: #c04040;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        box-shadow: 0 0 0 6px rgba(192,64,64,0.18), 0 4px 16px rgba(192,64,64,0.4);
+        animation: vsc-mic-pulse 2s ease-in-out infinite;
+      }
+      .vsc-mic-btn svg { width: 20px; height: 20px; color: white; }
+      @keyframes vsc-mic-pulse {
+        0%, 100% { box-shadow: 0 0 0 6px rgba(192,64,64,0.18), 0 4px 16px rgba(192,64,64,0.4); }
+        50% { box-shadow: 0 0 0 12px rgba(192,64,64,0.06), 0 4px 24px rgba(192,64,64,0.5); }
+      }
+      .vsc-status-line {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 5px;
+        font-size: 11px;
+        color: #3fb950;
+        font-family: var(--sans);
+      }
+      .vsc-status-line::before {
+        content: '';
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: #3fb950;
+        animation: vsc-s-blink 1.2s ease-in-out infinite;
+      }
+      @keyframes vsc-s-blink { 0%,100%{opacity:1} 50%{opacity:0.25} }
+      .vsc-wave {
+        display: flex;
+        align-items: center;
+        gap: 2px;
+        height: 24px;
+        justify-content: center;
+      }
+      .vsc-wave-bar {
+        width: 3px;
+        background: rgba(201,168,124,0.65);
+        border-radius: 2px;
+        animation: vsc-wave-a 1.2s ease-in-out infinite;
+      }
+      .vsc-wave-bar:nth-child(1){height:30%;animation-delay:0s}
+      .vsc-wave-bar:nth-child(2){height:60%;animation-delay:0.1s}
+      .vsc-wave-bar:nth-child(3){height:90%;animation-delay:0.2s}
+      .vsc-wave-bar:nth-child(4){height:50%;animation-delay:0.15s}
+      .vsc-wave-bar:nth-child(5){height:75%;animation-delay:0.3s}
+      .vsc-wave-bar:nth-child(6){height:40%;animation-delay:0.05s}
+      .vsc-wave-bar:nth-child(7){height:65%;animation-delay:0.25s}
+      .vsc-wave-bar:nth-child(8){height:85%;animation-delay:0.1s}
+      @keyframes vsc-wave-a { 0%,100%{transform:scaleY(0.4);opacity:0.5} 50%{transform:scaleY(1);opacity:1} }
+      .vsc-box {
+        background: rgba(255,255,255,0.04);
+        border: 1px solid rgba(255,255,255,0.08);
+        border-radius: 8px;
+        padding: 9px 11px;
+        font-size: 11.5px;
+        color: #c8c8c8;
+        line-height: 1.65;
+        font-family: var(--sans);
+      }
+      .vsc-box.green {
+        background: rgba(63,185,80,0.07);
+        border-color: rgba(63,185,80,0.22);
+        color: #7ee787;
+      }
+      .vsc-box-label {
+        font-size: 9px;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        margin-bottom: 5px;
+        opacity: 0.55;
+      }
+      .vsc-cursor {
+        display: inline-block;
+        width: 2px;
+        height: 12px;
+        background: #c9a87c;
+        margin-left: 2px;
+        vertical-align: text-bottom;
+        animation: vsc-cur 1s step-end infinite;
+      }
+      @keyframes vsc-cur { 0%,100%{opacity:1} 50%{opacity:0} }
+      .vsc-insert-hint {
+        font-size: 10px;
+        color: #6e6e6e;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 4px;
+        font-family: var(--sans);
+      }
+      .vsc-editor-area {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        overflow: hidden;
+      }
+      .vsc-tabs {
+        display: flex;
+        background: #2d2d2d;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+        flex-shrink: 0;
+      }
+      .vsc-tab {
+        padding: 7px 16px;
+        font-size: 12px;
+        color: #9d9d9d;
+        border-right: 1px solid rgba(255,255,255,0.04);
+        white-space: nowrap;
+        cursor: default;
+        font-family: var(--sans);
+      }
+      .vsc-tab.active { background: #1e1e1e; color: #cccccc; border-top: 1px solid #007ACC; }
+      .vsc-code-area {
+        flex: 1;
+        padding: 14px 16px;
+        font-family: 'Cascadia Code', 'Fira Code', 'Consolas', monospace;
+        font-size: 12px;
+        line-height: 1.75;
+        overflow: hidden;
+      }
+      .vsc-code-line { display: flex; align-items: baseline; }
+      .vsc-ln { width: 26px; color: #4a4a4a; text-align: right; margin-right: 14px; flex-shrink: 0; font-size: 11px; }
+      .cl-cmt { color: #6a9955; }
+      .cl-kw  { color: #569cd6; }
+      .cl-fn  { color: #dcdcaa; }
+      .cl-str { color: #ce9178; }
+      .cl-var { color: #9cdcfe; }
+      .cl-def { color: #d4d4d4; }
+      .vsc-inserted {
+        background: rgba(63,185,80,0.1);
+        border-left: 2px solid #3fb950;
+        padding-left: 4px;
+        border-radius: 0 2px 2px 0;
+      }
+      .vsc-statusbar {
+        height: 22px;
+        background: #007ACC;
+        display: flex;
+        align-items: center;
+        padding: 0 10px;
+        gap: 8px;
+        font-size: 11px;
+        color: rgba(255,255,255,0.85);
+        font-family: var(--sans);
+        flex-shrink: 0;
+      }
+      .vsc-sb-yanmo {
+        background: rgba(255,255,255,0.15);
+        padding: 1px 8px;
+        border-radius: 3px;
+        font-size: 10px;
+        font-weight: 600;
+        display: flex;
+        align-items: center;
+        gap: 4px;
+      }
+      .vsc-sb-right { margin-left: auto; display: flex; gap: 8px; align-items: center; }
+
+      /* Feature cards */
+      .vsc-features {
+        display: grid;
+        grid-template-rows: repeat(2, 1fr);
+        gap: 18px;
+        padding-top: 6px;
+        height: 100%;
+      }
+      .vsc-feat-card {
+        background: var(--card-bg);
+        border: 1px solid var(--border);
+        border-radius: 14px;
+        padding: 22px 24px;
+        display: flex;
+        flex-direction: column;
+        transition: border-color 0.2s, transform 0.2s;
+      }
+      .vsc-feat-card:hover { border-color: var(--border-2); transform: translateX(3px); }
+      .vsc-feat-card.vibe {
+        box-shadow: 0 0 0 1px rgba(200,100,20,0.3), 0 4px 16px rgba(200,100,20,0.15);
+        border-color: rgba(200,100,20,0.6);
+        background: linear-gradient(135deg, rgba(200,100,20,0.18) 0%, rgba(240,140,30,0.10) 100%);
+      }
+      .vsc-feat-card.vibe:hover { border-color: rgba(200,100,20,0.85); }
+      .vfc-icon { font-size: 20px; margin-bottom: 8px; }
+      .vfc-title { font-size: 14px; font-weight: 700; margin-bottom: 5px; }
+      .vfc-desc { font-size: 13px; color: var(--text-2); line-height: 1.7; }
+      .vfc-vibe-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 4px;
+        font-size: 10px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        color: var(--accent-lt);
+        background: linear-gradient(135deg, rgba(200,100,20,0.25), rgba(240,140,30,0.15));
+        border: 1px solid rgba(200,100,20,0.5);
+        padding: 2px 8px;
+        border-radius: 10px;
+        margin-top: 8px;
+      }
+
+      /* Install strip */
+      .vsc-install-strip {
+        margin-top: 52px;
+        background: var(--card-bg);
+        border: 1px solid var(--border-2);
+        border-radius: 16px;
+        padding: 28px 36px;
+        display: flex;
+        align-items: center;
+        gap: 28px;
+        box-shadow: 0 4px 24px rgba(26,20,16,0.06);
+      }
+      .vis-icon-wrap {
+        width: 60px;
+        height: 60px;
+        background: linear-gradient(135deg, rgba(200,100,20,0.25), rgba(240,140,30,0.15));
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+      }
+      .vis-text { flex: 1; }
+      .vis-title { font-size: 17px; font-weight: 700; margin-bottom: 5px; }
+      .vis-desc { font-size: 13px; color: var(--text-2); line-height: 1.65; }
+      .vis-actions { display: flex; flex-direction: column; gap: 8px; align-items: flex-end; flex-shrink: 0; }
+      .vis-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 7px;
+        padding: 11px 22px;
+        background: var(--accent);
+        color: white;
+        border-radius: 8px;
+        font-size: 13px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: background 0.2s, transform 0.15s;
+        white-space: nowrap;
+      }
+      .vis-btn:hover { background: var(--accent-lt); transform: translateY(-2px); }
+      .vis-note { font-size: 11px; color: var(--text-2); }
+      @media (max-width: 900px) {
+        .vsc-body { grid-template-columns: 1fr; }
+        .vsc-panel { width: 180px; }
+        .vsc-install-strip { flex-direction: column; align-items: flex-start; }
+        .vis-actions { align-items: flex-start; }
+      }
+
+      /* ── 千里江山·各页装饰层 ── */
+      .qljsh-deco {
+        position: absolute;
+        left: 0; right: 0;
+        width: 100%;
+        pointer-events: none;
+        z-index: 0;
+        overflow: hidden;
+      }
+      .qljsh-deco svg { width: 100%; display: block; }
+      .qljsh-deco-top { top: 0; }
+      .qljsh-deco-bottom { bottom: 0; }
+      /* 确保 section 内容在装饰层之上 */
+      .overview-section .container,
+      .vscode-ext-section .container,
+      .overview-app-section .container,
+      #recording .container,
+      #yanmo .container,
+      #command .container,
+      #phrases .container,
+      #platform .container { position: relative; z-index: 1; }
+      /* section 本身 relative，允许绝对定位子元素 */
+      .overview-section,
+      .vscode-ext-section,
+      .overview-app-section { position: relative; overflow: hidden; }
+
     </style>
   </head>
   <body>
@@ -1354,6 +1861,7 @@
         <ul class="nav-links">
           <li><a href="#overview">功能</a></li>
           <li><a href="#vscode">桌面应用</a></li>
+          <li><a href="#vscode-ext">VS Code</a></li>
           <li><a href="#recording">界面</a></li>
           <li><a href="#privacy">隐私</a></li>
         </ul>
@@ -1363,13 +1871,13 @@
     <!-- Hero -->
     <section class="hero" id="hero">
       <div class="hero-inner">
-        <div class="hero-badge reveal">Azure Speech · 自动 润色 · AI 语音输入</div>
+        <div class="hero-badge reveal">Azure Speech · 自动润色 · 智能语音输入</div>
         <h1 class="hero-title reveal">
           <span class="line">落笔生花</span>
           <span class="line ink-accent">出言成章</span>
         </h1>
         <p class="hero-sub reveal">
-          以声音驱动思想，以 AI 雕琢语言。
+          以声音驱动思想，以语言雕琢表达。
         </p>
         <div class="hero-download-btns reveal">
           <a href="#" class="btn-download-platform">
@@ -1388,7 +1896,6 @@
       </div>
 
 
-      <!-- 千里江山全景山水 SVG -->
       <div class="qljsh-hero-panorama" aria-hidden="true">
         <svg viewBox="0 0 1440 320" preserveAspectRatio="xMidYMax meet" fill="none" xmlns="http://www.w3.org/2000/svg">
           <defs>
@@ -1597,14 +2104,19 @@
         </div>
         <div class="cards-grid">
           <div class="ovr-card reveal">
+            <div class="oc-icon">🎙️</div>
+            <h3 class="oc-title">语音输入</h3>
+            <p class="oc-desc">实时转录，低延迟响应，准确识别多种语言。</p>
+          </div>
+          <div class="ovr-card reveal">
             <div class="oc-icon">✨</div>
-            <h3 class="oc-title">高效润色</h3>
+            <h3 class="oc-title">AI 润色</h3>
             <p class="oc-desc">对口语润色为书面体，流式输出，多种风格可选。</p>
           </div>
           <div class="ovr-card reveal">
-            <div class="oc-icon">⌨️</div>
-            <h3 class="oc-title">命令模式</h3>
-            <p class="oc-desc">自动识别语句含义，文字转表格、检索诗词，语音即指令。</p>
+            <div class="oc-icon">🎯</div>
+            <h3 class="oc-title">场景适配</h3>
+            <p class="oc-desc">根据应用场景动态增强识别结果</p>
           </div>
           <div class="ovr-card reveal">
             <div class="oc-icon">🌐</div>
@@ -1612,30 +2124,30 @@
             <p class="oc-desc">识别同步翻译，中英日韩多语言自由切换。</p>
           </div>
           <div class="ovr-card reveal">
+            <div class="oc-icon">📟</div>
+            <h3 class="oc-title">命令模式</h3>
+            <p class="oc-desc">自动识别语句含义，文字转表格、检索诗词，语音即指令。</p>
+          </div>
+          <div class="ovr-card reveal">
             <div class="oc-icon">⚡</div>
-            <h3 class="oc-title">快捷词匹配</h3>
-            <p class="oc-desc">一个词自动展开完整内容</p>
-          </div>
-          <div class="ovr-card reveal">
-            <div class="oc-icon">🧠</div>
-            <h3 class="oc-title">场景适配</h3>
-            <p class="oc-desc">根据应用场景动态增强识别结果</p>
-          </div>
-          <div class="ovr-card reveal">
-            <div class="oc-icon">📖</div>
-            <h3 class="oc-title">词典定制</h3>
-            <p class="oc-desc">自定义专有名词与生僻字，提高识别精准率，无需反复纠正。</p>
+            <h3 class="oc-title">个性化定制</h3>
+            <p class="oc-desc">一个词自动展开完整内容；自定义专有名词与生僻字，提高识别精准率，无需反复纠正。</p>
           </div>
         </div>
-        <div class="stats-row">
+        <div class="stats-row" style="grid-template-columns: repeat(5, 1fr);">
           <div class="stat-showcase reveal">
             <div class="ss-icon">🖥️</div>
             <div class="ss-num" style="color: #a78bfa">跨平台</div>
             <div class="ss-unit">Windows / macOS</div>
           </div>
           <div class="stat-showcase reveal">
+            <div class="ss-icon">🤖</div>
+            <div class="ss-num" style="color: #38bdf8">高智能</div>
+            <div class="ss-unit">语音驱动 vibe coding</div>
+          </div>
+          <div class="stat-showcase reveal">
             <div class="ss-icon">🌐</div>
-            <div class="ss-num" style="color: var(--accent-lt)">多语言</div>
+            <div class="ss-num" style="color: #2dd4bf">多语言</div>
             <div class="ss-unit">自由切切换不同语言</div>
           </div>
           <div class="stat-showcase reveal">
@@ -1662,24 +2174,264 @@
           <div class="demo-video-wrap" style="position:relative;">
             <video id="demoVideo" src="yanmo.mp4" muted playsinline></video>
             <!-- 播放遮罩：点击前覆盖整个视频 -->
-            <div id="demoOverlay" onclick="(function(){
-              var v=document.getElementById('demoVideo');
-              var o=document.getElementById('demoOverlay');
-              v.muted=false;
-              v.currentTime=0;
-              v.play();
-              o.style.display='none';
-            })()" style="position:absolute;inset:0;background:rgba(15,15,15,0.5);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;border-radius:inherit;gap:16px;">
-              <div style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,0.12);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1.5px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,0.4);transition:transform 0.2s,background 0.2s;" onmouseenter="this.style.transform='scale(1.1)';this.style.background='rgba(255,255,255,0.2)'" onmouseleave="this.style.transform='scale(1)';this.style.background='rgba(255,255,255,0.12)'">
+            <div id="demoOverlay" style="position:absolute;inset:0;background:rgba(15,15,15,0.5);backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);display:flex;flex-direction:column;align-items:center;justify-content:center;cursor:pointer;border-radius:inherit;gap:16px;">
+              <div id="demoPlayBtn" style="width:76px;height:76px;border-radius:50%;background:rgba(255,255,255,0.12);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1.5px solid rgba(255,255,255,0.25);display:flex;align-items:center;justify-content:center;box-shadow:0 8px 32px rgba(0,0,0,0.4);transition:transform 0.2s,background 0.2s;" onmouseenter="this.style.transform='scale(1.1)';this.style.background='rgba(255,255,255,0.2)'" onmouseleave="this.style.transform='scale(1)';this.style.background='rgba(255,255,255,0.12)'">
                 <svg width="26" height="26" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="7 4 21 12 7 20 7 4"/></svg>
               </div>
               <span style="color:rgba(255,255,255,0.65);font-size:12px;letter-spacing:0.08em;font-weight:500;">点击播放</span>
             </div>
+            <!-- 自定义播放控制栏 -->
+            <div id="demoControls" style="position:absolute;bottom:0;left:0;right:0;padding:10px 14px 12px;background:linear-gradient(transparent,rgba(0,0,0,0.7));border-radius:0 0 inherit inherit;display:none;flex-direction:column;gap:8px;">
+              <!-- 进度条 -->
+              <div style="position:relative;height:4px;background:rgba(255,255,255,0.25);border-radius:2px;cursor:pointer;" id="demoSeekBar">
+                <div id="demoProgress" style="height:100%;background:#fff;border-radius:2px;width:0%;pointer-events:none;"></div>
+              </div>
+              <!-- 按钮行 -->
+              <div style="display:flex;align-items:center;gap:12px;">
+                <!-- 播放/暂停 -->
+                <button id="demoPlayPause" onclick="demoTogglePlay()" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;color:#fff;opacity:0.9;" title="播放/暂停">
+                  <svg id="demoIconPlay" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none"><polygon points="7 4 21 12 7 20 7 4"/></svg>
+                  <svg id="demoIconPause" width="20" height="20" viewBox="0 0 24 24" fill="white" stroke="none" style="display:none;"><rect x="6" y="4" width="4" height="16"/><rect x="14" y="4" width="4" height="16"/></svg>
+                </button>
+                <!-- 停止 -->
+                <button onclick="demoStop()" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;color:#fff;opacity:0.9;" title="停止">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="white" stroke="none"><rect x="4" y="4" width="16" height="16" rx="2"/></svg>
+                </button>
+                <!-- 时间显示 -->
+                <span id="demoTime" style="color:rgba(255,255,255,0.75);font-size:12px;font-variant-numeric:tabular-nums;margin-right:auto;">0:00 / 0:00</span>
+                <!-- 静音切换 -->
+                <button id="demoMuteBtn" onclick="demoToggleMute()" style="background:none;border:none;cursor:pointer;padding:0;display:flex;align-items:center;color:#fff;opacity:0.9;" title="静音">
+                  <svg id="demoIconVol" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><path d="M15.5 8.5a5 5 0 0 1 0 7"/><path d="M19 5a10 10 0 0 1 0 14"/></svg>
+                  <svg id="demoIconMute" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" style="display:none;"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"/><line x1="23" y1="9" x2="17" y2="15"/><line x1="17" y1="9" x2="23" y2="15"/></svg>
+                </button>
+                <!-- 音量滑块 -->
+                <input id="demoVolume" type="range" min="0" max="1" step="0.05" value="0.5" oninput="demoSetVolume(this.value)" style="width:64px;accent-color:#fff;cursor:pointer;" title="音量">
+              </div>
+            </div>
             <script>
-              document.getElementById('demoVideo').addEventListener('ended', function() {
-                document.getElementById('demoOverlay').style.display='flex';
+            (function(){
+              var v = document.getElementById('demoVideo');
+              v.volume = 0.5;
+              var overlay = document.getElementById('demoOverlay');
+              var controls = document.getElementById('demoControls');
+              var progress = document.getElementById('demoProgress');
+              var seekBar = document.getElementById('demoSeekBar');
+              var timeEl = document.getElementById('demoTime');
+              var iconPlay = document.getElementById('demoIconPlay');
+              var iconPause = document.getElementById('demoIconPause');
+              var iconVol = document.getElementById('demoIconVol');
+              var iconMute = document.getElementById('demoIconMute');
+              var volSlider = document.getElementById('demoVolume');
+
+              function fmt(s) {
+                var m = Math.floor(s/60), sec = Math.floor(s%60);
+                return m + ':' + (sec<10?'0':'')+sec;
+              }
+              function updateTime() {
+                timeEl.textContent = fmt(v.currentTime) + ' / ' + fmt(v.duration||0);
+                progress.style.width = (v.duration ? (v.currentTime/v.duration*100) : 0) + '%';
+              }
+              function updatePlayIcon() {
+                if (v.paused) { iconPlay.style.display=''; iconPause.style.display='none'; }
+                else { iconPlay.style.display='none'; iconPause.style.display=''; }
+              }
+
+              // Overlay click → start
+              overlay.addEventListener('click', function() {
+                v.muted = false;
+                v.currentTime = 0;
+                v.play();
+                overlay.style.display = 'none';
+                controls.style.display = 'flex';
               });
+
+              v.addEventListener('timeupdate', updateTime);
+              v.addEventListener('play', updatePlayIcon);
+              v.addEventListener('pause', updatePlayIcon);
+              v.addEventListener('ended', function() {
+                controls.style.display = 'none';
+                overlay.style.display = 'flex';
+              });
+
+              // Seek bar
+              seekBar.addEventListener('click', function(e) {
+                var rect = seekBar.getBoundingClientRect();
+                var ratio = (e.clientX - rect.left) / rect.width;
+                v.currentTime = ratio * (v.duration || 0);
+              });
+              var seeking = false;
+              seekBar.addEventListener('mousedown', function() { seeking = true; });
+              document.addEventListener('mousemove', function(e) {
+                if (!seeking) return;
+                var rect = seekBar.getBoundingClientRect();
+                var ratio = Math.max(0, Math.min(1, (e.clientX - rect.left) / rect.width));
+                v.currentTime = ratio * (v.duration || 0);
+              });
+              document.addEventListener('mouseup', function() { seeking = false; });
+
+              // Global helpers called by buttons
+              window.demoTogglePlay = function() { v.paused ? v.play() : v.pause(); };
+              window.demoStop = function() {
+                v.pause(); v.currentTime = 0;
+                controls.style.display = 'none';
+                overlay.style.display = 'flex';
+              };
+              window.demoToggleMute = function() {
+                v.muted = !v.muted;
+                if (v.muted) { iconVol.style.display='none'; iconMute.style.display=''; }
+                else { iconVol.style.display=''; iconMute.style.display='none'; }
+              };
+              window.demoSetVolume = function(val) {
+                v.volume = parseFloat(val);
+                if (parseFloat(val) === 0) { iconVol.style.display='none'; iconMute.style.display=''; }
+                else { iconVol.style.display=''; iconMute.style.display='none'; }
+              };
+            })();
             </script>
+          </div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- VS CODE EXTENSION -->
+    <section class="vscode-ext-section" id="vscode-ext">
+      <div class="container">
+        <div class="vsc-header reveal">
+          <div class="vsc-tag">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 2L8.9 12 2 7.5 0 9l3.3 3L0 15l2 1.5 6.9-4.5 8.6 10L24 20V4L17.5 2z"/></svg>
+            VS Code Extension &#xB7; &#x5DF2;&#x4E0A;&#x67B6; Marketplace
+          </div>
+          <h2 class="vsc-title">&#x4EE3;&#x7801;&#x7F16;&#x8F91;&#x5668;&#x91CC;&#x7684;<br />&#x8BED;&#x97F3;&#x8F93;&#x5165;&#x52A9;&#x624B;</h2>
+          <p class="vsc-sub">&#x65E0;&#x9700;&#x5207;&#x6362;&#x7A97;&#x53E3;&#xFF0C;&#x76F4;&#x63A5;&#x5728; VS Code &#x5185;&#x5F00;&#x53E3;&#x8BF4;&#x8BDD;&#x3002;&#x8BED;&#x97F3;&#x5B9E;&#x65F6;&#x8F6C;&#x4E3A;&#x4EE3;&#x7801;&#x6CE8;&#x91CA;&#x3001;&#x6587;&#x6863;&#x3001;&#x63D0;&#x4EA4;&#x4FE1;&#x606F;&#xFF0C;Vibe Coding &#x65B0;&#x4F53;&#x9A8C;&#x3002;</p>
+        </div>
+
+        <div class="vsc-body reveal">
+          <!-- VS Code editor mockup -->
+          <div class="vsc-editor-window">
+            <div class="vsc-titlebar">
+              <span class="vsc-dot vsc-dot-r"></span>
+              <span class="vsc-dot vsc-dot-y"></span>
+              <span class="vsc-dot vsc-dot-g"></span>
+              <span class="vsc-winlabel">utils.ts &#x2014; ink-voice &#x2014; Visual Studio Code</span>
+            </div>
+            <div class="vsc-editor-body">
+              <!-- Activity bar -->
+              <div class="vsc-activity-bar">
+                <div class="vsc-ab-icon active">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h18v18H3z"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+                </div>
+                <div class="vsc-ab-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div class="vsc-ab-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div class="vsc-ab-spacer"></div>
+                <div class="vsc-ab-icon yanmo" title="言墨">
+                  <img src="favicon.png" alt="言墨" />
+                </div>
+                <div class="vsc-ab-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                </div>
+              </div>
+
+              <!-- 言墨 Side Panel -->
+              <div class="vsc-panel">
+                <div class="vsc-panel-title">&#x8A00;&#x58A8; &#xB7; &#x5F55;&#x97F3;</div>
+                <div class="vsc-panel-body">
+                  <div class="vsc-mic-row">
+                    <div class="vsc-mic-btn">
+                      <svg viewBox="0 0 24 24" fill="white"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/><line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="23" x2="16" y2="23" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                  </div>
+                  <div class="vsc-status-line">&#x8BC6;&#x522B;&#x4E2D;&#x2026;</div>
+                  <div class="vsc-wave">
+                    <div class="vsc-wave-bar"></div><div class="vsc-wave-bar"></div>
+                    <div class="vsc-wave-bar"></div><div class="vsc-wave-bar"></div>
+                    <div class="vsc-wave-bar"></div><div class="vsc-wave-bar"></div>
+                    <div class="vsc-wave-bar"></div><div class="vsc-wave-bar"></div>
+                  </div>
+                  <div class="vsc-box">
+                    <div class="vsc-box-label" style="color:#9d9d9d;">&#x53E3;&#x8BED;&#x539F;&#x6587;</div>
+                    &#x8FD9;&#x4E2A;&#x51FD;&#x6570;&#x89E3;&#x6790;&#x7528;&#x6237;&#x8F93;&#x5165;&#xFF0C;&#x628A;&#x91CC;&#x9762;&#x7684;&#x5B57;&#x6BB5;&#x63D0;&#x53D6;&#x51FA;&#x6765;&#x8FD4;&#x56DE;<span class="vsc-cursor"></span>
+                  </div>
+                  <div class="vsc-box green">
+                    <div class="vsc-box-label" style="color:#7ee787;">AI &#x6DA6;&#x8272;</div>
+                    &#x89E3;&#x6790;&#x7528;&#x6237;&#x8F93;&#x5165;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x63D0;&#x53D6;&#x7ED3;&#x6784;&#x5316;&#x5B57;&#x6BB5;&#x5E76;&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;&#x3002;
+                  </div>
+                  <div class="vsc-insert-hint">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="9 18 15 12 9 6"/></svg>
+                    &#x81EA;&#x52A8;&#x63D2;&#x5165;&#x5149;&#x6807;&#x4F4D;&#x7F6E;
+                  </div>
+                </div>
+              </div>
+
+              <!-- Code editor -->
+              <div class="vsc-editor-area">
+                <div class="vsc-tabs">
+                  <div class="vsc-tab">index.ts</div>
+                  <div class="vsc-tab active">utils.ts</div>
+                  <div class="vsc-tab">README.md</div>
+                </div>
+                <div class="vsc-code-area">
+                  <div class="vsc-code-line"><span class="vsc-ln">1</span><span class="cl-cmt">// utils.ts</span></div>
+                  <div class="vsc-code-line"><span class="vsc-ln">2</span>&nbsp;</div>
+                  <div class="vsc-code-line vsc-inserted"><span class="vsc-ln">3</span><span class="cl-cmt">/**</span></div>
+                  <div class="vsc-code-line vsc-inserted"><span class="vsc-ln">4</span><span class="cl-cmt">&nbsp;* &#x89E3;&#x6790;&#x7528;&#x6237;&#x8F93;&#x5165;&#x5B57;&#x7B26;&#x4E32;&#xFF0C;&#x63D0;&#x53D6;&#x7ED3;&#x6784;&#x5316;&#x5B57;&#x6BB5;&#x5E76;&#x8FD4;&#x56DE;&#x5BF9;&#x8C61;&#x3002;</span></div>
+                  <div class="vsc-code-line vsc-inserted"><span class="vsc-ln">5</span><span class="cl-cmt">&nbsp;*/</span></div>
+                  <div class="vsc-code-line"><span class="vsc-ln">6</span><span class="cl-kw">export function </span><span class="cl-fn">parseInput</span><span class="cl-def">(</span><span class="cl-var">raw</span><span class="cl-def">: </span><span class="cl-kw">string</span><span class="cl-def">) {</span></div>
+                  <div class="vsc-code-line"><span class="vsc-ln">7</span><span class="cl-def">&nbsp;&nbsp;</span><span class="cl-kw">const </span><span class="cl-var">parts</span><span class="cl-def"> = </span><span class="cl-var">raw</span><span class="cl-def">.</span><span class="cl-fn">split</span><span class="cl-def">(</span><span class="cl-str">'|'</span><span class="cl-def">);</span></div>
+                  <div class="vsc-code-line"><span class="vsc-ln">8</span><span class="cl-def">&nbsp;&nbsp;</span><span class="cl-kw">return </span><span class="cl-def">{ </span><span class="cl-var">name</span><span class="cl-def">: </span><span class="cl-var">parts</span><span class="cl-def">[0], </span><span class="cl-var">value</span><span class="cl-def">: </span><span class="cl-var">parts</span><span class="cl-def">[1] };</span></div>
+                  <div class="vsc-code-line"><span class="vsc-ln">9</span><span class="cl-def">}</span></div>
+                  <div class="vsc-code-line"><span class="vsc-ln">10</span>&nbsp;</div>
+                  <div class="vsc-code-line"><span class="vsc-ln">11</span><span class="cl-kw">export function </span><span class="cl-fn">formatTable</span><span class="cl-def">(</span><span class="cl-var">rows</span><span class="cl-def">: </span><span class="cl-var">string</span><span class="cl-def">[][]) {</span></div>
+                  <div class="vsc-code-line"><span class="vsc-ln">12</span><span class="cl-def">&nbsp;&nbsp;</span><span class="cl-kw">return </span><span class="cl-var">rows</span><span class="cl-def">.</span><span class="cl-fn">map</span><span class="cl-def">(</span><span class="cl-var">r</span><span class="cl-def"> =&gt; </span><span class="cl-var">r</span><span class="cl-def">.</span><span class="cl-fn">join</span><span class="cl-def">(</span><span class="cl-str">' | '</span><span class="cl-def">)).</span><span class="cl-fn">join</span><span class="cl-def">(</span><span class="cl-str">'\n'</span><span class="cl-def">);</span></div>
+                  <div class="vsc-code-line"><span class="vsc-ln">13</span><span class="cl-def">}</span></div>
+                </div>
+                <div class="vsc-statusbar">
+                  <div class="vsc-sb-yanmo">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/></svg>
+                    &#x8A00;&#x58A8; &#xB7; &#x5F55;&#x97F3;&#x4E2D;
+                  </div>
+                  <span style="opacity:0.5;">TypeScript</span>
+                  <div class="vsc-sb-right"><span style="opacity:0.6;">Ln 6, Col 1</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature cards -->
+          <div class="vsc-features">
+            <div class="vsc-feat-card">
+              <div class="vfc-icon">💬</div>
+              <div class="vfc-title">&#x4EE3;&#x7801;&#x6CE8;&#x91CA; &#xB7; &#x6587;&#x6863;&#x77AC;&#x751F;</div>
+              <div class="vfc-desc">&#x5BF9;&#x7740;&#x51FD;&#x6570;&#x8BF4;&#x4E00;&#x53E5;&#x63CF;&#x8FF0;&#xFF0C;&#x8A00;&#x58A8;&#x81EA;&#x52A8;&#x751F;&#x6210; JSDoc / &#x5757;&#x6CE8;&#x91CA;&#x5E76;&#x63D2;&#x5165;&#x3002;&#x5199;&#x6587;&#x6863;&#x3001;README&#xFF0C;&#x5F00;&#x53E3;&#x5373;&#x5B8C;&#x6210;&#x3002;</div>
+            </div>
+            <div class="vsc-feat-card vibe">
+              <div class="vfc-icon">⚡</div>
+              <div class="vfc-title">Vibe Coding &#x6A21;&#x5F0F;</div>
+              <div class="vfc-desc">&#x8BF4;&#x51FA;&#x4F60;&#x60F3;&#x5B9E;&#x73B0;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x8A00;&#x58A8;&#x5C06;&#x53E3;&#x8BED;&#x8F6C;&#x4E3A;&#x6280;&#x672F;&#x63CF;&#x8FF0;&#xFF0C;&#x914D;&#x5408; Copilot / Cursor &#x7B49; AI &#x8865;&#x5168;&#x5DE5;&#x5177;&#xFF0C;&#x8BA9;&#x300C;&#x5148;&#x8BF4;&#x540E;&#x5199;&#x300D;&#x771F;&#x6B63;&#x843D;&#x5730;&#x3002;&#x58F0;&#x97F3;&#x662F;&#x6700;&#x81EA;&#x7136;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x3002;</div>
+              <div class="vfc-vibe-badge">⚡ Vibe Coding</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Install strip -->
+        <div class="vsc-install-strip reveal">
+          <div class="vis-icon-wrap">
+            <svg width="32" height="32" viewBox="0 0 24 24" fill="currentColor" style="color: var(--accent);"><path d="M17.5 2L8.9 12 2 7.5 0 9l3.3 3L0 15l2 1.5 6.9-4.5 8.6 10L24 20V4L17.5 2z"/></svg>
+          </div>
+          <div class="vis-text">
+            <div class="vis-title">&#x7ACB;&#x5373;&#x5B89;&#x88C5; &#x8A00;&#x58A8; for VS Code</div>
+            <div class="vis-desc">&#x5728; VS Code &#x6269;&#x5C55;&#x5E02;&#x573A;&#x641C;&#x7D22; <strong>&#x8A00;&#x58A8;</strong>&#xFF0C;&#x4E00;&#x952E;&#x5B89;&#x88C5;&#x5373;&#x53EF;&#x4F7F;&#x7528;&#x3002;&#x652F;&#x6301; VS Code 1.85+&#xFF0C;Windows / macOS&#x3002;</div>
+          </div>
+          <div class="vis-actions">
+            <a href="#" class="vis-btn">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="white"><path d="M17.5 2L8.9 12 2 7.5 0 9l3.3 3L0 15l2 1.5 6.9-4.5 8.6 10L24 20V4L17.5 2z"/></svg>
+              &#x5728; VS Code &#x4E2D;&#x5B89;&#x88C5;
+            </a>
+            <div class="vis-note">&#x4E5F;&#x53EF;&#x5728;&#x6269;&#x5C55;&#x5E02;&#x573A;&#x641C;&#x7D22;&#x300C;&#x8A00;&#x58A8;&#x300D;</div>
           </div>
         </div>
       </div>
@@ -1694,7 +2446,7 @@
           <div class="ovr-app-heading">
             <div class="ovr-tag">桌面应用</div>
             <h3 class="ovr-app-title">麦克风代替键盘，重构工作方式</h3>
-            <p class="ovr-app-desc">按下快捷键即可开口，AI 转录润色，文字自动插入光标。</p>
+            <p class="ovr-app-desc">按下快捷键即可开口，自动转录润色，文字插入光标。</p>
           </div>
         </div>
 
@@ -1702,24 +2454,34 @@
         <div class="vscode-screens reveal">
           <!-- ① 自动润色 + 动态修正 -->
           <div class="vs-screen-card">
-            <div class="vs-app-window">
-              <img src="pic/opt.png" style="width:100%;display:block;border-radius:8px;" alt="自动润色" />
+            <div class="vs-app-window" style="background:#f5f5f5;border-radius:8px;overflow:hidden;">
+              <div style="background:#e8e8e8;padding:8px 12px;display:flex;align-items:center;gap:6px;">
+                <span style="width:10px;height:10px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#28c840;display:inline-block;"></span>
+              </div>
+              <img src="pic/opt.png" style="width:100%;display:block;" alt="自动润色" />
             </div>
             <div class="vs-screen-label">
               <span class="vs-screen-icon">✨</span>
               <span class="vs-screen-name">自动润色</span>
-              <span class="vs-screen-desc">口语转书面语，AI 自动润色；说错直接重述，言墨识别最终意图，只提交正确结果</span>
+              <span class="vs-screen-desc">口语转书面语，自动润色；说错直接重述，言墨识别最终意图，只提交正确结果</span>
             </div>
           </div>
 
-          <!-- ② 录音主界面 -->
+          <!-- ② 识别主界面 -->
           <div class="vs-screen-card">
-            <div class="vs-app-window">
-              <img src="pic/screen-realtime.png" style="width:100%;display:block;border-radius:8px;" alt="实时识别" />
+            <div class="vs-app-window" style="background:#f5f5f5;border-radius:8px;overflow:hidden;">
+              <div style="background:#e8e8e8;padding:8px 12px;display:flex;align-items:center;gap:6px;">
+                <span style="width:10px;height:10px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#febc2e;display:inline-block;"></span>
+                <span style="width:10px;height:10px;border-radius:50%;background:#28c840;display:inline-block;"></span>
+              </div>
+              <img src="pic/screen-realtime.png" style="width:100%;display:block;" alt="实时识别" />
             </div>
             <div class="vs-screen-label">
               <span class="vs-screen-icon">🎙️</span>
-              <span class="vs-screen-name">录音 · 实时识别</span>
+              <span class="vs-screen-name">识别 · 实时转写</span>
               <span class="vs-screen-desc">说话代替打字，语音实时转为文字，直接落入编辑器光标位置</span>
             </div>
           </div>
@@ -1828,137 +2590,61 @@
 
     <!-- ===== 言墨 for VS Code · 功能详情 ===== -->
 
-    <!-- FEATURE 1 · 录音主界面 -->
+    <!-- FEATURE 1 · 识别主界面 -->
     <section class="feat-section" id="recording">
+      <!-- 千里江山·暖橙山影（语音=日暮山色） -->
       <div class="container">
         <div class="feat-wrap">
           <div class="feat-text reveal">
-            <div class="feat-tag">🎙️ 核心功能</div>
-            <h2 class="feat-title">开口即落字，<br />表达从不滞后。</h2>
-            <p class="feat-desc">声音实时转写，精准落入光标。思路连贯，记录完整，工作流不被打断。</p>
+            <div class="feat-tag">🎙️ 核心体验</div>
+            <h2 class="feat-title">开口即落字，<br />落字即成文。</h2>
+            <p class="feat-desc">语音输入与 AI 润色深度绑定——一句口语，实时转写为文字，随即润色为书面表达。思路连贯，落笔成章。</p>
             <ul class="feat-list">
               <li>实时转写，精准落入光标</li>
-              <li>随时唤起，不打断工作节奏</li>
+              <li>停止即润色，口语自动变书面语</li>
+              <li>多种润色风格，底部状态栏随时切换</li>
               <li>全场景兼容，无缝接入任意应用</li>
-              <li>波形可视，录音状态清晰可见</li>
             </ul>
           </div>
           <div class="feat-visual reveal">
-            <div class="app-window" style="height: 440px">
+            <div class="app-window" style="height:440px;">
               <div class="win-chrome">
                 <span class="wc-dot wc-r"></span><span class="wc-dot wc-y"></span><span class="wc-dot wc-g"></span>
+                <span style="margin-left:10px;font-size:11px;color:var(--text-2);opacity:.7">言墨 · 语音输入</span>
               </div>
-              <div class="win-body" style="flex: 1; min-height: 0">
-                <div class="win-sidebar">
-                  <div class="sb-logo"><img src="favicon.png" alt="言墨" /></div>
-                  <div class="sb-name">言墨</div>
-                  <div class="sb-items">
-                    <div class="sb-item active">
-                      <svg viewBox="0 0 24 24" fill="currentColor">
-                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z" />
-                      </svg>
-                      首页
+              <!-- 语音输入 + 润色绑定：双列对比卡片 -->
+              <div style="padding:16px;display:flex;flex-direction:column;gap:14px;flex:1;overflow:auto;background:#fff;">
+                <!-- 顶部：麦克风区 -->
+                <div style="background:#1e1c1a;border-radius:10px;padding:16px 18px;border:1px solid rgba(255,255,255,0.06);">
+                  <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;">🎙 实时转写中…</div>
+                  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
+                    <div style="width:34px;height:34px;border-radius:50%;background:rgba(122,58,16,0.85);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 0 6px rgba(122,58,16,0.18);">
+                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
                     </div>
-                    <div class="sb-item">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                        <circle cx="12" cy="12" r="10" />
-                        <polyline points="12 6 12 12 16 14" />
-                      </svg>
-                      历史
-                    </div>
-                    <div class="sb-item">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                        <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-                        <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-                      </svg>
-                      词典
-                    </div>
-                    <div class="sb-item">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                        <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
-                      </svg>
-                      短语
-                    </div>
-                    <div class="sb-item">
-                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-                        <circle cx="12" cy="12" r="3" />
-                        <path d="M19.07 4.93a10 10 0 0 1 0 14.14M16.24 7.76a6 6 0 0 1 0 8.49" />
-                      </svg>
-                      设置
-                    </div>
+                    <div class="mic-dots" style="flex:1"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
                   </div>
-                  <div class="sb-bottom"><div class="sb-avatar">👤</div></div>
+                  <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px 12px;font-size:12px;color:rgba(255,255,255,0.5);line-height:1.6;font-style:italic;">
+                    那个嗯就是把那个数组啊遍历一下然后呢把空的那些过滤掉<span style="display:inline-block;width:2px;height:13px;background:rgba(255,255,255,0.6);margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite;"></span>
+                  </div>
                 </div>
-                <div class="win-content">
-                  <div class="win-header">
-                    <div class="wh-title">落笔生花 · 出言成章</div>
-                    <div class="wh-sub">Let every expression be as elegant as poetry</div>
-                    <div class="wh-status">
-                      <span class="status-dot-green"></span>
-                      点击开始识别（AI 润色未配置）
+                <!-- 箭头 -->
+                <div style="display:flex;align-items:center;justify-content:center;gap:8px;color:var(--accent-lt);font-size:11px;font-weight:600;letter-spacing:.05em;">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+                  停止识别后自动润色
+                </div>
+                <!-- 底部：润色结果 + 风格选择 -->
+                <div style="border:1px solid rgba(26,20,16,0.10);border-radius:10px;overflow:hidden;">
+                  <div style="padding:10px 14px;border-bottom:1px solid rgba(26,20,16,0.07);display:flex;align-items:center;justify-content:space-between;background:rgba(26,20,16,0.03);">
+                    <div style="font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.06em;">✨ 润色结果</div>
+                    <div style="display:flex;gap:5px;">
+                      <span style="font-size:10px;background:var(--accent);color:#fff;border-radius:20px;padding:2px 9px;font-weight:600;">默认</span>
+                      <span style="font-size:10px;background:rgba(26,20,16,0.07);color:var(--text-2);border-radius:20px;padding:2px 9px;">简洁</span>
+                      <span style="font-size:10px;background:rgba(26,20,16,0.07);color:var(--text-2);border-radius:20px;padding:2px 9px;">正式</span>
+                      <span style="font-size:10px;background:rgba(26,20,16,0.07);color:var(--text-2);border-radius:20px;padding:2px 9px;">自定义…</span>
                     </div>
                   </div>
-                  <div class="win-mic-area">
-                    <div class="mic-row">
-                      <div class="mic-dots"><span></span><span></span><span></span><span></span><span></span></div>
-                      <div class="mic-dots" style="margin-left: 8px">
-                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span>
-                      </div>
-                      <div class="mic-btn" style="margin: 0 14px">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                          <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z" />
-                          <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
-                          <line x1="12" y1="19" x2="12" y2="23" />
-                          <line x1="8" y1="23" x2="16" y2="23" />
-                        </svg>
-                      </div>
-                      <div class="mic-dots">
-                        <span></span><span></span><span></span><span></span><span></span><span></span><span></span
-                        ><span></span>
-                      </div>
-                      <div class="mic-dots more" style="margin-left: 8px">
-                        <span></span><span></span><span></span><span></span>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="win-stats">
-                    <div class="stat-card big">
-                      <div>
-                        <div class="sc-label">🎯 整体个性化</div>
-                        <div class="sc-value">0<span class="sc-unit">%</span></div>
-                      </div>
-                      <div class="sc-circle">·</div>
-                      <div>
-                        <div class="sc-btn">查看报告</div>
-                        <div class="sc-privacy">📍 您的数据保持私密。</div>
-                      </div>
-                    </div>
-                    <div class="stat-card">
-                      <div class="sc-label">⏱ 总口述时间</div>
-                      <div class="sc-value">4<span class="sc-unit">min</span></div>
-                    </div>
-                    <div class="stat-card">
-                      <div class="sc-label">🎙 口述字数</div>
-                      <div class="sc-value">405<span class="sc-unit">字</span></div>
-                    </div>
-                    <div class="stat-card">
-                      <div class="sc-label">⚡ 节省时间</div>
-                      <div class="sc-value">10<span class="sc-unit">min</span></div>
-                    </div>
-                    <div class="stat-card">
-                      <div class="sc-label">💬 每分钟字数</div>
-                      <div class="sc-value">123<span class="sc-unit">字/min</span></div>
-                    </div>
-                  </div>
-                  <div class="win-statusbar">
-                    <span>字数: 0</span>
-                    <span class="sb-sep">|</span>
-                    <span>时长: 00:00</span>
-                    <span class="sb-sep">|</span>
-                    <span class="sb-pill">🌐 中文 ▾</span>
-                    <span class="sb-pill">✏ 润色: 默认风格 ▾</span>
-                    <span class="sb-pill">丨A 翻译: 不翻译 ▾</span>
-                    <span class="sb-save">保 存</span>
+                  <div style="padding:14px 18px;font-size:13px;color:var(--text);line-height:1.7;">
+                    遍历数组并过滤掉其中的空值，返回处理后的结果集合。
                   </div>
                 </div>
               </div>
@@ -1970,14 +2656,15 @@
 
     <!-- FEATURE 1.5 · 言墨智能增强 -->
     <section class="feat-section" id="yanmo">
+      <!-- 千里江山·青绿山影（智能=山色郁葱） -->
       <div class="container">
         <div class="feat-wrap flip">
           <div class="feat-text reveal">
             <div class="feat-tag">🧠 智能增强</div>
             <h2 class="feat-title">听音知境，<br />理解不是逐字照搬</h2>
-            <p class="feat-desc">结合上下文推断语义，说错了重述一句即可纠正。行业术语一次录入，长期精准。</p>
+            <p class="feat-desc">理解语境语义，说错了重述一句即可纠正。行业术语一次录入，长期精准。</p>
             <ul class="feat-list">
-              <li>上下文关联，语境感知识别</li>
+              <li>语境感知，精准识别专业术语</li>
               <li>重述即纠错，无需手动退格</li>
               <li>自定义词典，行业术语零误差</li>
               <li>触发词展开，常用内容一声即至</li>
@@ -1992,37 +2679,42 @@
               <div class="win-body" style="flex:1;min-height:0;display:flex;flex-direction:column;gap:0;padding:20px 22px;overflow:auto">
                 <div style="margin-bottom:18px">
                   <div style="font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.06em;margin-bottom:6px">🔍 情景感知</div>
-                  <div style="font-size:12px;color:var(--text-2);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:10px 12px;line-height:1.7">
-                    <span style="color:var(--text-1)">当前光标上文：</span>「我们需要优化 <span style="color:#7dd3fc">SQLite</span> 查询…」<br/>
-                    <span style="color:var(--text-1)">语音输入：</span>「加一个索引」<br/>
-                    <span style="color:#86efac">→ 补全输出：</span>「为 <span style="color:#7dd3fc">user_id</span> 字段创建索引以提升查询性能」
+                  <div style="font-size:12px;color:#3d3530;background:rgba(26,20,16,.04);border:1px solid rgba(26,20,16,.1);border-radius:8px;padding:10px 12px;line-height:1.7">
+                    <span style="color:#1a1410;font-weight:500">当前光标上文：</span>「我们需要优化 <span style="color:#2563eb">SQLite</span> 查询…」<br/>
+                    <span style="color:#1a1410;font-weight:500">语音输入：</span>「加一个索引」<br/>
+                    <span style="color:#16a34a;font-weight:500">→ 补全输出：</span>「为 <span style="color:#2563eb">user_id</span> 字段创建索引以提升查询性能」
                   </div>
                 </div>
                 <div style="margin-bottom:18px">
                   <div style="font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.06em;margin-bottom:6px">🔄 动态修正</div>
-                  <div style="font-size:12px;color:var(--text-2);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:8px;padding:10px 12px;line-height:1.7">
-                    <span style="color:var(--text-1)">说：</span>「发送邮件给张三」<span style="opacity:.5;margin:0 6px">→</span><span style="text-decoration:line-through;opacity:.4">发送邮件给张三</span><br/>
-                    <span style="color:var(--text-1)">重述：</span>「不对，发送给李四」<br/>
-                    <span style="color:#86efac">→ 最终输出：</span>「发送邮件给李四」
+                  <div style="font-size:12px;color:#3d3530;background:rgba(26,20,16,.04);border:1px solid rgba(26,20,16,.1);border-radius:8px;padding:10px 12px;line-height:1.7">
+                    <span style="color:#1a1410;font-weight:500">说：</span>「发送邮件给张三」<span style="opacity:.5;margin:0 6px">→</span><span style="text-decoration:line-through;opacity:.4">发送邮件给张三</span><br/>
+                    <span style="color:#1a1410;font-weight:500">重述：</span>「不对，发送给李四」<br/>
+                    <span style="color:#16a34a;font-weight:500">→ 最终输出：</span>「发送邮件给李四」
                   </div>
                 </div>
                 <div>
                   <div style="font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.06em;margin-bottom:8px">📖 自定义词典</div>
-                  <div style="font-size:12px;color:var(--text-2);background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:10px;padding:14px 16px;line-height:1.8;display:flex;align-items:center;gap:16px">
-                    <div style="display:flex;align-items:center;gap:8px;flex:1">
-                      <span style="background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:6px;padding:3px 10px;font-family:monospace;letter-spacing:.03em;white-space:nowrap">Hackthon</span>
-                      <span style="color:var(--accent);font-size:14px;font-weight:300">→</span>
-                      <span style="background:rgba(134,239,172,.1);border:1px solid rgba(134,239,172,.25);border-radius:6px;padding:3px 10px;color:#86efac;white-space:nowrap">黑客马拉松</span>
+                  <div style="font-size:12px;color:#3d3530;background:rgba(26,20,16,.04);border:1px solid rgba(26,20,16,.1);border-radius:10px;padding:12px 14px;display:flex;flex-direction:column;gap:10px">
+                    <div style="display:flex;align-items:center;gap:8px">
+                      <span style="background:#f0ede8;border:1px solid rgba(26,20,16,.15);border-radius:6px;padding:3px 10px;white-space:nowrap;color:#1a1410;font-weight:500">赛博坦</span>
+                      <div style="color:#7a6e65;font-size:11px"><span style="text-decoration:line-through;opacity:.5">赛博探</span><span style="margin:0 5px">→</span><span style="color:#16a34a">赛博坦</span></div>
                     </div>
-                    <div style="color:var(--text-3);font-size:11px;white-space:nowrap">此后精准识别 ✓</div>
+                    <div style="display:flex;align-items:center;gap:8px">
+                      <span style="background:#f0ede8;border:1px solid rgba(26,20,16,.15);border-radius:6px;padding:3px 10px;white-space:nowrap;color:#1a1410;font-weight:500">熵减</span>
+                      <div style="color:#7a6e65;font-size:11px"><span style="text-decoration:line-through;opacity:.5">商减</span><span style="margin:0 5px">→</span><span style="color:#16a34a">熵减</span></div>
+                    </div>
+                    <div style="display:flex;align-items:center;gap:8px">
+                      <span style="background:#f0ede8;border:1px solid rgba(26,20,16,.15);border-radius:6px;padding:3px 10px;white-space:nowrap;color:#1a1410;font-weight:500">纳斯达克</span>
+                      <div style="color:#7a6e65;font-size:11px"><span style="text-decoration:line-through;opacity:.5">那斯达可</span><span style="margin:0 5px">→</span><span style="color:#16a34a">纳斯达克</span></div>
+                    </div>
+                    <div style="color:#7a6e65;font-size:11px;border-top:1px solid rgba(26,20,16,.08);padding-top:8px">已添加 3 个词 · 语音转写时优先匹配 ✓</div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
-      </div>
-    </section>
+           </section>
 
     <!-- FEATURE 2 · AI 润色 & 翻译 -->
     <section class="feat-section" id="polish">
@@ -2112,7 +2804,7 @@
       </div>
     </section>
 
-    <!-- FEATURE 3 · 自动润色 -->
+    <!-- FEATURE 2 · 历史记录 -->
     <section class="feat-section" id="history">
       <div class="container">
         <div class="feat-wrap flip">
@@ -2222,6 +2914,7 @@
 
     <!-- FEATURE 5 · 命令模式 -->
     <section class="feat-section" id="command">
+      <!-- 千里江山·石青远山（命令=冷峻远峰） -->
       <div class="container">
         <div class="feat-wrap">
           <div class="feat-text reveal">
@@ -2274,6 +2967,7 @@
 
     <!-- FEATURE 4 · 快捷短语 -->
     <section class="feat-section" id="phrases">
+      <!-- 千里江山·暖金山影 -->
       <div class="container">
         <div class="feat-wrap flip">
           <div class="feat-text reveal">
@@ -2450,6 +3144,7 @@
 
     <!-- 跨平台支持 -->
     <section class="feat-section" id="platform">
+      <!-- 千里江山·淡紫远山（平台=天际远峰） -->
       <div class="container">
         <div class="feat-wrap">
         <div class="feat-text">
@@ -2629,34 +3324,28 @@
             <summary>如何配置 Azure 语音凭据？</summary>
             <p>
               打开应用设置，搜索 <code>yanmo</code>，填入您的 Azure Speech Service
-              密钥与区域即可。应用已内置演示凭据，安装后可直接试用，无需立刻配置。
+              密钥与区域即可。
             </p>
           </details>
           <details class="faq-item reveal">
-            <summary>支持哪些识别语言？</summary>
+            <summary>识别延迟大概是多少？</summary>
             <p>
-              基于 Azure Cognitive Services，支持中文（普通话、粤语）、英文、日文等 100+
-              语言，可在设置中自由切换。混合语言场景下可开启自动检测模式。
+              语音识别采用流式返回，通常说完后即可看到结果。网络状况良好时，实时字幕几乎与说话同步，整体延迟极低。
             </p>
           </details>
           <details class="faq-item reveal">
-            <summary>AI 润色功能需要额外费用吗？</summary>
+            <summary>离线状态下能使用吗？</summary>
             <p>
-              AI 润色通过 Azure OpenAI 提供。使用自己的 Azure OpenAI 密钥时，费用按 token
-              实际消耗计算，通常极低。演示模式下内置配额可免费体验，超出后请配置自有密钥。
+              语音识别依赖云端服务，需要网络连接。但已识别的文字、快捷短语和自定义词典均保存在本地，断网后仍可查看历史记录和编辑已有内容。
             </p>
           </details>
           <details class="faq-item reveal">
-            <summary>录音结果如何插入到编辑器？</summary>
+            <summary>识别结果如何插入到编辑器？</summary>
             <p>
               识别完成后，文字会自动插入到当前光标所在位置，行为与普通键盘输入一致。同时支持通过命令面板（<kbd
                 >Ctrl/Cmd + Shift + P</kbd
-              >）调用「言墨：开始录音」随时触发。
+              >）调用「言墨：开始识别」随时触发。
             </p>
-          </details>
-          <details class="faq-item reveal">
-            <summary>自动润色和快捷短语保存在哪里？</summary>
-            <p>所有数据以 JSON 文件形式保存在本地。数据不会上传到任何服务器，您可以随时备份或迁移。</p>
           </details>
         </div>
       </div>

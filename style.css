@@ -22,9 +22,9 @@
   --ink-wash-3:   rgba(26, 20, 16, 0.22);
 
   /* 千里江山 · 青绿山水色系 */
-  --qljsh-azure:    #1e4d7a;   /* 石青·深 */
-  --qljsh-azure-md: #2e6da4;   /* 石青·中 */
-  --qljsh-azure-lt: #7bafd4;   /* 石青·淡 */
+  --qljsh-azure:    #6a9ab8;   /* 石青·深 */
+  --qljsh-azure-md: #7bafd4;   /* 石青·中 */
+  --qljsh-azure-lt: #a8cfe0;   /* 石青·淡 */
   --qljsh-mala:     #2a5c3a;   /* 石绿·深 */
   --qljsh-mala-md:  #3d7a50;   /* 石绿·中 */
   --qljsh-mala-lt:  #82b898;   /* 石绿·淡 */
@@ -49,7 +49,7 @@
 html { scroll-behavior: smooth; }
 
 body {
-  background: linear-gradient(to bottom, #ede3d6 0%, #f5f0eb 25%, #faf7f3 55%, #f7f3ef 100%);
+  background: #faf7f3;
   color: var(--ink-black);
   font-family: var(--font-sans);
   font-weight: 300;
@@ -237,14 +237,18 @@ section { position: relative; z-index: 1; }
   left: 0;
   right: 0;
   z-index: 100;
-  padding: 18px 0;
+  padding: 16px 0;
+  background: rgba(250, 247, 243, 0.82);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(26, 20, 16, 0.08), 0 2px 16px rgba(26, 20, 16, 0.06);
   transition: background 0.35s, backdrop-filter 0.35s, box-shadow 0.35s;
 }
 .navbar.scrolled {
-  background: rgba(245, 240, 235, 0.88);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  box-shadow: 0 1px 0 var(--ink-wash-2);
+  background: rgba(245, 240, 235, 0.96);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 1px 0 rgba(26, 20, 16, 0.10), 0 4px 24px rgba(26, 20, 16, 0.08);
 }
 .nav-inner {
   max-width: var(--container-w);
@@ -268,6 +272,8 @@ section { position: relative; z-index: 1; }
   overflow: hidden;
   display: grid;
   place-items: center;
+  background: rgba(255, 255, 255, 0.92);
+  padding: 4px;
 }
 .logo-icon img {
   width: 100%;
@@ -277,8 +283,8 @@ section { position: relative; z-index: 1; }
 }
 .logo-text {
   font-family: var(--font-serif);
-  font-size: 18px;
-  font-weight: 500;
+  font-size: 20px;
+  font-weight: 600;
   color: var(--ink-black);
   letter-spacing: 0.06em;
 }
@@ -288,9 +294,10 @@ section { position: relative; z-index: 1; }
   gap: 32px;
 }
 .nav-links a {
-  color: var(--ink-soft);
+  color: rgba(26, 20, 16, 0.55);
   text-decoration: none;
   font-size: 14px;
+  font-weight: 500;
   transition: color 0.2s;
   letter-spacing: 0.04em;
 }
@@ -316,36 +323,38 @@ section { position: relative; z-index: 1; }
 }
 .hero-badge {
   display: inline-block;
-  font-size: 11px;
-  letter-spacing: 0.2em;
+  font-size: 12px;
+  letter-spacing: 0.18em;
   text-transform: uppercase;
   color: var(--ink-accent);
-  background: rgba(122,58,16,0.06);
-  border: 1px solid rgba(122,58,16,0.18);
+  background: rgba(122,58,16,0.09);
+  border: 1.5px solid rgba(122,58,16,0.30);
   border-radius: 100px;
-  padding: 6px 18px;
-  margin-bottom: 32px;
+  padding: 7px 22px;
+  margin-bottom: 36px;
+  font-weight: 500;
 }
 .hero-title {
   font-family: var(--font-serif);
-  font-size: clamp(52px, 9vw, 96px);
-  font-weight: 500;
-  line-height: 1.15;
-  letter-spacing: 0.04em;
-  margin-bottom: 8px;
+  font-size: clamp(60px, 10vw, 112px);
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.06em;
+  margin-bottom: 12px;
   display: flex;
   flex-direction: column;
-  gap: 4px;
+  gap: 6px;
 }
 .hero-title .line { display: block; }
 .hero-title .ink-accent { color: var(--ink-accent); }
 
 .hero-sub {
-  font-size: clamp(15px, 2vw, 18px);
-  color: var(--ink-soft);
+  font-size: clamp(16px, 2vw, 20px);
+  color: var(--ink-mid);
   max-width: 480px;
   line-height: 1.8;
   margin-bottom: 10px;
+  font-weight: 400;
 }
 .hero-cta {
   display: flex;
@@ -385,16 +394,18 @@ section { position: relative; z-index: 1; }
 }
 
 .mic-core {
-  width: 88px;
-  height: 88px;
-  background: #c05a2b;
+  width: 96px;
+  height: 96px;
+  background: linear-gradient(145deg, #d4652e, #b03028);
   border-radius: 50%;
   display: grid;
   place-items: center;
   color: #fff;
-  box-shadow: 0 8px 32px rgba(192, 90, 43, 0.40);
+  box-shadow:
+    0 8px 40px rgba(176, 48, 40, 0.50),
+    0 0 0 6px rgba(192, 90, 43, 0.12);
 }
-.mic-core svg { width: 40px; height: 40px; }
+.mic-core svg { width: 44px; height: 44px; }
 
 /* Ink Divider */
 .ink-divider {

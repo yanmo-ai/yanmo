@@ -1778,6 +1778,7 @@
         flex-direction: column;
         gap: 6px;
         overflow: hidden;
+        padding-bottom: 2px;
       }
       .vsc-mic-row {
         display: flex;
@@ -1850,8 +1851,7 @@
         color: #c8c8c8;
         line-height: 1.52;
         font-family: var(--sans);
-        height: 120px;
-        min-height: 120px;
+        min-height: 60px;
         overflow-y: auto;
         overflow-x: hidden;
       }
@@ -1861,15 +1861,12 @@
         color: #7ee787;
       }
       .vsc-panel-body > .vsc-box {
-        flex: 0 0 auto;
+        flex: 1 1 0;
         min-height: 0;
         overflow-y: auto;
       }
-      .vsc-panel-body > .vsc-box:first-of-type {
-        height: calc(43% - 3px);
-      }
       .vsc-panel-body > .vsc-box.green {
-        height: calc(53% - 3px);
+        flex: 1.3 1 0;
       }
       .vsc-box::-webkit-scrollbar {
         width: 10px;
@@ -2314,7 +2311,6 @@
           <li><a href="#hero">主页</a></li>
           <li><a href="#overview">功能概览</a></li>
           <li><a href="#demo">应用演示</a></li>
-          <li><a href="#vscode-ext">扩展支持</a></li>
           <li><a href="#recording">详情介绍</a></li>
           <li><a href="#faq">常见问题</a></li>
         </ul>
@@ -2336,10 +2332,6 @@
           <a href="#" class="btn-download-platform">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M0 3.449L9.75 2.1v9.451H0m10.949-9.602L24 0v11.4H10.949M0 12.6h9.75v9.451L0 20.699M10.949 12.6H24V24l-12.9-1.801"/></svg>
             下载 Windows 版
-          </a>
-          <a href="#vscode-ext" class="btn-download-platform" style="background:#007acc;">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M17.6 1 7.1 11l-4.6-3.5L0 8.8l4.9 4.5L0 17.8l2.5 1.3L7 15.6 17.6 23 24 20.4V3.6L17.6 1zm.1 4.1v13.8l-6.5-5.6 6.5-8.2z"/></svg>
-            下载 VS Code 扩展
           </a>
           <a href="#" class="btn-download-platform" style="background:#005ea6;">
             <svg viewBox="0 0 24 24" width="18" height="18" fill="currentColor" xmlns="http://www.w3.org/2000/svg"><path d="M12.152 6.896c-.948 0-2.415-1.078-3.96-1.04-2.04.027-3.91 1.183-4.961 3.014-2.117 3.675-.546 9.103 1.519 12.09 1.013 1.454 2.208 3.09 3.792 3.039 1.52-.065 2.09-.987 3.935-.987 1.831 0 2.35.987 3.96.948 1.637-.026 2.676-1.48 3.676-2.948 1.156-1.688 1.636-3.325 1.662-3.415-.039-.013-3.182-1.221-3.22-4.857-.026-3.04 2.48-4.494 2.597-4.559-1.429-2.09-3.623-2.324-4.39-2.376-2-.156-3.675 1.09-4.61 1.09zM15.53 3.83c.843-1.012 1.4-2.427 1.245-3.83-1.207.052-2.662.805-3.532 1.818-.78.896-1.454 2.338-1.273 3.714 1.338.104 2.715-.688 3.559-1.701"/></svg>
@@ -2754,145 +2746,6 @@
     </section>
 
 
-    <!-- VS CODE EXTENSION -->
-    <section class="vscode-ext-section" id="vscode-ext">
-      <div class="container">
-        <div class="vsc-header reveal">
-          <div class="vsc-tag">
-            <img src="pic/vsicon.webp" alt="VS Code" width="14" height="14" />
-            VS Code Extension &#xB7; &#x5DF2;&#x4E0A;&#x67B6; Marketplace
-          </div>
-          <h2 class="vsc-title">&#x4EE3;&#x7801;&#x7F16;&#x8F91;&#x5668;&#x91CC;&#x7684;<br />&#x8BED;&#x97F3;&#x8F93;&#x5165;&#x52A9;&#x624B;</h2>
-          <p class="vsc-sub">&#x65E0;&#x9700;&#x5207;&#x6362;&#x7A97;&#x53E3;&#xFF0C;&#x76F4;&#x63A5;&#x5728; VS Code &#x5185;&#x5F00;&#x53E3;&#x8BF4;&#x8BDD;&#x3002;&#x8BED;&#x97F3;&#x5B9E;&#x65F6;&#x8F6C;&#x4E3A;&#x4EE3;&#x7801;&#x6CE8;&#x91CA;&#x3001;&#x6587;&#x6863;&#x3001;&#x63D0;&#x4EA4;&#x4FE1;&#x606F;&#xFF0C;Vibe Coding &#x65B0;&#x4F53;&#x9A8C;&#x3002;</p>
-        </div>
-
-        <div class="vsc-body reveal">
-          <!-- VS Code editor mockup -->
-          <div class="vsc-editor-window">
-            <div class="vsc-titlebar">
-              <span class="vsc-dot vsc-dot-r"></span>
-              <span class="vsc-dot vsc-dot-y"></span>
-              <span class="vsc-dot vsc-dot-g"></span>
-              <span class="vsc-winlabel">parser.py &#x2014; yanmo &#x2014; Visual Studio Code</span>
-            </div>
-            <div class="vsc-editor-body">
-              <!-- Activity bar -->
-              <div class="vsc-activity-bar">
-                <div class="vsc-ab-icon active">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h18v18H3z"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
-                </div>
-                <div class="vsc-ab-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
-                </div>
-                <div class="vsc-ab-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-                </div>
-                <div class="vsc-ab-spacer"></div>
-                <div class="vsc-ab-icon yanmo" title="言墨">
-                  <img src="favicon.png" alt="言墨" />
-                </div>
-                <div class="vsc-ab-icon">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
-                </div>
-              </div>
-
-              <!-- 言墨 Side Panel -->
-              <div class="vsc-panel">
-                <div class="vsc-panel-title">&#x8A00;&#x58A8; &#xB7; &#x5F55;&#x97F3;</div>
-                <div class="vsc-panel-body">
-                  <div class="vsc-mic-row">
-                    <div class="vsc-mic-btn">
-                      <svg viewBox="0 0 24 24" fill="white"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/><line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="23" x2="16" y2="23" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-                    </div>
-                  </div>
-                  <div class="vsc-status-line">&#x8BC6;&#x522B;&#x4E2D;&#x2026;</div>
-                  <div class="vsc-wave">
-                    <div class="vsc-wave-bar"></div><div class="vsc-wave-bar"></div>
-                    <div class="vsc-wave-bar"></div><div class="vsc-wave-bar"></div>
-                    <div class="vsc-wave-bar"></div><div class="vsc-wave-bar"></div>
-                    <div class="vsc-wave-bar"></div><div class="vsc-wave-bar"></div>
-                  </div>
-                  <div class="vsc-box">
-                    <div class="vsc-box-label" style="color:#9d9d9d;">&#x53E3;&#x8BED;&#x539F;&#x6587;</div>
-                    <div class="vsc-box-content demo-step raw1">&#x7ED9; parse_input &#x548C; format_table &#x90FD;&#x8865;&#x4E0A;&#x8BE6;&#x7EC6;&#x6CE8;&#x91CA;</div>
-                    <div class="vsc-box-content demo-step raw2">&#x52A0;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x6253;&#x5370;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x5143;&#x7D20;</div>
-                  </div>
-                  <div class="vsc-box green">
-                    <div class="vsc-box-label" style="color:#7ee787;">AI &#x6DA6;&#x8272;</div>
-                    <div class="vsc-box-content demo-step polish1">&#x4E3A; parse_input &#x4E0E; format_table &#x5206;&#x522B;&#x8865;&#x5168;&#x8BE6;&#x7EC6;&#x6CE8;&#x91CA;&#xFF0C;&#x8BF4;&#x660E;&#x53C2;&#x6570;&#x3001;&#x8F93;&#x51FA;&#x4E0E;&#x5904;&#x7406;&#x76EE;&#x7684;&#x3002;</div>
-                    <div class="vsc-box-content demo-step polish2">&#x5728;&#x73B0;&#x6709;&#x4EE3;&#x7801;&#x540E;&#x63D2;&#x5165; print_each_element(arr)&#xFF0C;&#x9010;&#x9879;&#x8F93;&#x51FA;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x3002;</div>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Code editor -->
-              <div class="vsc-editor-area">
-                <div class="vsc-tabs">
-                  <div class="vsc-tab active" data-view="parser">parser.py</div>
-                </div>
-                <div class="vsc-code-area">
-                  <div class="vsc-code-view active" data-view="parser">
-                    <div class="vsc-code-line"><span class="vsc-ln">1</span><span class="cl-cmt"># parser.py</span></div>
-                    <div class="vsc-code-line"><span class="vsc-ln">2</span>&nbsp;</div>
-                    <div class="vsc-code-line vsc-inserted demo-step s1"><span class="vsc-ln">3</span><span class="cl-cmt"># parse_input: Parse a 'name|value' input string into a structured dictionary.</span></div>
-                    <div class="vsc-code-line"><span class="vsc-ln">4</span><span class="cl-kw">def</span><span class="cl-def">&nbsp;</span><span class="cl-fn">parse_input</span><span class="cl-def">(</span><span class="cl-var">raw</span><span class="cl-def">):</span></div>
-                    <div class="vsc-code-line"><span class="vsc-ln">5</span><span class="cl-def">&nbsp;&nbsp;</span><span class="cl-var">parts</span><span class="cl-def"> = </span><span class="cl-var">raw</span><span class="cl-def">.</span><span class="cl-fn">split</span><span class="cl-def">(</span><span class="cl-str">"|"</span><span class="cl-def">)</span></div>
-                    <div class="vsc-code-line"><span class="vsc-ln">6</span><span class="cl-def">&nbsp;&nbsp;</span><span class="cl-kw">return </span><span class="cl-def">{</span><span class="cl-str">"name"</span><span class="cl-def">: </span><span class="cl-var">parts</span><span class="cl-def">[0], </span><span class="cl-str">"value"</span><span class="cl-def">: </span><span class="cl-var">parts</span><span class="cl-def">[1]}</span></div>
-                    <div class="vsc-code-line"><span class="vsc-ln">7</span>&nbsp;</div>
-                    <div class="vsc-code-line vsc-inserted demo-step s1b"><span class="vsc-ln">8</span><span class="cl-cmt"># format_table: Build newline-delimited table text from 2D row data.</span></div>
-                    <div class="vsc-code-line"><span class="vsc-ln">9</span><span class="cl-kw">def</span><span class="cl-def">&nbsp;</span><span class="cl-fn">format_table</span><span class="cl-def">(</span><span class="cl-var">rows</span><span class="cl-def">):</span></div>
-                    <div class="vsc-code-line"><span class="vsc-ln">10</span><span class="cl-def">&nbsp;&nbsp;</span><span class="cl-kw">return</span><span class="cl-def">&nbsp;</span><span class="cl-str">"\n"</span><span class="cl-def">.</span><span class="cl-fn">join</span><span class="cl-def">([</span><span class="cl-str">" | "</span><span class="cl-def">.</span><span class="cl-fn">join</span><span class="cl-def">(</span><span class="cl-var">row</span><span class="cl-def">)</span><span class="cl-def">&nbsp;</span><span class="cl-kw">for</span><span class="cl-def">&nbsp;</span><span class="cl-var">row</span><span class="cl-def">&nbsp;</span><span class="cl-kw">in</span><span class="cl-def">&nbsp;</span><span class="cl-var">rows</span><span class="cl-def">])</span></div>
-                    <div class="vsc-code-line"><span class="vsc-ln">11</span>&nbsp;</div>
-                    <div class="vsc-code-line vsc-inserted demo-step s2"><span class="vsc-ln">12</span><span class="cl-kw">def</span><span class="cl-def">&nbsp;</span><span class="cl-fn">print_each_element</span><span class="cl-def">(</span><span class="cl-var">arr</span><span class="cl-def">):</span></div>
-                    <div class="vsc-code-line vsc-inserted demo-step s2"><span class="vsc-ln">13</span><span class="cl-def">&nbsp;&nbsp;</span><span class="cl-kw">for</span><span class="cl-def">&nbsp;</span><span class="cl-var">item</span><span class="cl-def">&nbsp;</span><span class="cl-kw">in</span><span class="cl-def">&nbsp;</span><span class="cl-var">arr</span><span class="cl-def">:</span></div>
-                    <div class="vsc-code-line vsc-inserted demo-step s2"><span class="vsc-ln">14</span><span class="cl-def">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cl-fn">print</span><span class="cl-def">(</span><span class="cl-var">item</span><span class="cl-def">)</span></div>
-                  </div>
-                </div>
-                <div class="vsc-statusbar">
-                  <div class="vsc-sb-yanmo">
-                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/></svg>
-                    &#x8A00;&#x58A8; &#xB7; &#x5F55;&#x97F3;&#x4E2D;
-                  </div>
-                  <span style="opacity:0.5;">Python</span>
-                  <div class="vsc-sb-right"><span style="opacity:0.6;">Ln 5, Col 1</span></div>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <!-- Feature cards -->
-          <div class="vsc-features">
-            <div class="vsc-feat-card vibe">
-              <div class="vfc-icon" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/><line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="23" x2="16" y2="23" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
-              </div>
-              <div class="vfc-title">Vibe Coding &#x6A21;&#x5F0F;</div>
-              <div class="vfc-desc">&#x8BF4;&#x51FA;&#x4F60;&#x60F3;&#x5B9E;&#x73B0;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x8A00;&#x58A8;&#x5C06;&#x53E3;&#x8BED;&#x8F6C;&#x4E3A;&#x6280;&#x672F;&#x63CF;&#x8FF0;&#xFF0C;&#x914D;&#x5408; &#x7B49; AI &#x8865;&#x5168;&#x5DE5;&#x5177;&#xFF0C;&#x8BA9;&#x300C;&#x5148;&#x8BF4;&#x540E;&#x5199;&#x300D;&#x771F;&#x6B63;&#x843D;&#x5730;&#x3002;&#x58F0;&#x97F3;&#x662F;&#x6700;&#x81EA;&#x7136;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x3002;</div>
-              <div class="vfc-vibe-badge">✨ Vibe Coding</div>
-            </div>
-
-            <!-- Install strip -->
-            <div class="vsc-install-strip reveal">
-              <div class="vis-icon-wrap">
-                <img src="pic/vsicon.webp" alt="VS Code" width="32" height="32" />
-              </div>
-              <div class="vis-text">
-                <div class="vis-title">&#x7ACB;&#x5373;&#x5B89;&#x88C5; &#x8A00;&#x58A8; for VS Code</div>
-                <div class="vis-desc">&#x5728; VS Code &#x6269;&#x5C55;&#x5E02;&#x573A;&#x641C;&#x7D22; <strong>&#x8A00;&#x58A8;</strong>&#xFF0C;&#x4E00;&#x952E;&#x5B89;&#x88C5;&#x5373;&#x53EF;&#x4F7F;&#x7528;&#x3002;&#x652F;&#x6301; VS Code 插件</div>
-              </div>
-              <div class="vis-actions">
-                <div class="vis-note">&#x4E5F;&#x53EF;&#x5728;&#x6269;&#x5C55;&#x5E02;&#x573A;&#x641C;&#x7D22;&#x300C;&#x8A00;&#x58A8;&#x300D;</div>
-                <a href="#" class="vis-btn">
-                  <img src="pic/vsicon.webp" alt="" width="14" height="14" />
-                  &#x5728; VS Code &#x4E2D;&#x5B89;&#x88C5;
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
 
     <!-- APP SHOWCASE -->
     <section class="overview-section overview-app-section">
@@ -2900,7 +2753,7 @@
         <!-- 桌面应用展示 -->
         <div class="ovr-app-divider reveal">
           <div class="ovr-app-heading">
-            <div class="ovr-tag">桌面应用</div>
+            <div class="ovr-tag">app应用</div>
             <h3 class="ovr-app-title">麦克风代替键盘，重构工作方式</h3>
             <p class="ovr-app-desc">按下快捷键即可开口，自动转录润色，文字插入光标。</p>
           </div>
@@ -3051,7 +2904,7 @@
                   </div>
                   <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px 12px;font-size:12px;color:rgba(255,255,255,0.5);line-height:1.6;font-style:italic;">
                     <div class="rec-live-text">
-                      <span class="rec-live-line raw"><span class="rec-line-tag">识别</span>那个嗯就是把那个数组啊遍历一下然后呢把空的那些过滤掉<span style="display:inline-block;width:2px;height:13px;background:rgba(255,255,255,0.6);margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite;"></span></span>
+                      <span class="rec-live-line raw"><span class="rec-line-tag">语音</span>那个嗯就是把那个数组啊遍历一下然后呢把空的那些过滤掉<span style="display:inline-block;width:2px;height:13px;background:rgba(255,255,255,0.6);margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite;"></span></span>
                       <span class="rec-live-line punc"><span class="rec-line-tag">识别</span>那个，嗯，就是把那个数组啊，遍历一下，然后呢，把空的那些过滤掉。<span style="display:inline-block;width:2px;height:13px;background:rgba(255,255,255,0.6);margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite;"></span></span>
                       <span class="rec-live-line polish"><span class="rec-line-tag">润色</span>把数组遍历一遍，再过滤掉其中的空值。<span style="display:inline-block;width:2px;height:13px;background:rgba(201,168,124,0.9);margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite;"></span></span>
                     </div>
@@ -3093,6 +2946,145 @@
       </div>
     </section>
 
+
+    <!-- VS CODE EXTENSION -->
+    <section class="vscode-ext-section" id="vscode-ext">
+      <div class="container">
+        <div class="vsc-header reveal">
+          <div class="vsc-tag">
+            <img src="pic/vsicon.webp" alt="VS Code" width="14" height="14" />
+            VS Code Extension &#xB7; &#x5DF2;&#x4E0A;&#x67B6; Marketplace
+          </div>
+          <h2 class="vsc-title">&#x4EE3;&#x7801;&#x7F16;&#x8F91;&#x5668;&#x91CC;&#x7684;<br />&#x8BED;&#x97F3;&#x8F93;&#x5165;&#x52A9;&#x624B;</h2>
+          <p class="vsc-sub">&#x65E0;&#x9700;&#x5207;&#x6362;&#x7A97;&#x53E3;&#xFF0C;&#x76F4;&#x63A5;&#x5728; VS Code &#x5185;&#x5F00;&#x53E3;&#x8BF4;&#x8BDD;&#x3002;&#x8BED;&#x97F3;&#x5B9E;&#x65F6;&#x8F6C;&#x4E3A;&#x4EE3;&#x7801;&#x6CE8;&#x91CA;&#x3001;&#x6587;&#x6863;&#x3001;&#x63D0;&#x4EA4;&#x4FE1;&#x606F;&#xFF0C;Vibe Coding &#x65B0;&#x4F53;&#x9A8C;&#x3002;</p>
+        </div>
+
+        <div class="vsc-body reveal">
+          <!-- VS Code editor mockup -->
+          <div class="vsc-editor-window">
+            <div class="vsc-titlebar">
+              <span class="vsc-dot vsc-dot-r"></span>
+              <span class="vsc-dot vsc-dot-y"></span>
+              <span class="vsc-dot vsc-dot-g"></span>
+              <span class="vsc-winlabel">parser.py &#x2014; yanmo &#x2014; Visual Studio Code</span>
+            </div>
+            <div class="vsc-editor-body">
+              <!-- Activity bar -->
+              <div class="vsc-activity-bar">
+                <div class="vsc-ab-icon active">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 3h18v18H3z"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+                </div>
+                <div class="vsc-ab-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+                </div>
+                <div class="vsc-ab-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+                </div>
+                <div class="vsc-ab-spacer"></div>
+                <div class="vsc-ab-icon yanmo" title="言墨">
+                  <img src="favicon.png" alt="言墨" />
+                </div>
+                <div class="vsc-ab-icon">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="3"/><path d="M19.07 4.93a10 10 0 0 1 0 14.14"/></svg>
+                </div>
+              </div>
+
+              <!-- 言墨 Side Panel -->
+              <div class="vsc-panel">
+                <div class="vsc-panel-title">&#x8A00;&#x58A8; &#xB7; &#x5F55;&#x97F3;</div>
+                <div class="vsc-panel-body">
+                  <div class="vsc-mic-row">
+                    <div class="vsc-mic-btn">
+                      <svg viewBox="0 0 24 24" fill="white"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/><line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="23" x2="16" y2="23" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                    </div>
+                  </div>
+                  <div class="vsc-status-line">&#x8BC6;&#x522B;&#x4E2D;&#x2026;</div>
+                  <div class="vsc-wave">
+                    <div class="vsc-wave-bar"></div><div class="vsc-wave-bar"></div>
+                    <div class="vsc-wave-bar"></div><div class="vsc-wave-bar"></div>
+                    <div class="vsc-wave-bar"></div><div class="vsc-wave-bar"></div>
+                    <div class="vsc-wave-bar"></div><div class="vsc-wave-bar"></div>
+                  </div>
+                  <div class="vsc-box">
+                    <div class="vsc-box-label" style="color:#9d9d9d;">&#x53E3;&#x8BED;&#x539F;&#x6587;</div>
+                    <div class="vsc-box-content demo-step raw1">&#x7ED9; parse_input &#x548C; format_table &#x90FD;&#x8865;&#x4E0A;&#x8BE6;&#x7EC6;&#x6CE8;&#x91CA;</div>
+                    <div class="vsc-box-content demo-step raw2">&#x52A0;&#x4E00;&#x4E2A;&#x51FD;&#x6570;&#xFF0C;&#x6253;&#x5370;&#x6570;&#x7EC4;&#x4E2D;&#x7684;&#x6BCF;&#x4E00;&#x4E2A;&#x5143;&#x7D20;</div>
+                  </div>
+                  <div class="vsc-box green">
+                    <div class="vsc-box-label" style="color:#7ee787;">AI &#x6DA6;&#x8272;</div>
+                    <div class="vsc-box-content demo-step polish1">&#x4E3A; parse_input &#x4E0E; format_table &#x5206;&#x522B;&#x8865;&#x5168;&#x8BE6;&#x7EC6;&#x6CE8;&#x91CA;&#xFF0C;&#x8BF4;&#x660E;&#x53C2;&#x6570;&#x3001;&#x8F93;&#x51FA;&#x4E0E;&#x5904;&#x7406;&#x76EE;&#x7684;&#x3002;</div>
+                    <div class="vsc-box-content demo-step polish2">&#x5728;&#x73B0;&#x6709;&#x4EE3;&#x7801;&#x540E;&#x63D2;&#x5165; print_each_element(arr)&#xFF0C;&#x9010;&#x9879;&#x8F93;&#x51FA;&#x6570;&#x7EC4;&#x5143;&#x7D20;&#x3002;</div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Code editor -->
+              <div class="vsc-editor-area">
+                <div class="vsc-tabs">
+                  <div class="vsc-tab active" data-view="parser">parser.py</div>
+                </div>
+                <div class="vsc-code-area">
+                  <div class="vsc-code-view active" data-view="parser">
+                    <div class="vsc-code-line"><span class="vsc-ln">1</span><span class="cl-cmt"># parser.py</span></div>
+                    <div class="vsc-code-line"><span class="vsc-ln">2</span>&nbsp;</div>
+                    <div class="vsc-code-line vsc-inserted demo-step s1"><span class="vsc-ln">3</span><span class="cl-cmt"># parse_input: Parse a 'name|value' input string into a structured dictionary.</span></div>
+                    <div class="vsc-code-line"><span class="vsc-ln">4</span><span class="cl-kw">def</span><span class="cl-def">&nbsp;</span><span class="cl-fn">parse_input</span><span class="cl-def">(</span><span class="cl-var">raw</span><span class="cl-def">):</span></div>
+                    <div class="vsc-code-line"><span class="vsc-ln">5</span><span class="cl-def">&nbsp;&nbsp;</span><span class="cl-var">parts</span><span class="cl-def"> = </span><span class="cl-var">raw</span><span class="cl-def">.</span><span class="cl-fn">split</span><span class="cl-def">(</span><span class="cl-str">"|"</span><span class="cl-def">)</span></div>
+                    <div class="vsc-code-line"><span class="vsc-ln">6</span><span class="cl-def">&nbsp;&nbsp;</span><span class="cl-kw">return </span><span class="cl-def">{</span><span class="cl-str">"name"</span><span class="cl-def">: </span><span class="cl-var">parts</span><span class="cl-def">[0], </span><span class="cl-str">"value"</span><span class="cl-def">: </span><span class="cl-var">parts</span><span class="cl-def">[1]}</span></div>
+                    <div class="vsc-code-line"><span class="vsc-ln">7</span>&nbsp;</div>
+                    <div class="vsc-code-line vsc-inserted demo-step s1b"><span class="vsc-ln">8</span><span class="cl-cmt"># format_table: Build newline-delimited table text from 2D row data.</span></div>
+                    <div class="vsc-code-line"><span class="vsc-ln">9</span><span class="cl-kw">def</span><span class="cl-def">&nbsp;</span><span class="cl-fn">format_table</span><span class="cl-def">(</span><span class="cl-var">rows</span><span class="cl-def">):</span></div>
+                    <div class="vsc-code-line"><span class="vsc-ln">10</span><span class="cl-def">&nbsp;&nbsp;</span><span class="cl-kw">return</span><span class="cl-def">&nbsp;</span><span class="cl-str">"\n"</span><span class="cl-def">.</span><span class="cl-fn">join</span><span class="cl-def">([</span><span class="cl-str">" | "</span><span class="cl-def">.</span><span class="cl-fn">join</span><span class="cl-def">(</span><span class="cl-var">row</span><span class="cl-def">)</span><span class="cl-def">&nbsp;</span><span class="cl-kw">for</span><span class="cl-def">&nbsp;</span><span class="cl-var">row</span><span class="cl-def">&nbsp;</span><span class="cl-kw">in</span><span class="cl-def">&nbsp;</span><span class="cl-var">rows</span><span class="cl-def">])</span></div>
+                    <div class="vsc-code-line"><span class="vsc-ln">11</span>&nbsp;</div>
+                    <div class="vsc-code-line vsc-inserted demo-step s2"><span class="vsc-ln">12</span><span class="cl-kw">def</span><span class="cl-def">&nbsp;</span><span class="cl-fn">print_each_element</span><span class="cl-def">(</span><span class="cl-var">arr</span><span class="cl-def">):</span></div>
+                    <div class="vsc-code-line vsc-inserted demo-step s2"><span class="vsc-ln">13</span><span class="cl-def">&nbsp;&nbsp;</span><span class="cl-kw">for</span><span class="cl-def">&nbsp;</span><span class="cl-var">item</span><span class="cl-def">&nbsp;</span><span class="cl-kw">in</span><span class="cl-def">&nbsp;</span><span class="cl-var">arr</span><span class="cl-def">:</span></div>
+                    <div class="vsc-code-line vsc-inserted demo-step s2"><span class="vsc-ln">14</span><span class="cl-def">&nbsp;&nbsp;&nbsp;&nbsp;</span><span class="cl-fn">print</span><span class="cl-def">(</span><span class="cl-var">item</span><span class="cl-def">)</span></div>
+                  </div>
+                </div>
+                <div class="vsc-statusbar">
+                  <div class="vsc-sb-yanmo">
+                    <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/></svg>
+                    &#x8A00;&#x58A8; &#xB7; &#x5F55;&#x97F3;&#x4E2D;
+                  </div>
+                  <span style="opacity:0.5;">Python</span>
+                  <div class="vsc-sb-right"><span style="opacity:0.6;">Ln 5, Col 1</span></div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Feature cards -->
+          <div class="vsc-features">
+            <div class="vsc-feat-card vibe">
+              <div class="vfc-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="white" aria-hidden="true"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/><line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="23" x2="16" y2="23" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+              </div>
+              <div class="vfc-title">Vibe Coding &#x6A21;&#x5F0F;</div>
+              <div class="vfc-desc">&#x8BF4;&#x51FA;&#x4F60;&#x60F3;&#x5B9E;&#x73B0;&#x7684;&#x529F;&#x80FD;&#xFF0C;&#x8A00;&#x58A8;&#x5C06;&#x53E3;&#x8BED;&#x8F6C;&#x4E3A;&#x6280;&#x672F;&#x63CF;&#x8FF0;&#xFF0C;&#x914D;&#x5408; &#x7B49; AI &#x8865;&#x5168;&#x5DE5;&#x5177;&#xFF0C;&#x8BA9;&#x300C;&#x5148;&#x8BF4;&#x540E;&#x5199;&#x300D;&#x771F;&#x6B63;&#x843D;&#x5730;&#x3002;&#x58F0;&#x97F3;&#x662F;&#x6700;&#x81EA;&#x7136;&#x7684;&#x7F16;&#x7A0B;&#x8BED;&#x8A00;&#x3002;</div>
+              <div class="vfc-vibe-badge">✨ Vibe Coding</div>
+            </div>
+
+            <!-- Install strip -->
+            <div class="vsc-install-strip reveal">
+              <div class="vis-icon-wrap">
+                <img src="pic/vsicon.webp" alt="VS Code" width="32" height="32" />
+              </div>
+              <div class="vis-text">
+                <div class="vis-title">&#x7ACB;&#x5373;&#x5B89;&#x88C5; &#x8A00;&#x58A8; for VS Code</div>
+                <div class="vis-desc">&#x5728; VS Code &#x6269;&#x5C55;&#x5E02;&#x573A;&#x641C;&#x7D22; <strong>&#x8A00;&#x58A8;</strong>&#xFF0C;&#x4E00;&#x952E;&#x5B89;&#x88C5;&#x5373;&#x53EF;&#x4F7F;&#x7528;&#x3002;&#x652F;&#x6301; VS Code 插件</div>
+              </div>
+              <div class="vis-actions">
+                <div class="vis-note">&#x4E5F;&#x53EF;&#x5728;&#x6269;&#x5C55;&#x5E02;&#x573A;&#x641C;&#x7D22;&#x300C;&#x8A00;&#x58A8;&#x300D;</div>
+                <a href="#" class="vis-btn">
+                  <img src="pic/vsicon.webp" alt="" width="14" height="14" />
+                  &#x5728; VS Code &#x4E2D;&#x5B89;&#x88C5;
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
     <!-- FEATURE 1.5 · 言墨智能增强 -->
     <section class="feat-section" id="yanmo">
       <!-- 千里江山·青绿山影（智能=山色郁葱） -->

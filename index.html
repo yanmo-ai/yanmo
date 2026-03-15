@@ -430,46 +430,62 @@
         justify-content: center;
         padding: 8px 24px;
       }
-      .mic-row {
+      .rec-mic-stage {
         display: flex;
-        align-items: center;
-        gap: 16px;
+        flex-direction: column;
+        gap: 12px;
       }
-      .mic-dots {
+      .rec-mic-row {
         display: flex;
-        gap: 5px;
+        flex-direction: column;
         align-items: center;
+        gap: 10px;
       }
-      .mic-dots span {
-        display: block;
-        width: 5px;
-        height: 5px;
-        border-radius: 50%;
-        background: #e0a0a0;
-        opacity: 0.5;
-      }
-      .mic-dots.more span {
-        opacity: 0.3;
-      }
-      .mic-dots span:nth-child(3) {
-        opacity: 0.7;
-      }
-      .mic-btn {
-        width: 64px;
-        height: 64px;
+      .rec-mic-btn {
+        width: 42px;
+        height: 42px;
         border-radius: 50%;
         background: #c04040;
         display: flex;
         align-items: center;
         justify-content: center;
-        box-shadow: 0 4px 20px rgba(192, 64, 64, 0.4);
+        box-shadow: 0 0 0 6px rgba(192,64,64,0.18), 0 4px 16px rgba(192,64,64,0.4);
+        animation: vsc-mic-pulse 2s ease-in-out infinite;
         flex-shrink: 0;
       }
-      .mic-btn svg {
-        width: 26px;
-        height: 26px;
+      .rec-mic-btn svg {
+        width: 18px;
+        height: 18px;
         color: white;
       }
+      .rec-live-status {
+        font-size: 11px;
+        font-weight: 600;
+        color: rgba(255,255,255,0.76);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+      .rec-wave {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 3px;
+        height: 18px;
+      }
+      .rec-wave-bar {
+        width: 3px;
+        background: rgba(201,168,124,0.75);
+        border-radius: 2px;
+        animation: vsc-wave-a 1.15s ease-in-out infinite;
+      }
+      .rec-wave-bar:nth-child(1){height:30%;animation-delay:0s}
+      .rec-wave-bar:nth-child(2){height:60%;animation-delay:0.1s}
+      .rec-wave-bar:nth-child(3){height:90%;animation-delay:0.2s}
+      .rec-wave-bar:nth-child(4){height:50%;animation-delay:0.15s}
+      .rec-wave-bar:nth-child(5){height:75%;animation-delay:0.3s}
+      .rec-wave-bar:nth-child(6){height:40%;animation-delay:0.05s}
+      .rec-wave-bar:nth-child(7){height:65%;animation-delay:0.25s}
+      .rec-wave-bar:nth-child(8){height:85%;animation-delay:0.1s}
 
       /* STATS GRID */
       .win-stats {
@@ -1366,15 +1382,6 @@
       }
       .dtr-text.raw { color: #666; }
       .dtr-text.polished { color: #d4c4a8; }
-      .dtr-text .dtr-cursor {
-        display: inline-block;
-        width: 2px;
-        height: 14px;
-        background: #c9a87c;
-        margin-left: 2px;
-        vertical-align: text-bottom;
-        animation: blink 1s step-end infinite;
-      }
       .dtr-divider {
         height: 1px;
         background: rgba(255,255,255,0.04);
@@ -1460,41 +1467,73 @@
       .rec-live-text {
         display: flex;
         flex-direction: column;
-        gap: 6px;
-        min-height: 66px;
+        gap: 8px;
+        min-height: 88px;
       }
       .rec-live-line {
+        display: flex;
+        align-items: flex-start;
+        gap: 8px;
         opacity: 0;
-        transform: translateY(4px);
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
+        transform: translateY(8px);
+        filter: blur(3px);
+        line-height: 1.55;
       }
-      .rec-live-line.raw { animation: rec-append-1 12s ease-in-out infinite; }
-      .rec-live-line.punc { color: rgba(255,255,255,0.72); animation: rec-append-2 12s ease-in-out infinite; }
-      .rec-live-line.polish { color: rgba(201,168,124,0.92); animation: rec-append-3 12s ease-in-out infinite; }
+      .rec-live-line.raw {
+        color: rgba(255,255,255,0.66);
+        animation: rec-live-raw 7.2s ease-in-out infinite;
+      }
+      .rec-live-line.punc {
+        color: rgba(255,255,255,0.82);
+        animation: rec-live-punc 7.2s ease-in-out infinite;
+      }
+      .rec-live-line.polish {
+        color: rgba(214,184,146,0.96);
+        animation: rec-live-polish 7.2s ease-in-out infinite;
+      }
+      .rec-live-content {
+        flex: 1;
+        min-width: 0;
+      }
       .rec-line-tag {
-        display: inline-block;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
         font-size: 10px;
         line-height: 1;
         border-radius: 999px;
-        padding: 3px 7px;
-        margin-right: 6px;
+        padding: 4px 7px;
+        margin-top: 1px;
         letter-spacing: 0.04em;
         font-style: normal;
+        flex-shrink: 0;
       }
       .rec-live-line.raw .rec-line-tag { background: rgba(255,255,255,0.1); color: rgba(255,255,255,0.7); }
-      .rec-live-line.punc .rec-line-tag { background: rgba(255,255,255,0.14); color: rgba(255,255,255,0.82); }
+      .rec-live-line.punc .rec-line-tag { background: rgba(255,255,255,0.14); color: rgba(255,255,255,0.84); }
       .rec-live-line.polish .rec-line-tag { background: rgba(201,168,124,0.22); color: rgba(214,184,146,0.96); }
       .rec-result-stack {
         display: flex;
         flex-direction: column;
-        gap: 8px;
+        gap: 10px;
       }
       .rec-result-line {
         display: flex;
         align-items: flex-start;
-        gap: 8px;
+        gap: 10px;
+        padding: 10px 12px;
+        border-radius: 10px;
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      .rec-result-line.rec {
+        background: rgba(26,20,16,0.03);
+        border: 1px solid rgba(26,20,16,0.08);
+        animation: rec-result-rec 7.2s ease-in-out infinite;
+      }
+      .rec-result-line.polish {
+        background: rgba(201,168,124,0.08);
+        border: 1px solid rgba(201,168,124,0.22);
+        animation: rec-result-polish 7.2s ease-in-out infinite;
       }
       .rec-result-tag {
         font-size: 10px;
@@ -1515,17 +1554,30 @@
       .rec-result-text {
         flex: 1;
       }
-      @keyframes rec-append-1 {
-        0%, 5% { opacity: 0; transform: translateY(4px); }
-        10%, 100% { opacity: 1; transform: translateY(0); }
+      @keyframes rec-live-raw {
+        0%, 10% { opacity: 0; transform: translateY(8px); filter: blur(3px); }
+        16%, 84% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        100% { opacity: 0; transform: translateY(-4px); filter: blur(2px); }
       }
-      @keyframes rec-append-2 {
-        0%, 34% { opacity: 0; transform: translateY(4px); }
-        40%, 100% { opacity: 1; transform: translateY(0); }
+      @keyframes rec-live-punc {
+        0%, 24% { opacity: 0; transform: translateY(8px); filter: blur(3px); }
+        30%, 88% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        100% { opacity: 0; transform: translateY(-4px); filter: blur(2px); }
       }
-      @keyframes rec-append-3 {
-        0%, 64% { opacity: 0; transform: translateY(4px); }
-        70%, 100% { opacity: 1; transform: translateY(0); }
+      @keyframes rec-live-polish {
+        0%, 42% { opacity: 0; transform: translateY(8px); filter: blur(3px); }
+        50%, 90% { opacity: 1; transform: translateY(0); filter: blur(0); }
+        100% { opacity: 0; transform: translateY(-4px); filter: blur(2px); }
+      }
+      @keyframes rec-result-rec {
+        0%, 56% { opacity: 0; transform: translateY(10px); }
+        64%, 92% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(-4px); }
+      }
+      @keyframes rec-result-polish {
+        0%, 66% { opacity: 0; transform: translateY(10px); }
+        74%, 94% { opacity: 1; transform: translateY(0); }
+        100% { opacity: 0; transform: translateY(-4px); }
       }
       /* phrase demo: 3-phrase cycle, 20s total, each phrase ~6.7s (33.3%)
          within each segment: trigger visible first half, result second half */
@@ -1927,16 +1979,6 @@
         margin-bottom: 5px;
         opacity: 0.55;
       }
-      .vsc-cursor {
-        display: inline-block;
-        width: 2px;
-        height: 12px;
-        background: #c9a87c;
-        margin-left: 2px;
-        vertical-align: text-bottom;
-        animation: vsc-cur 1s step-end infinite;
-      }
-      @keyframes vsc-cur { 0%,100%{opacity:1} 50%{opacity:0} }
       .vsc-code-line.vsc-inserted.demo-step {
         opacity: 0;
         max-height: 0;
@@ -2890,42 +2932,43 @@
               <div class="win-chrome">
                 <span class="wc-dot wc-r"></span><span class="wc-dot wc-y"></span><span class="wc-dot wc-g"></span>
               </div>
-              <!-- 语音输入 + 润色绑定：双列对比卡片 -->
-              <div style="padding:16px;display:flex;flex-direction:column;gap:14px;flex:1;overflow:auto;background:#fff;">
-                <!-- 顶部：麦克风区 -->
-                <div style="background:#1e1c1a;border-radius:10px;padding:16px 18px;border:1px solid rgba(255,255,255,0.06);">
-                  <div style="font-size:11px;font-weight:600;color:rgba(255,255,255,0.4);letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px;">🎙 实时转写中…</div>
-                  <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px;">
-                    <div style="width:34px;height:34px;border-radius:50%;background:rgba(122,58,16,0.85);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 0 6px rgba(122,58,16,0.18);">
-                      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2.2"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg>
+              <!-- 语音输入 + 润色绑定：更接近 vibe 的纵向识别面板 -->
+              <div style="padding:16px;display:flex;flex-direction:column;gap:12px;flex:1;overflow:auto;background:#fff;">
+                <div style="background:#1e1c1a;border-radius:10px;padding:16px 18px;border:1px solid rgba(255,255,255,0.06);display:flex;flex-direction:column;gap:14px;">
+                  <div class="rec-mic-stage">
+                    <div class="rec-mic-row">
+                      <div class="rec-mic-btn">
+                        <svg viewBox="0 0 24 24" fill="white"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2" stroke="white" stroke-width="2" fill="none" stroke-linecap="round"/><line x1="12" y1="19" x2="12" y2="23" stroke="white" stroke-width="2" stroke-linecap="round"/><line x1="8" y1="23" x2="16" y2="23" stroke="white" stroke-width="2" stroke-linecap="round"/></svg>
+                      </div>
+                      <div class="rec-live-status">识别中…</div>
+                      <div class="rec-wave">
+                        <span class="rec-wave-bar"></span><span class="rec-wave-bar"></span><span class="rec-wave-bar"></span><span class="rec-wave-bar"></span><span class="rec-wave-bar"></span><span class="rec-wave-bar"></span><span class="rec-wave-bar"></span><span class="rec-wave-bar"></span>
+                      </div>
                     </div>
-                    <div class="mic-dots" style="flex:1"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></div>
+                    <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:12px 12px 10px;font-size:12px;line-height:1.6;">
+                      <div class="rec-live-text">
+                        <div class="rec-live-line raw"><span class="rec-line-tag">语音</span><span class="rec-live-content">那个嗯就是把那个数组啊遍历一下然后呢把空的那些过滤掉</span></div>
+                        <div class="rec-live-line punc"><span class="rec-line-tag">识别</span><span class="rec-live-content">那个，嗯，就是把那个数组啊，遍历一下，然后呢，把空的那些过滤掉。</span></div>
+                        <div class="rec-live-line polish"><span class="rec-line-tag">润色</span><span class="rec-live-content">把数组遍历一遍，再过滤掉其中的空值。</span></div>
+                      </div>
+                    </div>
                   </div>
-                  <div style="background:rgba(255,255,255,0.05);border-radius:8px;padding:10px 12px;font-size:12px;color:rgba(255,255,255,0.5);line-height:1.6;font-style:italic;">
-                    <div class="rec-live-text">
-                      <span class="rec-live-line raw"><span class="rec-line-tag">语音</span>那个嗯就是把那个数组啊遍历一下然后呢把空的那些过滤掉<span style="display:inline-block;width:2px;height:13px;background:rgba(255,255,255,0.6);margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite;"></span></span>
-                      <span class="rec-live-line punc"><span class="rec-line-tag">识别</span>那个，嗯，就是把那个数组啊，遍历一下，然后呢，把空的那些过滤掉。<span style="display:inline-block;width:2px;height:13px;background:rgba(255,255,255,0.6);margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite;"></span></span>
-                      <span class="rec-live-line polish"><span class="rec-line-tag">润色</span>把数组遍历一遍，再过滤掉其中的空值。<span style="display:inline-block;width:2px;height:13px;background:rgba(201,168,124,0.9);margin-left:2px;vertical-align:middle;animation:blink 1s step-end infinite;"></span></span>
-                    </div>
+                  <div style="display:flex;align-items:center;justify-content:center;gap:8px;color:var(--accent-lt);font-size:11px;font-weight:600;letter-spacing:.05em;">
+                    <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
+                    停止识别后自动润色
                   </div>
                 </div>
-                <!-- 箭头 -->
-                <div style="display:flex;align-items:center;justify-content:center;gap:8px;color:var(--accent-lt);font-size:11px;font-weight:600;letter-spacing:.05em;">
-                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg>
-                  停止识别后自动润色
-                </div>
-                <!-- 底部：润色结果 + 风格选择 -->
                 <div style="border:1px solid rgba(26,20,16,0.10);border-radius:10px;overflow:hidden;">
-                  <div style="padding:10px 14px;border-bottom:1px solid rgba(26,20,16,0.07);display:flex;align-items:center;justify-content:space-between;background:rgba(26,20,16,0.03);">
+                  <div style="padding:10px 14px;border-bottom:1px solid rgba(26,20,16,0.07);display:flex;align-items:center;justify-content:space-between;background:rgba(26,20,16,0.03);gap:10px;">
                     <div style="font-size:11px;font-weight:600;color:var(--accent);letter-spacing:.06em;">✨ 识别结果</div>
-                    <div style="display:flex;gap:5px;">
+                    <div style="display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end;">
                       <span style="font-size:10px;background:var(--accent);color:#fff;border-radius:20px;padding:2px 9px;font-weight:600;">默认</span>
                       <span style="font-size:10px;background:rgba(26,20,16,0.07);color:var(--text-2);border-radius:20px;padding:2px 9px;">简洁</span>
                       <span style="font-size:10px;background:rgba(26,20,16,0.07);color:var(--text-2);border-radius:20px;padding:2px 9px;">正式</span>
                       <span style="font-size:10px;background:rgba(26,20,16,0.07);color:var(--text-2);border-radius:20px;padding:2px 9px;">自定义…</span>
                     </div>
                   </div>
-                  <div style="padding:14px 18px;font-size:13px;color:var(--text);line-height:1.7;">
+                  <div style="padding:14px 16px;font-size:13px;color:var(--text);line-height:1.7;">
                     <div class="rec-result-stack">
                       <div class="rec-result-line rec">
                         <span class="rec-result-tag">识别结果</span>
@@ -3508,24 +3551,24 @@
                     <div style="padding:10px 12px;font-size:12px;line-height:1.6;color:rgba(255,255,255,.85);background:rgba(0,0,0,.55);min-height:96px;position:relative">
                       <!-- Segment 1: 问好 -->
                       <span style="animation:phraseP1a 18s linear infinite">
-                        下午好，我想发一封邮件，<span style="color:#fbbf24;background:rgba(251,191,36,.12);border-radius:3px;padding:0 2px">问好</span><span style="display:inline-block;width:1.5px;height:12px;background:rgba(255,255,255,.6);vertical-align:middle;margin-left:1px;animation:blink 1s step-end infinite"></span>
+                        下午好，我想发一封邮件，<span style="color:#fbbf24;background:rgba(251,191,36,.12);border-radius:3px;padding:0 2px">问好</span>
                       </span>
                       <span style="animation:phraseP1b 18s linear infinite;position:absolute;left:12px;top:10px;right:12px;opacity:0">
-                        下午好，我想发一封邮件，<span style="color:#86efac">感谢您的来信。请问有什么我可以帮助您？</span><span style="display:inline-block;width:1.5px;height:12px;background:rgba(255,255,255,.6);vertical-align:middle;margin-left:1px;animation:blink 1s step-end infinite"></span>
+                        下午好，我想发一封邮件，<span style="color:#86efac">感谢您的来信。请问有什么我可以帮助您？</span>
                       </span>
                       <!-- Segment 2: 我的个人邮箱 -->
                       <span style="animation:phraseP2a 18s linear infinite;position:absolute;left:12px;top:10px;right:12px;opacity:0">
-                        好的，您可以把文件发到<span style="color:#fbbf24;background:rgba(251,191,36,.12);border-radius:3px;padding:0 2px">我的个人邮箱</span><span style="display:inline-block;width:1.5px;height:12px;background:rgba(255,255,255,.6);vertical-align:middle;margin-left:1px;animation:blink 1s step-end infinite"></span>
+                        好的，您可以把文件发到<span style="color:#fbbf24;background:rgba(251,191,36,.12);border-radius:3px;padding:0 2px">我的个人邮箱</span>
                       </span>
                       <span style="animation:phraseP2b 18s linear infinite;position:absolute;left:12px;top:10px;right:12px;opacity:0">
-                        好的，您可以把文件发到<span style="color:#86efac">Personal@outlook.com</span><span style="display:inline-block;width:1.5px;height:12px;background:rgba(255,255,255,.6);vertical-align:middle;margin-left:1px;animation:blink 1s step-end infinite"></span>
+                        好的，您可以把文件发到<span style="color:#86efac">Personal@outlook.com</span>
                       </span>
                       <!-- Segment 3: 我们的地址 -->
                       <span style="animation:phraseP3a 18s linear infinite;position:absolute;left:12px;top:10px;right:12px;opacity:0">
-                        欢迎来访，<span style="color:#fbbf24;background:rgba(251,191,36,.12);border-radius:3px;padding:0 2px">我们的地址</span>在<span style="display:inline-block;width:1.5px;height:12px;background:rgba(255,255,255,.6);vertical-align:middle;margin-left:1px;animation:blink 1s step-end infinite"></span>
+                        欢迎来访，<span style="color:#fbbf24;background:rgba(251,191,36,.12);border-radius:3px;padding:0 2px">我们的地址</span>在
                       </span>
                       <span style="animation:phraseP3b 18s linear infinite;position:absolute;left:12px;top:10px;right:12px;opacity:0">
-                        欢迎来访，<span style="color:#86efac">北京市海淀区丹棱街5号</span>，期待您的到来！<span style="display:inline-block;width:1.5px;height:12px;background:rgba(255,255,255,.6);vertical-align:middle;margin-left:1px;animation:blink 1s step-end infinite"></span>
+                        欢迎来访，<span style="color:#86efac">北京市海淀区丹棱街5号</span>，期待您的到来！
                       </span>
                     </div>
                     <div style="font-size:10px;padding:4px 10px;border-top:1px solid rgba(134,239,172,.12);position:relative;min-height:30px;background:rgba(134,239,172,.04)">
@@ -3832,9 +3875,6 @@
         var started = false;
 
         function typeText(el, delay, duration) {
-          var cursor = el.querySelector('.vsc-cursor');
-          if (cursor) cursor.remove();
-
           var fullText = el.textContent.trim();
           if (!fullText) return;
 

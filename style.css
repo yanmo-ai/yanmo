@@ -1265,19 +1265,6 @@ section { position: relative; z-index: 1; }
 .comment { color: #6c7086; font-style: italic; }
 .str   { color: #a6e3a1; }
 
-.editor-cursor-line { position: relative; }
-
-.cursor-blink {
-  display: inline-block;
-  color: #cba6f7;
-  animation: cursor-blink 1.1s step-end infinite;
-  font-weight: 300;
-}
-@keyframes cursor-blink {
-  0%, 100% { opacity: 1; }
-  50%       { opacity: 0; }
-}
-
 /* Dictation overlay */
 .dictation-overlay {
   position: absolute;

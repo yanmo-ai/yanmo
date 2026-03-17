@@ -1163,35 +1163,56 @@
       /* RESPONSIVE */
       @media (max-width: 1366px) and (min-width: 1201px) {
         :root {
-          --container-w: 1020px;
+          /* 增大容器宽度，充分利用 13寸 屏幕空间 */
+          --container-w: 94%; 
         }
         .feat-wrap {
-          grid-template-columns: minmax(280px, 34%) minmax(0, 1fr);
-          gap: 60px;
+          /* 调整比例：文字 35%，图片 65% */
+          grid-template-columns: minmax(280px, 35%) minmax(0, 1fr);
+          gap: 48px;
         }
         .feat-wrap.flip {
-          grid-template-columns: minmax(0, 1fr) minmax(280px, 34%);
+          grid-template-columns: minmax(0, 1fr) minmax(280px, 35%);
         }
+        /* 针对 Visual 在右侧的布局（Command, Polish, Recording, Platform） */
         #recording .feat-wrap,
         #polish .feat-wrap,
         #command .feat-wrap,
         #platform .feat-wrap {
-          grid-template-columns: minmax(0, 1fr) minmax(420px, 52%);
+          /* 给图片列更多空间 (62%)，防止被积压 */
+          grid-template-columns: minmax(0, 1fr) minmax(420px, 62%);
         }
+        /* 针对 Visual 在左侧的布局（Yanmo, History, Phrases） */
         #yanmo .feat-wrap.flip,
         #history .feat-wrap.flip,
         #phrases .feat-wrap.flip {
-          grid-template-columns: minmax(460px, 56%) minmax(0, 1fr);
+          /* 给图片列更多空间 (62%) */
+          grid-template-columns: minmax(460px, 62%) minmax(0, 1fr);
         }
         #history .feat-wrap.flip {
-          gap: 72px;
+          gap: 60px;
         }
         #phrases .feat-wrap.flip {
-          gap: 84px;
+          gap: 60px;
         }
         #platform .feat-wrap {
-          gap: 56px;
+          gap: 40px;
         }
+
+        /* 针对 13寸本（1280~1440）优化 VS Code 布局 */
+        .vsc-body {
+          grid-template-columns: minmax(0, 1fr) 260px;
+          gap: 28px;
+        }
+        .vsc-features {
+          width: 100%;
+        }
+        .vsc-editor-window {
+          transform-origin: top left;
+          transform: scale(0.96);
+          width: 104.1%; /* 100/0.96 ≈ 104.1 */
+        }
+        /* 让 App Window 保持原大小或轻微缩小，而不是被强制压到 100% 导致内部乱掉 */
         #recording .app-window,
         #polish .style-demo,
         #command .app-window,
@@ -1199,7 +1220,25 @@
         #yanmo .app-window,
         #history .app-window,
         #phrases .app-window {
+          width: 100%;
+          /* 允许内容略微溢出Grid区域，或者自适应 */
           max-width: 100%;
+          /* 关键：防止 Flex/Grid 子元素被过度压缩 */
+          min-width: 0; 
+        }
+        /* 对某些特定大窗口进行 Scale 缩放，保持布局比例但缩小体积 */
+        #yanmo .app-window,
+        #command .app-window,
+        #history .app-window,
+        #phrases .app-window {
+          transform-origin: left center; /* Flip 布局 Origin 在左 */
+          transform: scale(0.95);
+          width: 105%; /* 补偿 Scale 带来的留白，让它占满空间 */
+        }
+        /* 非 Flip 布局（图在右） Origin 在右 */
+        #command .app-window,
+        #polish .style-demo {
+          transform-origin: right center;
         }
       }
 
@@ -1351,6 +1390,18 @@
         #phrases .feat-wrap.flip {
           gap: 38px;
         }
+
+        /* VS Code height adjust */
+        .vsc-editor-window {
+          min-height: 480px;
+          height: auto;
+          max-height: 62vh;
+        }
+        .vsc-panel {
+           height: clamp(360px, 56vh, 430px);
+           min-height: 360px;
+           max-height: 62vh;
+        }
         .feat-wrap:not(.flip) .feat-text,
         .feat-wrap:not(.flip) .feat-visual,
         .feat-wrap.flip .feat-text,
@@ -1427,6 +1478,18 @@
         #history .feat-wrap.flip,
         #phrases .feat-wrap.flip {
           gap: 34px;
+        }
+
+        /* VS Code height adjust */
+        .vsc-editor-window {
+          min-height: 420px;
+          height: auto;
+          max-height: 58vh;
+        }
+        .vsc-panel {
+           height: clamp(320px, 50vh, 420px);
+           min-height: 320px;
+           max-height: 58vh;
         }
         .feat-title {
           font-size: clamp(20px, 2.1vw, 28px);
@@ -3724,7 +3787,7 @@
                       <div class="rec-live-text">
                         <div class="rec-live-line raw">
                           <span class="rec-line-tag" style="font-weight: 500">原始</span>
-                          <span class="rec-live-content" style="font-weight: 500">那个，嗯，就是把那个数组啊，遍历一下。</span>
+                          <span class="rec-live-content" style="font-weight: 500">那个，嗯，就是把那个数组啊，遍历一下。然后呢，把那些空的值筛掉</span>
                         </div>
                         <div class="rec-live-line polish">
                           <span class="rec-line-tag" style="font-weight: 600">润色</span>

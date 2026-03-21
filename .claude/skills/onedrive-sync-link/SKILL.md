@@ -62,7 +62,7 @@ if [ "$ACTIVE_USER" != "huanchen@microsoft.com" ]; then
   exit 1
 fi
 
-SP_TOKEN=$(az account get-access-token --resource https://microsoftapc-my.sharepoint.com --query accessToken -o tsv)
+SP_TOKEN=$(az account get-access-token --resource https://microsoftapc-my.sharepoint.com --query accessToken -o tsv | tr -d '\r\n')
 if [ -z "$SP_TOKEN" ]; then
   echo "Failed to get SharePoint token from Azure CLI session." >&2
   exit 1
@@ -94,11 +94,18 @@ PY
 validate_downloadable() {
   URL="$1"
   KIND="$2"
-  STATUS=$(curl -sS -L -o /dev/null -w "%{http_code}" -H "Authorization: Bearer ${SP_TOKEN}" "$URL")
-  if [ "$STATUS" -ge 400 ]; then
-    echo "${KIND} link is not downloadable with authenticated curl. HTTP ${STATUS}" >&2
+  TMP_FILE=$(mktemp /tmp/onedrive_probe.XXXXXX)
+  if ! curl.exe -sS -L -f -H "Authorization: Bearer ${SP_TOKEN}" "$URL" -o "$TMP_FILE"; then
+    rm -f "$TMP_FILE"
+    echo "${KIND} link is not downloadable with authenticated curl.exe." >&2
     exit 1
   fi
+  if [ ! -s "$TMP_FILE" ]; then
+    rm -f "$TMP_FILE"
+    echo "${KIND} link download probe returned empty content." >&2
+    exit 1
+  fi
+  rm -f "$TMP_FILE"
 }
 
 WIN_URL=$(normalize_url "$WIN_URL_INPUT")

@@ -1,7 +1,7 @@
 ---
 name: onedrive-sync-link
 description: Validate provided Windows/Mac OneDrive links, update download buttons, commit, and push.
-argument-hint: "[target-file] [commit-message] [windows-url] [mac-url]"
+argument-hint: "<windows-url> <mac-url> [--file target-file] [--msg commit-message]"
 user-invocable: true
 ---
 
@@ -18,10 +18,10 @@ Use this skill when user provides direct Windows and Mac OneDrive links.
 
 ## Arguments
 
-- `$1` = target file (optional, default `index.html`)
-- `$2` = commit message (optional, default `chore: update OneDrive download links`)
-- `$3` = Windows URL (required)
-- `$4` = Mac URL (required)
+- `$1` = Windows URL (required)
+- `$2` = Mac URL (required)
+- `--file` = target file (optional, default `index.html`)
+- `--msg` = commit message (optional, default `chore: update OneDrive download links`)
 
 ## Behavior
 
@@ -39,15 +39,24 @@ Use this skill when user provides direct Windows and Mac OneDrive links.
 ## Commands
 
 ```bash
-TARGET_FILE="${1:-index.html}"
-COMMIT_MSG="${2:-chore: update OneDrive download links}"
-WIN_URL_INPUT="${3:-}"
-MAC_URL_INPUT="${4:-}"
+WIN_URL_INPUT="${1:-}"
+MAC_URL_INPUT="${2:-}"
+TARGET_FILE="index.html"
+COMMIT_MSG="chore: update OneDrive download links"
 WIN_LABEL="下载 Windows 版"
 MAC_LABEL="下载 Mac 版"
 
+shift 2 2>/dev/null || true
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --file) TARGET_FILE="$2"; shift 2 ;;
+    --msg)  COMMIT_MSG="$2";  shift 2 ;;
+    *) echo "Unknown argument: $1" >&2; exit 1 ;;
+  esac
+done
+
 if [ -z "$WIN_URL_INPUT" ] || [ -z "$MAC_URL_INPUT" ]; then
-  echo "Usage: /onedrive-sync-link [target-file] [commit-message] <windows-url> <mac-url>" >&2
+  echo "Usage: /onedrive-sync-link <windows-url> <mac-url> [--file target-file] [--msg commit-message]" >&2
   exit 1
 fi
 

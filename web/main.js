@@ -73,6 +73,26 @@
   observer.observe(section);
 })();
 
+/* ---- Auto-update Download Links from Latest GitHub Release ---- */
+(function () {
+  fetch('https://api.github.com/repos/lilychen11/ink-voice/releases/latest')
+    .then(function (res) { return res.json(); })
+    .then(function (data) {
+      if (!data.assets) return;
+      data.assets.forEach(function (asset) {
+        var url = asset.browser_download_url;
+        if (url.endsWith('.exe')) {
+          var btn = document.getElementById('btn-download-windows');
+          if (btn) btn.href = url;
+        } else if (url.endsWith('.dmg')) {
+          var btn = document.getElementById('btn-download-mac');
+          if (btn) btn.href = url;
+        }
+      });
+    })
+    .catch(function () { /* keep fallback links */ });
+})();
+
 /* ---- FAQ Smooth Open ---- */
 (function () {
   document.querySelectorAll('.faq-item').forEach(item => {

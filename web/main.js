@@ -75,7 +75,7 @@
 
 /* ---- Auto-update Download Links from Latest GitHub Release ---- */
 (function () {
-  fetch('https://api.github.com/repos/lilychen11/ink-voice/releases/latest')
+  fetch('https://api.github.com/repos/yanmo-ai/ink-voice/releases/latest')
     .then(function (res) { return res.json(); })
     .then(function (data) {
       if (!data.assets) return;

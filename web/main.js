@@ -73,22 +73,43 @@
   observer.observe(section);
 })();
 
-/* ---- Auto-update Download Links from Latest GitHub Release ---- */
+/* ---- Auto-update Download Links from GitHub Releases ---- */
+/* Scans all releases, sorts by tag version descending, picks latest .exe and .dmg */
 (function () {
-  fetch('https://api.github.com/repos/yanmo-ai/ink-voice/releases/latest')
+  function parseVersion(tag) {
+    var m = (tag || '').match(/(\d+)\.(\d+)\.(\d+)/);
+    return m ? [+m[1], +m[2], +m[3]] : [0, 0, 0];
+  }
+
+  fetch('https://api.github.com/repos/yanmo-ai/yanmo/releases')
     .then(function (res) { return res.json(); })
-    .then(function (data) {
-      if (!data.assets) return;
-      data.assets.forEach(function (asset) {
-        var url = asset.browser_download_url;
-        if (url.endsWith('.exe')) {
-          var btn = document.getElementById('btn-download-windows');
-          if (btn) btn.href = url;
-        } else if (url.endsWith('.dmg')) {
-          var btn = document.getElementById('btn-download-mac');
-          if (btn) btn.href = url;
-        }
+    .then(function (releases) {
+      if (!Array.isArray(releases)) return;
+      releases.sort(function (a, b) {
+        var va = parseVersion(a.tag_name);
+        var vb = parseVersion(b.tag_name);
+        return (vb[0] - va[0]) || (vb[1] - va[1]) || (vb[2] - va[2]);
       });
+      var winUrl = null;
+      var macUrl = null;
+      for (var i = 0; i < releases.length; i++) {
+        if (winUrl && macUrl) break;
+        var assets = releases[i].assets;
+        if (!assets) continue;
+        for (var j = 0; j < assets.length; j++) {
+          var url = assets[j].browser_download_url;
+          if (!winUrl && url.endsWith('.exe')) winUrl = url;
+          if (!macUrl && url.endsWith('.dmg')) macUrl = url;
+        }
+      }
+      if (winUrl) {
+        var btn = document.getElementById('btn-download-windows');
+        if (btn) btn.href = winUrl;
+      }
+      if (macUrl) {
+        var btn = document.getElementById('btn-download-mac');
+        if (btn) btn.href = macUrl;
+      }
     })
     .catch(function () { /* keep fallback links */ });
 })();

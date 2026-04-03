@@ -4,6 +4,16 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>言墨 · 智能语音输入</title>
+    <script>
+(function () {
+  var isYanmoAi = location.hostname.endsWith("Yanmo.ai");
+  if (isYanmoAi) {
+    var base = document.createElement("base");
+    base.href = "/";
+    document.head.appendChild(base);
+  }
+})();
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link

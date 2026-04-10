@@ -3,12 +3,12 @@
     <channel>
         <title>Yanmo</title>
         <item>
-            <title>0.5.6</title>
-            <pubDate>Fri, 03 Apr 2026 14:59:19 +0800</pubDate>
-            <sparkle:version>0.5.6</sparkle:version>
-            <sparkle:shortVersionString>0.5.6</sparkle:shortVersionString>
+            <title>0.5.7</title>
+            <pubDate>Thu, 09 Apr 2026 18:57:52 +0800</pubDate>
+            <sparkle:version>0.5.7</sparkle:version>
+            <sparkle:shortVersionString>0.5.7</sparkle:shortVersionString>
             <sparkle:minimumSystemVersion>14.0</sparkle:minimumSystemVersion>
-            <enclosure url="https://github.com/yanmo-ai/yanmo/releases/download/release-2026-04-02/Yanmo_v0.5.6.dmg" length="9204934" type="application/octet-stream" sparkle:edSignature="tg/XYRKeTBTTDqKr8ZJZBgVmdkwNimYfZy2+oE4WPpO0uhArZe7kzH2MSZMWCSnGN4i3LRK76CZJs4hlribRBg=="/>
+            <enclosure url="https://github.com/yanmo-ai/yanmo/releases/download/release-2026-04-10/Yanmo_v0.5.7.dmg" length="15723092" type="application/octet-stream" sparkle:edSignature="xLLw0UHxB2C7fdCwyeG3CIUPov7PDcbSHKAR6iF6dR8q5MLP2TK/4h623PlknZGuCnqpJZYSGHK4gNTafxt7Dw=="/>
         </item>
     </channel>
 </rss>
